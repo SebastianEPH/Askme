@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controllers/customerController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routers/customer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/question.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +66,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605284753788</updated>
-      <workItem from="1605284755132" duration="1913000" />
+      <workItem from="1605284755132" duration="2983000" />
+      <workItem from="1605304200780" duration="6694000" />
+      <workItem from="1605364334251" duration="10798000" />
     </task>
     <servers />
   </component>
@@ -81,6 +85,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="345" key="SettingsEditor" timestamp="1605292686617">
