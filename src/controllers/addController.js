@@ -8,7 +8,7 @@ controller.list = (req, res)=>{
                 res.json(err)
             }
             console.log(question)
-            res.render('question', {
+            res.render('add', {    // ejs name
                 data: question
             });
         });

@@ -20,12 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/customerController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers/customer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/question.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/addController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/add.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/_footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/partials/_header.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/customerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/mainController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers/customer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/question.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/question.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +74,7 @@
       <updated>1605284753788</updated>
       <workItem from="1605284755132" duration="2983000" />
       <workItem from="1605304200780" duration="6694000" />
-      <workItem from="1605364334251" duration="10798000" />
+      <workItem from="1605364334251" duration="23042000" />
     </task>
     <servers />
   </component>
@@ -88,9 +94,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605403903220">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605403903220" />
     <state x="781" y="345" key="SettingsEditor" timestamp="1605292686617">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605292686617" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1605485393793">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605485393793" />
   </component>
 </project>

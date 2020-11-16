@@ -6,7 +6,7 @@ const mysql = require('mysql')
 const myConnection = require('express-myconnection')
 
 // importing routers
-const customerRouters= require('./routers/customer')
+const customerRouters= require('./routers/main')
 
 //Settings
 app.set('port',process.env.PORT || 3000);
