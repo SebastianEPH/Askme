@@ -2,10 +2,11 @@ const express =  require('express');
 const router = express.Router();
 
 const mainController = require('../controllers/mainController')
-const addController = require('../controllers/addController')
 
 router.get('/',mainController.list)
-router.get('/add',addController.list)
+router.get('/add',mainController.add)
+router.post('/save',mainController.save)
+//router.get('/save',addController.save)
 
 
 

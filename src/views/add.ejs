@@ -10,25 +10,37 @@
 
         </div>
         <div class="col-md-5">
-            <form action="/" method="post">
-                <div class="form-group">
-                    <input type="text" name="question" placeholder="Pregunta" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="reply1" placeholder="Opción Correcta" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="reply2" placeholder="Opción Incorrecta" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="reply3" placeholder="OpciónIncorrecta" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="reply4" placeholder="Opción Correcta" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Guardar Pregunta</button>
+            <div class="card-body">
+                <form action="/save" method="post">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Categoría</label>
+                        <select class="form-control" name="cat_id" >
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="que_que" placeholder="Pregunta" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="que_1" placeholder="Opción Correcta" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="que_2" placeholder="Opción Incorrecta" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="que_3" placeholder="OpciónIncorrecta" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="que_4" placeholder="Opción Correcta" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Pregunta</button>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

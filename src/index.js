@@ -15,6 +15,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 // middlewares
 app.use(morgan('dev'));  // Muestra informacion de peticiones entrantes en consola. solo devs
+
 app.use(myConnection(mysql, {
     host: 'b6hziqljw9smv3obfjhs-mysql.services.clever-cloud.com',
     user: 'ulyugioq1g443gfp',
@@ -22,6 +23,11 @@ app.use(myConnection(mysql, {
     port: '3306',
     database: 'b6hziqljw9smv3obfjhs'
 }, 'single'))
+
+app.use(express.urlencoded({
+    extended: false
+}));
+
 
 // routers
 app.use('/', customerRouters)
