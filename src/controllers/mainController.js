@@ -26,10 +26,10 @@ controller.add = (req, res)=>{
 controller.save = (req, res)=>{
     req.getConnection((err, conn)=>{
         const data = req.body;
+        if(err){
+            console.log(err)
+        }
         conn.query("INSERT INTO question set ?", [data], (err, rows)=>{
-            if(err){
-                console.log(err)
-            }
             res.render('save');
             console.log([data])
             //console.log(req.body[1])
