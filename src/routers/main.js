@@ -6,7 +6,8 @@ const mainController = require('../controllers/mainController')
 router.get('/',mainController.main)
 router.get('/add',mainController.add)
 router.post('/save',mainController.save)
-router.get('/show',mainController.save)
+router.get('/show',mainController.show)
+router.get('/about',mainController.about)
 //router.get('/save',addController.save)
 
 

@@ -16,22 +16,9 @@ controller.main = (req, res)=>{
 };
 controller.add = (req, res)=>{
     console.log("Add work")
-    req.getConnection((err, conn)=>{
-        conn.query('SELECT * FROM question', (err, question)=>{
-            if (err){
-                //next(err)
-                res.json(err)
-            }
-            console.log(question)
-            res.render('add', {    // ejs name
-                data: question
-            });
-        });
-    })
+    res.render('add');
 
 };
-
-
 controller.save = (req, res)=>{
     req.getConnection((err, conn)=>{
         const _data = req.body;
@@ -48,6 +35,22 @@ controller.save = (req, res)=>{
         });
     });
 }
+controller.show = (req, res)=>{
+    req.getConnection((err, conn)=>{
+        conn.query('SELECT * FROM question', (err, question)=>{
+            if (err){
+                //next(err)
+                res.json(err)
+            }
+            console.log(question)
+            res.render('show', {    // ejs name
+                data: question
+            });
+        });
+    })
+}
+controller.about = (req, res) =>{
 
+}
 
 module.exports = controller;
