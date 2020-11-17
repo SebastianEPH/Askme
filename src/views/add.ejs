@@ -4,11 +4,67 @@
 <br>
 <br>
 
-<div class="container">
-    <div class="row mt-5" >
-        <div class="col-md-1">
+<!-div class="container"-->
+    <div class="row mt-10" >
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N</th>
+                        <th>Categoría</th>
+                        <th>Nivel</th>
+                        <th>Tipo de pregunta</th>
+                        <th>Pregunta</th>
+                        <th>Respuesta correcta</th>
+                        <th>Incorrecto</th>
+                        <th>Incorrecto</th>
+                        <th>Incorrecto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data) { %>
+                        <% for (var i = 0; i < data.length; i++){ %>
+                            <tr>
+                                <td><%= (i+1) %></td>
+                                <td> <% switch (data[i].cat_id) {
+                                    case 1 : %> Hardware <% break;
+                                    case 2 : %> Redes <% break;
+                                    case 3 : %> Software <% break;
+                                    } %>
+                                </td>
+                                <td> <% switch (data[i].lev_id) {
+                                    case 1 : %> Inicial <% break;
+                                    case 2 : %> Primaria <% break;
+                                    case 3 : %> Secundaria <% break;
+                                    case 4 : %> Universidad<% break;
+                                    } %>
+                                </td>
+                                <td> <% switch (data[i].ty_id) {
+                                    case 1 : %> Inicial <% break;
+                                    case 2 : %> Primaria <% break;
+                                    case 3 : %> Secundaria <% break;
+                                    case 4 : %> Universidad<% break;
+                                    } %>
+                                </td>
+                                <td><%= data[i].que_que %></td>
+                                <td><%= data[i].que_1 %></td>
+                                <td><%= data[i].que_2 %></td>
+                                <td><%= data[i].que_3 %></td>
+                                <td><%= data[i].que_4 %></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning">Editar</button>
+                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                </td>
+
+                            </tr>
+                        <% } %>
+                    <%  } %>
+                </tbody>
+            </table>
 
         </div>
+
         <div class="col-md-5">
             <div class="card-body">
                 <form action="/save" method="post">
@@ -58,12 +114,12 @@
                         <label for="exampleFormControlSelect1">Escribe una respuesta incorrecta</label>
                         <input type="text" name="que_4" placeholder="Opción Correcta" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar Pregunta</button>
+                    <button type="submit" class="btn btn-success">Guardar Pregunta</button>
 
                 </form>
             </div>
         </div>
     </div>
-</div>
+<--/div-->
 
 <%-include ('partials/_footer')%>
