@@ -1,0 +1,68 @@
+<%-include ('partials/_header')%>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card" >
+                <div class="card-body">
+                    <form action="/update/<%= data.que_id %>" method="post">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Categoría</label>
+                            <select class="form-control" name="cat_id" id="exampleFormControlSelect1" >
+                                <option value="1" <% if(data.cat_id == 1){ %>selected <% } %> >Hardware</option>
+                                <option value="2" <% if(data.cat_id == 2){ %>selected <% } %> >Redes</option>
+                                <option value="3" <% if(data.cat_id == 3){ %>selected <% } %> >Software</option>
+                            </select>
+                        </div>
+                        <div class="form-group">Nivel de complejidad</label>
+                            <select class="form-control" name="lev_id" >
+                                <option value="1" <% if(data.lev_id == 1){ %>selected <% } %> >Inicial</option>
+                                <option value="2" <% if(data.lev_id == 2){ %>selected <% } %> >Primaria</option>
+                                <option value="3" <% if(data.lev_id == 3){ %>selected <% } %> >Secundaria</option>
+                                <option value="4" <% if(data.lev_id == 4){ %>selected <% } %> >Universidad</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Tipo de pregunta</label>
+                            <select class="form-control" name="ty_id" >
+                                <option value="1" <% if(data.ty_id == 1){ %>selected <% } %>>Verdadero y Falso</option>
+                                <option value="2" <% if(data.ty_id == 2){ %>selected <% } %>>2 respuestas falsas</option>
+                                <option value="3" <% if(data.ty_id == 3){ %>selected <% } %>>3 respuestas falsas</option>
+                                <option value="4" <% if(data.ty_id == 4){ %>selected <% } %>>4 respuestas falsas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Haz una pregunta</label>
+                            <textarea  name="que_que" class="form-control" id="exampleFormControlTextarea1" rows="3"><%= data.que_que %></textarea>
+                            <!--input type="text" name="que_que" placeholder="Pregunta" class="form-control"-->
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Escribe la respuesta correcta</label>
+                            <input type="text" value="<%= data.que_1 %>" name="que_1" placeholder="Opción Correcta" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Escribe una respuesta incorrecta</label>
+                            <input type="text" value="<%= data.que_2 %>" name="que_2" placeholder="Opción Incorrecta" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Escribe una respuesta incorrecta</label>
+                            <input type="text" value="<%= data.que_3 %>" name="que_3" placeholder="Opción Incorrecta" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Escribe una respuesta incorrecta</label>
+                            <input type="text" value="<%= data.que_4 %>" name="que_4" placeholder="Opción Correcta" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Actualizar Pregunta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<%-include ('partials/_footer')%>

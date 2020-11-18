@@ -36,10 +36,10 @@
                             } %>
                         </td>
                         <td> <% switch (data[i].ty_id) {
-                            case 1 : %> Inicial <% break;
-                            case 2 : %> Primaria <% break;
-                            case 3 : %> Secundaria <% break;
-                            case 4 : %> Universidad<% break;
+                            case 1 : %> Verdadero y Falso <% break;
+                            case 2 : %> 2 Respuesta<% break;
+                            case 3 : %> 3 Respuestas <% break;
+                            case 4 : %> 4 Respuestas<% break;
                             } %>
                         </td>
                         <td><%= data[i].que_que %></td>
@@ -48,8 +48,8 @@
                         <td><%= data[i].que_3 %></td>
                         <td><%= data[i].que_4 %></td>
                         <td>
-                            <button type="button" class="btn btn-warning">Editar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button>
+                            <a href="/update/<%= data[i].que_id %>" class="btn btn-warning">Editar</a>
+                            <a href="/delete/<%= data[i].que_id %>" class="btn btn-danger">Eliminar></a>
                         </td>
 
                     </tr>

@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/show.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/update.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/mainController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/mainController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/add.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/add.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/_header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/_header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/save.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/save.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/show.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <updated>1605284753788</updated>
       <workItem from="1605284755132" duration="2983000" />
       <workItem from="1605304200780" duration="6694000" />
-      <workItem from="1605364334251" duration="62726000" />
+      <workItem from="1605364334251" duration="73210000" />
     </task>
     <servers />
   </component>

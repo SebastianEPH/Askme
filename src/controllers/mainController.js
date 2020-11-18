@@ -20,20 +20,37 @@ controller.add = (req, res)=>{
 
 };
 controller.save = (req, res)=>{
+
+        res.render('save');
+        res.redirect("/");
+
+}
+controller.delete = (req, res)=>{
+    //console.log(req.params.id)
+    //res.send(req.params.id)
+    const { id } = req.params;
     req.getConnection((err, conn)=>{
-        const _data = req.body;
-        if(err){
-            console.log(err)
-        }
-        conn.query("INSERT INTO question set ?", [_data], (err, rows)=>{
-            console.log([_data])
-            //console.log(req.body[1])
-            console.log(rows)   // Todos los datos  que se encuentran en al tabla
-        });
-        res.render('save', {    // ejs name
-            data: question
-        });
+        conn.query('DELETE FROM question WHERE que_id = ?', [id], (err, rows)=>{
+            res.redirect('/show');
+        })
+
     });
+}
+controller.update = (req, res)=>{
+    const { id } = req.params;
+
+    req.getConnection((err, conn)=>{
+        conn.query('SELECT * FROM question WHERE que_id = ?', [id],(err, question)=>{
+            if (err){
+                //next(err)
+                res.json(err)
+            }
+            console.log(question)
+            res.render('update', {    // ejs name
+                data: question[0]
+            });
+        });
+    })
 }
 controller.show = (req, res)=>{
     req.getConnection((err, conn)=>{
