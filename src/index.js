@@ -28,8 +28,8 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-
 // routers
+
 app.use('/', customerRouters)
 
 //Static files
