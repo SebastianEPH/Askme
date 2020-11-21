@@ -100,24 +100,26 @@ controller.about = (req, res) =>{
 }
 controller.game = (req, res)=>{
     const {nickname, cantidad, level} = req.params
+    const qqqq = []
     req.getConnection((err, conn)=>{
          conn.query('SELECT * FROM question', (err, question)=>{
              if (err){
                  //next(err)
                  res.json(err)
              }
-             console.log(question)
+             //console.log(question)
              console.log('**********************************')
-             for (i = 1; i < question.length || i < cantidad; i++){
+             for (i = 1; i < question.length ; i++){
                  console.log(question[i].que_id)
+                 qqqq.push(question[i].que_id)
              }
-             //res.render('main', {    // ejs name
-             //    data: question
-             //});
+            console.log('TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT')
+             console.log(qqqq)
          });
      });
 
     res.render('game',{
+        questions: qqqq,
         nick: nickname,
         cant: cantidad,
         level: level
