@@ -25,9 +25,17 @@ controller.add = (req, res)=>{
 
 };
 controller.save = (req, res)=>{
-
-        res.render('save');
-        res.redirect("/");
+    const data = req.body
+    req.getConnection((err, conn)=>{
+         conn.query('INSERT INTO question SET ? ', [data], (err, question)=>{
+             if (err){
+                 //next(err)
+                 res.json(err)
+             }
+             console.log(question)
+             res.redirect("/show")
+         });
+     });
 
 }
 controller.delete = (req, res)=>{
