@@ -42,7 +42,7 @@ controller.delete = (req, res)=>{
 
     });
 }
-controller.update = (req, res)=>{
+controller.edit = (req, res)=>{
     const { id } = req.params;
 
     req.getConnection((err, conn)=>{
@@ -52,11 +52,26 @@ controller.update = (req, res)=>{
                 res.json(err)
             }
             console.log(question)
-            res.render('update', {    // ejs name
+            res.render('edit', {    // ejs name
                 data: question[0]
             });
         });
     })
+}
+controller.update = (req, res)=>{
+    const {id}= req.params;
+    const data =  req.body;
+    req.getConnection((err, conn)=>{
+        conn.query('UPDATE  question set ? WHERE  que_id = ?',[data, id], (err, rows)=>{
+            console.log(id)
+            console.log(data)
+            console.log('********************************')
+            res.redirect("/show")
+        });
+    });
+
+
+
 }
 controller.show = (req, res)=>{
     req.getConnection((err, conn)=>{
@@ -76,16 +91,30 @@ controller.about = (req, res) =>{
 
 }
 controller.game = (req, res)=>{
-    console.log(req.params.nickname)
-    //console.log(req.params.cantidad)
-    console.log(req.params.level)
-    console.log(req.params)
+    const {nickname, cantidad, level} = req.params
+    req.getConnection((err, conn)=>{
+         conn.query('SELECT * FROM question', (err, question)=>{
+             if (err){
+                 //next(err)
+                 res.json(err)
+             }
+             console.log(question)
+             console.log('**********************************')
+             for (i = 1; i < question.length || i < cantidad; i++){
+                 console.log(question[i].que_id)
+             }
+             //res.render('main', {    // ejs name
+             //    data: question
+             //});
+         });
+     });
+
     res.render('game',{
-        data1: req.params
+        nick: nickname,
+        cant: cantidad,
+        level: level
     })
 }
-
-
 
 controller.nickname = (req, res)=>{
     const { nick } = req.params;
@@ -114,7 +143,11 @@ controller.nickname = (req, res)=>{
                 }else{
                     console.log(nickname)
                     console.log("No existe el nickname, entonces hay que crear una")
-                    res.redirect(`/game/${nickname.user_nick}/${nickname.can_id}/${nickname.lev_id}`);
+                    //conn.query('SELE')
+
+
+
+                    res.redirect(`/game/${nickname.user_nick}/${nickname.can_id}/${nickname.lev_id}/${0}`);
                 }
 
             }
