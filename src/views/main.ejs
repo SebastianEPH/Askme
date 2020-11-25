@@ -30,12 +30,13 @@
                                 <option value="4" >Universidad</option>
                             </select>
                         </div>
-
-                        <% if(data === 0){ %><% }else{ %>
+                        <% if(data === 1){ %>
                             <div class="alert alert-danger" role="alert">
                                 El <b>Nickname <%= nick %> ya existe</b>, Intente con otro.
                             </div>
+                        <% } else{%>
                         <% }%>
+
                         <button type="submit" class="btn btn-success">Empezar</button>
                     </form>
                 </div>

@@ -1,0 +1,46 @@
+<%-include ('partials/_header') %>
+
+<div class="row mt-15" >
+    <div class="col-md-7">
+        <div class="card-body">
+            <form action="/start/<%=question.que_true%>" method="post">
+                <h2> Show question</h2>
+                <h3> <%= question.que_que %></h3>
+
+                <input type="radio" id="reply_1" name="reply" value="1">
+                <label for="1"><%= question.que_1 %></label>
+                <br>
+                <input type="radio" id="reply_2" name="reply" value="2">
+                <label for="1"><%= question.que_2 %></label>
+                <br>
+                <input type="radio" id="reply_3" name="reply" value="3">
+                <label for="1"><%= question.que_3 %></label>
+                <br>
+                <input type="radio" id="reply_4" name="reply" value="4">
+                <label for="1"><%= question.que_4 %></label>
+                <br>
+                <button type="submit" class="btn btn-success">Responder</button>
+
+                <% if(check === true){ %>
+                    <% if(reply === true){ %>
+                        <div class="alert alert-danger" role="alert">
+                            La respuesta es correcta
+                        </div>
+                    <% }else{ %>
+                        <div class="alert alert-danger" role="alert">
+                            Su respuesta es incorrecta
+                        </div>
+                    <% }%>
+                <% } %>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<%-include ('partials/_footer')%>
+
+
+

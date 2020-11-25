@@ -1,20 +1,27 @@
 const express =  require('express');
 const router = express.Router();
 
-const mainController = require('../controllers/mainController')
+const main = require('../controllers/mainController')
+const CRUD = require('../controllers/CRUDController')
+const info = require('../controllers/infoController')
+const content = require('../controllers/contentController')
 
-router.get('/',         mainController.main)
-router.post('/',         mainController.nickname)
-router.get('/add',      mainController.add)
-router.post('/save',    mainController.save)
-router.get('/delete/:id',   mainController.delete)
-router.get('/edit/:id',   mainController.edit)
-router.post('/update/:id',   mainController.update)
-router.get('/show',     mainController.show)
-router.get('/about',    mainController.about)
+router.get('/',             main.main)
+router.post('/',            main.checkNickname)
 
-router.get('/game/:nickname/:cantidad/:level/:sucess',    mainController.game)
+router.get('/add',          CRUD.add)
+router.post('/save',        CRUD.save)
+router.get('/delete/:id',   CRUD.del)
+router.get('/edit/:id',     CRUD.edit)
+router.post('/update/:id',  CRUD.update)
+router.get('/show',         CRUD.show)
 
+
+router.get('/start',        content.getStartListQuestion)
+router.post('/start',       content.postStartListQuestion)
+router.post('/start/:id',   content.checkQuestion)
+
+router.get('/about',        info.about)
 
 //router.post('/nickname/:nick', mainController.nickname)    // El boton empezar
 //router.get('/save',addController.save)
