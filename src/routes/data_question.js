@@ -20,7 +20,7 @@ router.post('/add',async (req,res)=>{
         que_true
     }
     await pool.query('INSERT INTO question SET ? ', [newQuestion]);
-    res.send(lev_id)
+    res.redirect('/question')
 })
 router.get('/', async (req,res)=>{
     const question = await pool.query('SELECT * FROM question')
