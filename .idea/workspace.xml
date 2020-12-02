@@ -20,17 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/CRUDController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/contentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/infoController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/get_question.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/post_question.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/about.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/response.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/mainController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/mainController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/contentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/contentController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routers/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/game.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/start.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/question.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/add.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/add.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/get_question.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/get_question.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/post_question.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/show.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -57,9 +56,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NodeJS_AdministratorInformation" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -98,7 +98,9 @@
       <workItem from="1605980580387" duration="679000" />
       <workItem from="1606076533165" duration="9328000" />
       <workItem from="1606272638086" duration="760000" />
-      <workItem from="1606273633170" duration="4973000" />
+      <workItem from="1606273633170" duration="8517000" />
+      <workItem from="1606321112452" duration="7206000" />
+      <workItem from="1606366511226" duration="809000" />
     </task>
     <servers />
   </component>
@@ -122,6 +124,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605549698633" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1606367576445">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606367576445" />
     <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1606273241866">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -195,10 +201,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="759" y="305" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1605841490231" />
-    <state x="-980" y="247" width="987" height="1087" key="dock-window-1" timestamp="1606273944444">
+    <state x="-967" y="247" width="974" height="1087" key="dock-window-1" timestamp="1606367542414">
       <screen x="-1920" y="247" width="1920" height="1080" />
     </state>
-    <state x="-980" y="247" width="987" height="1087" key="dock-window-1/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606273944444" />
+    <state x="-967" y="247" width="974" height="1087" key="dock-window-1/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606367542414" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1605572344666">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

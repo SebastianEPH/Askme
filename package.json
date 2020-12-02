@@ -1,32 +1,39 @@
 {
-  "name": "Askme_SystemsTheory",
+  "name": "nodejs_administratorinformation",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Administrador de Información personal",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon npm src/main.js "
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SebastianEPH/Askme_SystemsTheory.git"
+    "url": "git+https://github.com/SebastianEPH/NodeJS_AdministratorInformation.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "SebastiánEPH",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SebastianEPH/Askme_SystemsTheory/issues"
+    "url": "https://github.com/SebastianEPH/NodeJS_AdministratorInformation/issues"
   },
-  "homepage": "https://github.com/SebastianEPH/Askme_SystemsTheory#readme",
+  "homepage": "https://github.com/SebastianEPH/NodeJS_AdministratorInformation#readme",
   "dependencies": {
-    "ejs": "^3.1.5",
-    "ejs-lint": "^1.1.0",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "express": "^4.17.1",
-    "express-myconnection": "^1.0.4",
+    "express-handlebars": "^5.1.0",
+    "express-mysql-session": "^2.1.4",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.7.0",
+    "firebase-admin": "^9.2.0",
     "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.5"
   }
 }

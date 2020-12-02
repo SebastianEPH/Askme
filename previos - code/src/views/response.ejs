@@ -1,0 +1,18 @@
+<%-include ('partials/_header') %>
+
+
+    <% if(response === true){ %>
+        <div class="alert alert-success" role="alert">
+            <b>Felicidades</b> la respuesta es la correcta
+        </div>
+    <% } else{%>
+        <div class="alert alert-danger" role="alert">
+            <b>:'( </b> Respuesta incorrecta
+        </div>
+    <% }%>
+
+        <br>
+        <a class="btn btn-light" href="/start" role="button">Continuar</a>
+
+
+<%-include ('partials/_footer') %>

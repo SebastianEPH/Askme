@@ -18,14 +18,13 @@ router.get('/show',         CRUD.show)
 
 
 router.get('/start',        content.getStartListQuestion)
-router.post('/start',       content.postStartListQuestion)
+router.get('/response',       content.response)
 router.post('/start/:id',   content.checkQuestion)
 
 router.get('/about',        info.about)
 
 //router.post('/nickname/:nick', mainController.nickname)    // El boton empezar
 //router.get('/save',addController.save)
-
 
 
 

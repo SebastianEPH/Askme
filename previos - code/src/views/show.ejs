@@ -10,10 +10,11 @@
             <th>Nivel</th>
             <th>Tipo de pregunta</th>
             <th>Pregunta</th>
-            <th>Respuesta correcta</th>
-            <th>Incorrecto</th>
-            <th>Incorrecto</th>
-            <th>Incorrecto</th>
+            <th>Opción 1</th>
+            <th>Opción 2</th>
+            <th>Opción 3</th>
+            <th>Opción 4</th>
+            <th>Opción correcta</th>
             <th>Acciones</th>
         </tr>
         </thead>
@@ -36,10 +37,11 @@
                             } %>
                         </td>
                         <td> <% switch (data[i].ty_id) {
-                            case 1 : %> Verdadero y Falso <% break;
-                            case 2 : %> 2 Respuesta<% break;
-                            case 3 : %> 3 Respuestas <% break;
-                            case 4 : %> 4 Respuestas<% break;
+                            case 1 : %> Verdad o Falso<% break;
+                            case 2 : %> 2 opciones <% break;
+                            case 3 : %> 3 opciones <% break;
+                            case 4 : %> 4 opciones <% break;
+
                             } %>
                         </td>
                         <td><%= data[i].que_que %></td>
@@ -47,6 +49,14 @@
                         <td><%= data[i].que_2 %></td>
                         <td><%= data[i].que_3 %></td>
                         <td><%= data[i].que_4 %></td>
+                        <td>
+                            <% switch (data[i].que_true) {
+                            case 1 : %> <b>Opción 1</b></br> <%= data[i].que_1 %><% break;
+                            case 2 : %> <b>Opción 2</b></br> <%= data[i].que_2 %><% break;
+                            case 3 : %> <b>Opción 3</b></br> <%= data[i].que_3 %><% break;
+                            case 4 : %> <b>Opción 4</b></br> <%= data[i].que_4 %><% break;
+                            } %>
+                        </td>
                         <td>
                             <a href="/edit/<%= data[i].que_id %>" class="btn btn-warning">Editar</a>
                             <a href="/delete/<%= data[i].que_id %>" class="btn btn-danger">Eliminar></a>
