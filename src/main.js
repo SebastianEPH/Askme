@@ -32,7 +32,7 @@ app.use((req, res, next)=>{
 // Routers
 app.use(require('./routes/index'));  // No es necesario escribir la extension o el nombre si es index
 app.use(require('./routes/authentication'));
-app.use('/password', require('./routes/data_password'));
+app.use('/question', require('./routes/data_question'));
 
 
 // Public <= Código y archivos que el navegador puede acceder
