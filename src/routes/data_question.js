@@ -22,6 +22,19 @@ router.post('/add',async (req,res)=>{
     await pool.query('INSERT INTO question SET ? ', [newQuestion]);
     res.redirect('/question')
 })
+router.get('/edit/:id', async (req, res)=>{
+    const {id} = req.params
+    console.log(req.params)
+    console.log([id])
+    const question = await pool.query('SELECT * FROM question WHERE que_id = 2')//,[id]);
+    console.log(question)
+    res.render(subpath + '/edit',{
+        question : question
+    })
+})
+router.get('/edit',(req, res)=>{
+    res.send('está corriendo / edit ')
+} )
 router.get('/', async (req,res)=>{
     const question = await pool.query('SELECT * FROM question')
     res.render(subpath+'/show',{
@@ -29,4 +42,11 @@ router.get('/', async (req,res)=>{
     })
 })
 
+router.get('/delete/:id', async (req, res)=>{
+    const {id} = req.params;
+    console.log(req.params)
+    await pool.query('DELETE FROM question WHERE que_id = ? ',[id])
+    res.redirect('/question')
+
+})
 module.exports = router;

@@ -7,16 +7,13 @@
                         <a href="">
                             <h3 class="card-title text-uppercase">{{que_que}}</h3>
                         </a>
-                        <p class="m-2">
-                            cat_id
+                        <p class="m-2">{{category   cat_id}}</p>
+                        <p class="m-2">{{level      lev_id }}</p>
+                        <p class="m-2">{{type       ty_id}}</p>
+                        <p class="m-2">{{timeago    que_created}}</p>
 
-                        </p>
-                        <p class="m-2">{{lev_id}}</p>
-                        <p class="m-2">{{ty_id}}</p>
-                        <p class="m-2">{{timeago que_created}}</p>
-
-                        <a href="/question/edit" class="btn btn-warning">Editar</a>
-                        <a href="/question/delete" class="btn btn-danger">Eliminar></a>
+                        <a href="/question/edit/{{que_id}}" class="btn btn-warning">Editar</a>
+                        <a href="/question/delete/{{que_id}}" class="btn btn-danger">Eliminar></a>
                     </div>
                 </div>
             </div>

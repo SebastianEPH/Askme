@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/data_question/edit.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/data_question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/data_question.js" afterDir="false" />
@@ -54,7 +55,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NodeJS_AdministratorInformation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -97,7 +98,11 @@
       <workItem from="1606321112452" duration="7206000" />
       <workItem from="1606366511226" duration="809000" />
       <workItem from="1606887938872" duration="1275000" />
-      <workItem from="1606889238792" duration="4945000" />
+      <workItem from="1606889238792" duration="14961000" />
+      <workItem from="1607188491893" duration="3513000" />
+      <workItem from="1607195945210" duration="1775000" />
+      <workItem from="1607274098978" duration="1528000" />
+      <workItem from="1607275665324" duration="615000" />
     </task>
     <servers />
   </component>
@@ -121,10 +126,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="734" y="355" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-900.0.900.1600/2560.352.1920.1080@0.0.2560.1400" timestamp="1606888005052" />
-    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605549698633">
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607189723766">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605549698633" />
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1607189723766" />
     <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1606367576445">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -193,21 +199,28 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="492" key="GridCell.Tab.3.right/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606077600178" />
-    <state x="781" y="345" key="SettingsEditor" timestamp="1605837982417">
+    <state x="781" y="345" key="SettingsEditor" timestamp="1607196034222">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1605837982417" />
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605292686617" />
+    <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1607196034222" />
     <state x="759" y="305" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605841490231">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="759" y="305" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1605841490231" />
-    <state x="139" y="169" width="916" height="1387" key="dock-window-1" timestamp="1606914491964">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="-967" y="360" width="974" height="1087" key="dock-window-1" timestamp="1607276104108">
+      <screen x="-1920" y="360" width="1920" height="1080" />
     </state>
     <state x="-967" y="247" width="974" height="1087" key="dock-window-1/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606367542414" />
+    <state x="-967" y="360" width="974" height="1087" key="dock-window-1/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1607276104108" />
     <state x="-893" y="-21" width="916" height="1387" maximized="true" key="dock-window-1/0.0.2560.1400/-900.0.900.1600/2560.352.1920.1080@0.0.2560.1400" timestamp="1606889457662" />
     <state x="139" y="169" width="916" height="1387" key="dock-window-1/0.0.2560.1400/2560.261.1920.1080@0.0.2560.1400" timestamp="1606914491964" />
+    <state x="-967" y="360" width="974" height="1087" key="dock-window-2" timestamp="1607190350525">
+      <screen x="-1920" y="360" width="1920" height="1080" />
+    </state>
+    <state x="-967" y="360" width="974" height="1087" key="dock-window-2/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1607190350525" />
+    <state x="867" y="166" width="1452" height="1007" key="dock-window-2/0.0.2560.1400/2560.261.1920.1080@0.0.2560.1400" timestamp="1606924393716" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1605572344666">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
