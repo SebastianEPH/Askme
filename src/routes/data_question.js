@@ -26,10 +26,10 @@ router.get('/edit/:id', async (req, res)=>{
     const {id} = req.params
     console.log(req.params)
     console.log([id])
-    const question = await pool.query('SELECT * FROM question WHERE que_id = 2')//,[id]);
+    const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
     console.log(question)
     res.render(subpath + '/edit',{
-        question : question
+        question : question[0] //  question[0]
     })
 })
 router.get('/edit',(req, res)=>{
