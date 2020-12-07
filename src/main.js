@@ -1,7 +1,9 @@
 const express = require('express');             // framework
 const morgan = require('morgan');               // Informacion para developer
-const exphbs = require('express-handlebars')    // Motor de plantillas
-const path = require('path')
+const exphbs = require('express-handlebars');    // Motor de plantillas
+const path = require('path');                   // Junta paths
+const flash = require('connect-flash')
+const session = require('express-session')  
 //Initializations
 const app = express();   // is the app web
 
@@ -23,9 +25,11 @@ app.use(express.urlencoded({
     extended:false  // Los datos que se enviarán son muy sencillas
 }));
 app.use(express.json()); // Acepta json
+app.use(flash());   //Envía mensajes
 
 // Global Valiables
 app.use((req, res, next)=>{
+    app.locals.success =  req.flash('success') // <==Almacenamos mensaje
     next();
 });
 

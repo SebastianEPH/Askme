@@ -3,7 +3,8 @@ const {format} = require('timeago.js')
 const helpers = {}
 // Convierte fecha a tiempo transcurrido
 helpers.timeago = (timestamp)=>{
-    return format(timestamp);
+    const g = "0000-00-04T04:00:00.000Z"
+    return format(timestamp-g);
 }
 helpers.category = (num)=>{
     switch (num){
@@ -14,7 +15,6 @@ helpers.category = (num)=>{
         case 5 : return "Cultura general";
         case 6 : return "Office";
         default: return "Sin categoría"
-
     }
 }
 helpers.level = (level)=>{
