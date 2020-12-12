@@ -1,0 +1,44 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Crear Cuenta</h3>
+                </div>
+                <div class="card-body text-left">
+                    <form action="/singup" method="post">
+                        <div class="form-group ">
+                            <label  for="exampleFormControlSelect1">Nombre Completo</label>
+                            <input type="text" name="fullname" placeholder="Nombre y apellidos" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Usuario</label>
+                            <input type="text" name="username" placeholder="Usuario" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Contraseña</label>
+                            <input type="password" name="username" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Usted es:</label>
+                            <select class="form-control" name="cat_id" id="exampleFormControlSelect1" >
+                                <option value="1"  >Docente</option>
+                                <option value="2"  >Estudiante</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Crear Cuenta
+                            </button>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="7/"> o Inicie sesión</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
