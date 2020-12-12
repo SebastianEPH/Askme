@@ -19,12 +19,14 @@ router.post('/add',async (req,res)=>{
         que_true
     }
     await pool.query('INSERT INTO question SET ? ', [newQuestion]);
+    req.flash('success', 'Se guardó la pregunta correctamente')
     res.redirect('/question')
 })
 router.get('/delete/:id', async (req, res)=>{
     const {id} = req.params;
     console.log(req.params)
     await pool.query('DELETE FROM question WHERE que_id = ? ',[id])
+    req.flash('success', 'Se eliminó la pregunta correctamente')
     res.redirect('/question')
 
 })
@@ -42,9 +44,8 @@ router.post('/update/:id',async(req, res)=>{
     const {id} = req.params
     const data = req.body
     await pool.query('UPDATE question set ? WHERE que_id = ?', [data, id])
-    req.flash('success', "Se actualizó correctamente")
+    req.flash('success', "Se editó la pregunta correctamente")
     res.redirect ('/question')
-
 } )
 router.get('/', async (req,res)=>{
     const question = await pool.query('SELECT * FROM question')

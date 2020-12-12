@@ -3,7 +3,9 @@ const morgan = require('morgan');               // Informacion para developer
 const exphbs = require('express-handlebars');    // Motor de plantillas
 const path = require('path');                   // Junta paths
 const flash = require('connect-flash')
-const session = require('express-session')  
+const session = require('express-session')
+const MysqlStore= require('express-mysql-session') // Guarda la sesión en la base de datos
+const {database} = require('./keys')
 //Initializations
 const app = express();   // is the app web
 
@@ -20,12 +22,19 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 
 //Middlewares , se ejecuta cada vez que un usuario haga una petición
+app.use(session({
+    secret: 'texto_session',    // Cómo guardara las sesiones
+    resave: false, // false: para que no se vuelva a renovar la sesión
+    saveUninitialized: false, // false: para que no se vuelva a establecer la sesión
+    store: new MysqlStore(database) //  No guardar los datos dentro del servidor, si no dentro de la base de datos
+}))
+app.use(flash());   //Envía mensajes al frotend
 app.use(morgan('dev')); // Muestra por consola las peticiones tipo http
 app.use(express.urlencoded({
     extended:false  // Los datos que se enviarán son muy sencillas
 }));
 app.use(express.json()); // Acepta json
-app.use(flash());   //Envía mensajes
+
 
 // Global Valiables
 app.use((req, res, next)=>{
