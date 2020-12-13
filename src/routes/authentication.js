@@ -1,10 +1,26 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport')
 
-router.get('/singup', (req, res)=>{
-    res.render('auth/singup')
+router.get('/signup', (req, res)=>{
+    res.render('auth/signup')
 })
-router.post('/singup',(req, res)=>{
 
+router.post('/signup',passport.authenticate('local.signup',{
+        successRedirect: '/profile',
+        failureRedirect: '/signup',
+        failureFlash: true
+    })
+
+)
+router.get('/profile',(req, res)=>{
+    res.send('profile success')
 })
+
+
+
+
+
+
+
 module.exports = router;

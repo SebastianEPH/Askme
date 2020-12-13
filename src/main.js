@@ -5,9 +5,11 @@ const path = require('path');                   // Junta paths
 const flash = require('connect-flash')
 const session = require('express-session')
 const MysqlStore= require('express-mysql-session') // Guarda la sesión en la base de datos
-const {database} = require('./keys')
+const {database} = require('./keys')                // Database Credentials
+const passport = require('passport')
 //Initializations
 const app = express();   // is the app web
+require('./lib/passport')   // import passport
 
 // Settings
 app.set('port', process.env.PORT|| 3000 );
@@ -34,6 +36,8 @@ app.use(express.urlencoded({
     extended:false  // Los datos que se enviarán son muy sencillas
 }));
 app.use(express.json()); // Acepta json
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // Global Valiables
