@@ -1,0 +1,34 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Iniciar Sesión</h3>
+                </div>
+                <div class="card-body">
+                    <img src="/icons/question-human.png" alt="logo" class="card-img-top mx-auto m-2  w-50"> <!-- rounded-circle -->
+                    <form action="/signin" method="post">
+                        <div class="form-group text-left">
+                            <label for="exampleFormControlSelect1">Usuario</label>
+                            <input type="text" name="user_nick" placeholder="Escriba aquí" class="form-control">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="exampleFormControlSelect1">Contraseña</label>
+                            <input type="password" name="user_pass" placeholder="Escriba aquí" class="form-control">
+                        </div>
+                        <div class="form-group text-left">
+                            <button class="btn btn-success btn-block">
+                                Iniciar sesión
+                            </button>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="/signup"> o Crear una cuenta</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

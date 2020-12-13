@@ -20,12 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/passport.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/auth/signin.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/previos - code/src/public/icons/icon-main.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/previos - code/src/public/icons/question-human.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/previos - code/src/public/icons/question-signo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/auth/singup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signup.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/auth/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signup.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partials/message.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/message.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +109,7 @@
       <workItem from="1607195945210" duration="1775000" />
       <workItem from="1607274098978" duration="1528000" />
       <workItem from="1607275665324" duration="15775000" />
-      <workItem from="1607748611440" duration="17191000" />
+      <workItem from="1607748611440" duration="24090000" />
     </task>
     <servers />
   </component>
@@ -224,6 +229,10 @@
     </state>
     <state x="-967" y="360" width="974" height="1087" key="dock-window-2/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1607190350525" />
     <state x="867" y="166" width="1452" height="1007" key="dock-window-2/0.0.2560.1400/2560.261.1920.1080@0.0.2560.1400" timestamp="1606924393716" />
+    <state x="921" y="426" width="700" height="530" key="recent.locations.popup" timestamp="1607835788298">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="921" y="426" width="700" height="530" key="recent.locations.popup/0.0.2560.1400/-1920.349.1920.1080@0.0.2560.1400" timestamp="1607835788298" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1605572344666">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

@@ -43,6 +43,7 @@ app.use(passport.session());
 // Global Valiables
 app.use((req, res, next)=>{
     app.locals.success =  req.flash('success') // <==Almacenamos mensaje
+    app.locals.warning = req.flash('warning')
     next();
 });
 
