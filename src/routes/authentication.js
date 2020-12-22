@@ -11,7 +11,6 @@ router.post('/signup',passport.authenticate('local.signup',{
         failureRedirect: '/signup',
         failureFlash: true
     })
-
 )
 router.get('/signin', (req, res)=>{
     res.render('auth/signin')
@@ -24,10 +23,14 @@ router.post('/signin',(req,res, next )=>{
     })(req, res, next )
 })
 router.get('/profile',(req, res)=>{
-    res.send('profile success')
+    res.render('profile');
+
 })
 
-
+router.get('/logout',(req, res)=>{
+    req.logOut();
+    res.redirect('/signin')
+})
 
 
 

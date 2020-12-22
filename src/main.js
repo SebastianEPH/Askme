@@ -44,6 +44,8 @@ app.use(passport.session());
 app.use((req, res, next)=>{
     app.locals.success =  req.flash('success') // <==Almacenamos mensaje
     app.locals.warning = req.flash('warning')
+    app.locals.user = req.user; // Almacenamos datos del usuario
+
     next();
 });
 
