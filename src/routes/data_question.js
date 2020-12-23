@@ -19,7 +19,8 @@ router.post('/add', isLoggedIn, async (req,res)=>{
         que_2,
         que_3,
         que_4,
-        que_true
+        que_true,
+        user_id : req.user.user_id
     }
     await pool.query('INSERT INTO question SET ? ', [newQuestion]);
     req.flash('success', 'Se guardó la pregunta correctamente')
@@ -51,7 +52,7 @@ router.post('/update/:id', isLoggedIn, async(req, res)=>{
     res.redirect ('/question')
 } )
 router.get('/', isLoggedIn,  async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question')
+    const question = await pool.query('SELECT * FROM question WHERE  user_id = ?', [req.user.user_id])
     res.render(subpath+'/show',{
         question: question
     })
