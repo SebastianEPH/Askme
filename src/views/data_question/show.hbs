@@ -1,18 +1,22 @@
 <div class="container p-4">
-    {{#if all}}
-        <h1>Todas las preguntas <span class="badge bg-secondary"></span></h1>
+    {{#if question}}
+        {{#if all}}
+            <h1 style="text-align: center">Todas las preguntas <span class="badge bg-secondary"></span></h1>
+        {{else}}
+            <h1>Mis preguntas<span class="badge bg-secondary"></span></h1>
+        {{/if}}
+        <br>
     {{else}}
-        <h1>Mis preguntas<span class="badge bg-secondary"></span></h1>
+        <h1>No se encontró ninguna pregunta<span class="badge bg-secondary"></span></h1>
     {{/if}}
-
     <div class="row">
         {{#each question}}
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
-                        <a href="">
-                            <h3 class="card-title ">{{que_que}}</h3> <!-- text-uppercase -->
-                        </a>
+                        <!--a href=""-->
+                            <h3 class="card-title " style="color: forestgreen">{{que_que}}</h3> <!-- text-uppercase -->
+                        <!--/a-->
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">{{category   cat_id}}</li>
                             <li class="list-group-item">{{level      lev_id }}</li>
@@ -29,27 +33,5 @@
                 </div>
             </div>
          {{/each}}
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-
-        {{#each question}}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{que_que}}</h5>
-                    <p class="card-text">{{que_true}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{category   cat_id}}</li>
-                    <li class="list-group-item">{{level      lev_id }}</li>
-                    <li class="list-group-item">{{type       ty_id}}</li>
-                </ul>
-                <div class="card-body">
-                    <a href="/question/edit/{{que_id}}" class="btn btn-warning">Editar</a>
-                    <a href="/question/delete/{{que_id}}" class="btn btn-danger">Eliminar</a>
-                </div>
-            </div>
-        {{/each}}
     </div>
 </div>
