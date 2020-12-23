@@ -54,13 +54,16 @@ router.post('/update/:id', isLoggedIn,passIsTeacher, async(req, res)=>{
 router.get('/', isLoggedIn, passIsTeacher, async (req,res)=>{
     const question = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
     res.render(subpath+'/show',{
-        question: question
+        question: question,
+        all: false
     })
 })
 router.get('/all', isLoggedIn, passIsTeacher, async (req,res)=>{
     const question = await pool.query('SELECT * FROM question', [req.user.user_id])
     res.render(subpath+'/show',{
-        question: question
+        question: question,
+        all:true
+
     })
 })
 
