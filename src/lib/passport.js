@@ -1,6 +1,6 @@
 const passport = require('passport')
 const Strategy = require('passport-local').Strategy;
-const pool = require('../database')
+const pool = require('../database') // async
 const helpers = require('../lib/helpers');
 
 passport.use('local.signin', new Strategy({
@@ -15,9 +15,9 @@ passport.use('local.signin', new Strategy({
     if(rows.length > 0){
         const user = rows[0];
         console.log(user)
-        const validPassword= await helpers.matchPassword(user_pass, user.user_password)
+        const validPassword = await helpers.matchPassword(user_pass, user.user_password)
         if(validPassword){
-            done(null, user, req.flash('success', 'Bienvenido '+ user.user_fullname))
+            done(null, user, req.flash('success', 'Inicio de sesión exitoso'))// + user.user_fullname))
         }else{
             done(null, false, req.flash('warning','La contraseña es incorrecta.'))
         }

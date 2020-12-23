@@ -13,22 +13,27 @@ module.exports ={
             return next()
         }
     },
-    isStudent(req, res, next){
+    passIsStudent(req, res, next){
         if (req.user.type_id === 2){
-            console.log('Es estudiante - acceso permitido')
-            //Mandar a renderizar acceso denegado
+            console.log(req)
+            console.log('Es estudiante')
+
             return next()
         }else{
-            console.log('No es estudiante, no puedes acceder')
+            console.log('No es estudiante')
+            //Mandar a renderizar acceso denegado
+            return res.redirect('/profile')
         }
     },
-    isTeacher(req, res, next){
+    passIsTeacher(req, res, next){
         if (req.user.type_id === 1){
-            console.log('Es docente - acceso permitido')
-            //Mandar a renderizar acceso denegado
+            console.log('Es docente')
+
             return next()
         }else{
-            console.log('No es edocente, no puedes acceder')
+            console.log('No es edocente')
+            //Mandar a renderizar acceso denegado
+            return res.redirect('/profile')
         }
     }
 

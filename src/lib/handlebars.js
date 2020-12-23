@@ -50,7 +50,7 @@ helpers.selected =(value, valor)=>{
 
 
 }
-
+/*
 helpers.isStudent = ()=>{
     if (req.user.type_id === 2){
         console.log('Es estudiante - acceso permitido')
@@ -69,7 +69,38 @@ helpers.isTeacher = ()=>{
         return false;
     }
 }
+*/
 
+helpers.typeUserText=(user)=>{
+    console.log(user)
+    if (user.type_id === 2){
+        console.log('Es estudiante')
+        return "Estudiante";
+    }else{
+        console.log('Es docente')
+        return "Docente";
+    }
+}
+helpers.isStudent=(user)=>{  // Verifica
+    console.log(user)
+    if (user.type_id === 1){
+        console.log('Es Docente')
+        return false;
+    }else{
+        console.log('Es Estudiante')
+        return true;
+    }
+}
+helpers.isTeacher=(user)=>{  // Verifica
+    console.log(user)
+    if (user.type_id === 1){
+        console.log('Es Docente')
+        return true;
+    }else{
+        console.log('Es Estudiante')
+        return false;
+    }
+}
 
 
 module.exports = helpers;

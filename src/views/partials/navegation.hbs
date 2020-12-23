@@ -18,21 +18,32 @@
                         Ver lista
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/question/">Docentes</a>
-                        <a class="dropdown-item" href="/question/add">Estudiantes</a>
+                        <a class="dropdown-item" href="/teachers/">Docentes</a>
+                        <a class="dropdown-item" href="/student">Estudiantes</a>
                     </div>
                 </li>
-                {{#if isStudent}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/question" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Preguntas
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/question/">Ver preguntas</a>
-                                <a class="dropdown-item" href="/question/add">Crear preguntas</a>
-                                <a class="dropdown-item" href="/question/test">Tomar examen</a>
-                            </div>
-                        </li>
+                {{#if (isTeacher user)}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/question" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Preguntas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/question/">Mis preguntas</a>
+                            <a class="dropdown-item" href="/question/all">Todas preguntas</a>
+                            <a class="dropdown-item" href="/question/add">Crear preguntas</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/question" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Examen
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/question/">Mis examenes</a>
+                            <a class="dropdown-item" href="/question/all">Todas exámenes</a>
+                            <a class="dropdown-item" href="/question/all">Crear exámen</a>
+                            <a class="dropdown-item" href="/question/add">Tomar exámen</a>
+                        </div>
+                    </li>
                  {{/if}}
 
                 <li class="nav-item">
