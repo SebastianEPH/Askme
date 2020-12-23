@@ -26,18 +26,18 @@ passport.use('local.signin', new Strategy({
     }
 }));
 
-
-
 passport.use('local.signup', new Strategy({
     usernameField: 'user_nick',
     passwordField: 'user_pass',
     passReqToCallback: true // Recibe el objeto requess dentro de esta función
 },async (req, user_nick, user_pass, done )=>{ // Callback
-    const {fullname} = req.body
-    const  newUser = {
+    const { fullname, type_id } = req.body;
+
+    const newUser = {
         user_nick,
         user_password: user_pass,
-        user_fullname: fullname
+        user_fullname: fullname,
+        type_id,
     }
     newUser.user_password = await helpers.encryptPassword(user_pass)
     console.log(newUser)

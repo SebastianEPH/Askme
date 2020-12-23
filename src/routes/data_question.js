@@ -52,7 +52,7 @@ router.post('/update/:id', isLoggedIn, async(req, res)=>{
     res.redirect ('/question')
 } )
 router.get('/', isLoggedIn,  async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question WHERE  user_id = ?', [req.user.user_id])
+    const question = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
     res.render(subpath+'/show',{
         question: question
     })

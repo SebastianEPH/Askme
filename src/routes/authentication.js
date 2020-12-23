@@ -4,12 +4,10 @@ const passport = require('passport')
 
 // protege rutas
 const {isLoggedIn, isNotLoggedIn} = require('../lib/auth') // se usará en todas las listas qe se desea proteger
-
-router.get('/signup',isNotLoggedIn,(req, res)=>{
+router.get('/signup', isNotLoggedIn,(req, res)=>{
     res.render('auth/signup')
 })
-
-router.post('/signup',isNotLoggedIn, passport.authenticate('local.signup',{
+router.post('/signup', isNotLoggedIn, passport.authenticate('local.signup',{
         successRedirect: '/profile',
         failureRedirect: '/signup',
         failureFlash: true
@@ -26,18 +24,10 @@ router.post('/signin', isNotLoggedIn, (req,res, next )=>{
     })(req, res, next )
 })
 router.get('/profile',isLoggedIn,(req, res)=>{
-
     res.render('profile');
-
 })
-
 router.get('/logout',isLoggedIn, (req, res)=>{
     req.logOut();
     res.redirect('/signin')
 })
-
-
-
-
-
 module.exports = router;

@@ -50,4 +50,26 @@ helpers.selected =(value, valor)=>{
 
 
 }
+
+helpers.isStudent = ()=>{
+    if (req.user.type_id === 2){
+        console.log('Es estudiante - acceso permitido')
+        return true;
+    }else{
+        console.log('No es estudiante, no puedes acceder')
+        return false;
+    }
+}
+helpers.isTeacher = ()=>{
+    if (req.user.type_id === 1){
+        console.log('Es estudiante - acceso permitido')
+        return true;
+    }else{
+        console.log('No es estudiante, no puedes acceder')
+        return false;
+    }
+}
+
+
+
 module.exports = helpers;
