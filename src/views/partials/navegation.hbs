@@ -1,66 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">Aksme</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-
-                {{#if user}}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Pregunta
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/question">Ver</a></li>
-                        <li><a class="dropdown-item" href="/question/add">Agregar</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/profile" >Mi Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout" >Cerrar Sesión</a>
-                </li>
-                </ul>
-            </div>
-                {{else}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">about</a>
-                    </li>
-                {{/if}}
-    </div>
-</nav>
-
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
     <!-- <nav class="navbar navbar-dark bg-dark">-->
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="/icons/icon-main.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Aksme
         </a>
         <div class="collapse navbar-collapse " id="navbarTogglerDemo03">
-        {{#if user}}
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+            <ul class="navbar-nav mr-auto">
             </ul>
-        {{else}}
+            {{#if user }}
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="/about">About</a>
+                    <a class="nav-link" href="/profile">Mi perfil</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/question" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ver lista
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/question/">Docentes</a>
+                        <a class="dropdown-item" href="/question/add">Estudiantes</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/question" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Preguntas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/question/">Ver preguntas</a>
+                        <a class="dropdown-item" href="/question/add">Crear preguntas</a>
+                        <a class="dropdown-item" href="/question/test">Tomar examen</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Cerrar sesión</a>
                 </li>
             </ul>
-        {{/if}}
+            {{else}}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signin">Iniciar sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup">Crear cuenta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            {{/if}}
         </div>
     </div>
 </nav>
