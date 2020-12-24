@@ -12,7 +12,7 @@ const app = express();   // is the app web
 require('./lib/passport')   // import passport
 
 // Settings
-app.set('port', process.env.PORT|| 3000 );
+app.set('port', process.env.PORT|| 5000 );
 app.set('views', path.join(__dirname,'views')); //Obtiene la direción del archivo a ejecutar
 app.engine('.hbs', exphbs({
     defaultLayout:'main',   // Archivo principal de las plantillas
@@ -53,6 +53,7 @@ app.use((req, res, next)=>{
 app.use(require('./routes/index'));  // No es necesario escribir la extension o el nombre si es index
 app.use(require('./routes/authentication'));
 app.use('/question', require('./routes/data_question'));
+app.use('/exam',require('./routes/data_question'));
 
 
 // Public <= Código y archivos que el navegador puede acceder

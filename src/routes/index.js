@@ -2,11 +2,8 @@ const express = require('express')
 
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    res.render('others/main')
-});
-router.get('/about',(req, res)=>{
-    res.render('others/about')
-})
+const main = require('../controller/controller_main')
+router.get('/', main.get_view_main);
+router.get('/about', main.get_about)
 
 module.exports = router;
