@@ -44,6 +44,16 @@ router.get('/edit/:id', isLoggedIn, passIsTeacher,  async (req, res)=>{
         question : question[0] //  question[0]
     })
 })
+router.get('/view/:id', isLoggedIn, passIsTeacher,  async (req, res)=>{
+    const {id} = req.params
+    console.log(req.params)
+    console.log([id])
+    const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
+    console.log(question)
+    res.render(subpath + '/view',{
+        question : question[0] //  question[0]
+    })
+})
 router.post('/update/:id', isLoggedIn,passIsTeacher, async(req, res)=>{
     const {id} = req.params
     const data = req.body

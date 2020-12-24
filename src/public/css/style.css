@@ -1,0 +1,20 @@
+#portfolio{
+    padding: 40px;
+    margin: 0 auto  ;
+
+}
+.gallery-title{
+    font-size: 36px;
+    color: blueviolet;
+    text-align: center;
+    font-weight: 700;
+    padding: 40px 20px 60px;
+
+}.filter-button{
+    font-size: 18px;
+    border: 1px solid red;
+
+ }
+ .gallery_product{
+     margin-bottom: 30px;
+ }

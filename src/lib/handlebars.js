@@ -34,7 +34,7 @@ helpers.type = (type)=>{
         default: return "Type Error in database"
     }
 }
-helpers.selected =(value, valor)=>{
+helpers.selected = (value, valor)=>{
     console.log(value)
     console.log(valor)
     if (value === valor){
@@ -50,26 +50,13 @@ helpers.selected =(value, valor)=>{
 
 
 }
-/*
-helpers.isStudent = ()=>{
-    if (req.user.type_id === 2){
-        console.log('Es estudiante - acceso permitido')
-        return true;
-    }else{
-        console.log('No es estudiante, no puedes acceder')
-        return false;
-    }
+helpers.checkSuccessReply=(que, que_true)=>{
+        if (que === que_true){
+            return true;
+        }else{
+            return false;
+        }
 }
-helpers.isTeacher = ()=>{
-    if (req.user.type_id === 1){
-        console.log('Es estudiante - acceso permitido')
-        return true;
-    }else{
-        console.log('No es estudiante, no puedes acceder')
-        return false;
-    }
-}
-*/
 
 helpers.typeUserText=(user)=>{
     console.log(user)
@@ -101,6 +88,26 @@ helpers.isTeacher=(user)=>{  // Verifica
         return false;
     }
 }
+helpers.isQuestionTrue=(que_true, que_1, que_2, que_3, que_4)=>{
 
+    switch (que_true){
+        case 1 : return que_1;
+        case 2 : return que_2;
+        case 3 : return que_3;
+        case 4 : return que_4;
+        default: return "Error No se puedo obtener la respuesta"
+    }
+
+}
+helpers.checkQuestionTrue=(que_que, que_true)=>{
+
+    if (que_que === que_true){
+        return 'checked ';
+    }else{
+        return "disabled";
+    }
+
+
+}
 
 module.exports = helpers;

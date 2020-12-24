@@ -6,32 +6,71 @@
             <h1>Mis preguntas<span class="badge bg-secondary"></span></h1>
         {{/if}}
         <br>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+        <div class="portfolio">
+            <div class="container">
+                <div style="text-align: center;">
+                    <button class="btn btn-outline-primary filter-button"   data-filter="all">todos</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="1">Hardware</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="2">Programación</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="3">Redes</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="4">Diseño gráfico</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="5">Cultura General</button>
+                    <button class="btn btn-outline-primary filter-button" data-filter="6">Office</button>
+                </div>
+                <br><br>
+                <div class="row">
+                    {{#each question}}
+                        <div class="gallery_product col-md-4 filter center {{cat_id}}">
+
+                                    <div class="card text-center">
+                                        <div class="card-body">
+                                            <!--a href=""-->
+                                            <h3 class="card-title " style="color: darkmagenta">{{que_que}}</h3> <!-- text-uppercase -->
+                                            <!--/a-->
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">{{category   cat_id}}</li>
+                                                <li class="list-group-item">{{level      lev_id }}</li>
+                                                <li class="list-group-item">{{type       ty_id}}</li>
+                                                <li class="list-group-item"></li>
+                                            </ul>
+                                            <!--p class="m-2">{{!--timeago    que_created--}}</p-->
+                                            <a href="/question/view/{{que_id}}" class="btn btn-success">ver</a>
+                                            <a href="/question/edit/{{que_id}}" class="btn btn-warning">Editar</a>
+                                            <a href="/question/delete/{{que_id}}" class="btn btn-danger">Eliminar</a>
+
+                                        </div>
+                                    </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".filter-button").click(function(){
+                    var value = $(this).attr('data-filter');
+
+                    if (value === 'all'){
+                        $('.filter').show('1000');
+                    }else{
+                        $('.filter').not('.'+value).hide('3000');
+                        $('.filter').filter('.'+value).show('3000');
+                    }
+                });
+                if($('.filter-button').removeClass('active')){
+                    $(this).removeClass('active');
+                }
+                $(this).addClass('active');
+            });
+        </script>
     {{else}}
         <h1>No se encontró ninguna pregunta<span class="badge bg-secondary"></span></h1>
     {{/if}}
-    <div class="row">
-        {{#each question}}
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <!--a href=""-->
-                            <h3 class="card-title " style="color: forestgreen">{{que_que}}</h3> <!-- text-uppercase -->
-                        <!--/a-->
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{category   cat_id}}</li>
-                            <li class="list-group-item">{{level      lev_id }}</li>
-                            <li class="list-group-item">{{type       ty_id}}</li>
-                                <li class="list-group-item">
 
-                                </li>
-                        </ul>
-                        <!--p class="m-2">{{!--timeago    que_created--}}</p-->
-                        <a href="/question/edit/{{que_id}}" class="btn btn-warning">Editar</a>
-                        <a href="/question/delete/{{que_id}}" class="btn btn-danger">Eliminar</a>
 
-                    </div>
-                </div>
-            </div>
-         {{/each}}
-    </div>
 </div>
+

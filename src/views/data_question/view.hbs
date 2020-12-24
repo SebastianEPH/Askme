@@ -1,71 +1,57 @@
 <div class="container p-10">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
+    <br><br><br> <div class="row">
+        <div class="col-md-7 mx-auto">
             <div class="card ">
                 <div class="card-body">
-                    <form action="/question/update/{{question.que_id}}" method="post">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Categoría</label>
-                            <select class="form-control" name="cat_id" id="exampleFormControlSelect1" >
-                                <option value="1" {{{selected question.cat_id 1}}} >Hardware</option>
-                                <option value="2" {{{selected question.cat_id 2}}} >Programación</option>
-                                <option value="3" {{{selected question.cat_id 3}}} >Redes</option>
-                                <option value="4" {{{selected question.cat_id 4}}} >Diseño gráfico</option>
-                                <option value="5" {{{selected question.cat_id 5}}} >Cultura General</option>
-                                <option value="6" {{{selected question.cat_id 6}}} >Office</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label> Nivel de complejidad</label>
-                            <select class="form-control" name="lev_id" >
-                                <option value="1"  {{{selected question.lev_id 1}}} >Facil</option>
-                                <option value="2"  {{{selected question.lev_id 2}}} >Intermedio</option>
-                                <option value="3"  {{{selected question.lev_id 3}}} >Dificil</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Tipo de pregunta</label>
-                            <select class="form-control" name="ty_id" >
-                                <option value="1" {{{selected question.ty_id 1}}} >Verdadero y Falso</option>
-                                <option value="2" {{{selected question.ty_id 2}}} >2 alternativas</option>
-                                <option value="3" {{{selected question.ty_id 3}}} >3 alternativas</option>
-                                <option value="4" {{{selected question.ty_id 4}}} >4 alternativas</option>
-                            </select>
-                        </div>
+                    <h2>{{{question.que_que}}} </h2>
 
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Haz una pregunta</label>
-                            <textarea name="que_que" class="form-control" id="exampleFormControlTextarea1" rows="3">{{{question.que_que}}}</textarea>
-                            <!--input type="text" name="que_que" placeholder="Pregunta" class="form-control"-->
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Alternativa 1 </label>
-                            <input value="{{{question.que_1}}}" type="text" name="que_1" placeholder="Escribe una alternativa" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Alternativa 2 </label>
-                            <input value="{{{question.que_2}}}" type="text" name="que_2" placeholder="Escribe una alternativa" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Alternativa 3</label>
-                            <input value="{{{question.que_3}}}" type="text" name="que_3" placeholder="Escribe una alternativa" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Alternativa 4</label>
-                            <input value="{{{question.que_4}}}" type="text" name="que_4" placeholder="Escribe una alternativa" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Escoge la alternativa correcta</label>
-                            <select class="form-control" name="que_true" >
-                                <option value="1" {{{selected question.que_true 1}}} >Alternativa 1</option>
-                                <option value="2" {{{selected question.que_true 2}}} >Alternativa 2</option>
-                                <option value="3" {{{selected question.que_true 3}}} >Alternativa 3</option>
-                                <option value="4" {{{selected question.que_true 4}}} >Alternativa 4</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-success">Actualizar pregunta</button>
 
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" {{checkQuestionTrue 1 question.que_true}}>
+                        <label class="form-check-label" for="exampleRadios1">
+                            {{{question.que_1}}}
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"{{checkQuestionTrue 2 question.que_true}}>
+                        <label class="form-check-label" for="exampleRadios2">
+                            {{{question.que_2}}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"{{checkQuestionTrue 3 question.que_true}}>
+                        <label class="form-check-label" for="exampleRadios3">
+                            {{{question.que_3}}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option4"{{checkQuestionTrue 4 question.que_true}}>
+                        <label class="form-check-label" for="exampleRadios4">
+                            {{{question.que_4}}}
+                        </label>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Respuesta correcta:</span>
+                        <input type="text" value="{{ isQuestionTrue question.que_true question.que_1 question.que_2 question.que_3 question.que_4}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Categoría: </span>
+                        <input type="text" value="{{{ category question.cat_id}}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Nivel: </span>
+                        <input type="text" value="{{{ level question.lev_id }}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Tipo: </span>
+                        <input type="text" value="{{{type question.ty_id}}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+
+
+                        <!--button type="submit" class="btn btn-success">Actualizar pregunta</button-->
                 </div>
             </div>
         </div>
