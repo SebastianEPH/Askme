@@ -1,46 +1,87 @@
 <div class="container">
-    <h3> Hola {{user.user_fullname}}</h3>
-    <p>Usted es {{typeUserText user }}</p>
+    <h3 class="p-5" style="text-align: center">Hola {{user.user_fullname}}, usted puede acceder a las siguientes Zonas: </h3>
+    <p>Modo: {{typeUserText user.user_id}}</p>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <img class="rounded-circle" src="img/profile/users.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Zona usuarios</h2>
+            <p>Puede ver la lista de estudiantes y docentes.</p>
+            <p>
+                En el apartado de estudiantes, usted puede ver la lista de examanes tomados, y sus notas.
+            </p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pregunta
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="#">Crear pregunta</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Ver mis preguntas</a></li>
+                    <li><a class="dropdown-item" href="#">Ver todas las preguntas</a></li>
+                </ul>
+            </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <img class="rounded-circle" src="img/profile/exam.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Zona Examenes</h2>
+            <p>{{user.user_fullname}} usted como docente puede crear, editar, y eliminar exámenes. </p>
+            <p>Puede establecer un tiempo limite, cantidad de preguntas y mucho más.</p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Exámen
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="#">Crear un exámen</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Ver mis exámenes</a></li>
+                        <li><a class="dropdown-item" href="#">Ver todos los examenes</a></li>
+                    </ul>
+                </div>
+
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+            <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Zona preguntas</h2>
+            <p>En este apartado usted puede crear, editar y eliminar preguntas escogiendo
+                entre las categorías, niveles y el tipo de pregunta.
+            </p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pregunta
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="#">Crear pregunta</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Ver mis preguntas</a></li>
+                    <li><a class="dropdown-item" href="#">Ver todas las preguntas</a></li>
+                </ul>
+            </div>
+        </div><!-- /.col-lg-4 -->
+        <br><br>
+
+        <div class="col-lg-4 mx-auto  p-5  ">
+            <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Zona mi perfil</h2>
+            <p>Podrá ver su información , tambien editar y actualizar sus datos.
+            </p>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Mi perfil
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="#">Ver datos</a></li>
+                    <li><a class="dropdown-item" href="#">Editar mi datos</a></li>
+
+                </ul>
+            </div>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
 
+
+
 </div>
 
-
-
-
-<div class="container ">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h3>Welcome {{user.user_fullname}}</h3>
-                    <h4>{{user.user_nick}}</h4>
-                    <h3>Usted es estudiante, o procefor</h3>
-                    <a href="/question" class="btn btn-primary m-4">
-                        Guarda tus preguntas
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

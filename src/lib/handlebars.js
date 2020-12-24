@@ -58,9 +58,9 @@ helpers.checkSuccessReply=(que, que_true)=>{
         }
 }
 
-helpers.typeUserText=(user)=>{
-    console.log(user)
-    if (user.type_id === 2){
+helpers.typeUserText=(user_id)=>{
+    console.log(user_id)
+    if (user_id.type_id === 2){
         console.log('Es estudiante')
         return "Estudiante";
     }else{
@@ -71,10 +71,10 @@ helpers.typeUserText=(user)=>{
 helpers.isStudent=(user)=>{  // Verifica
     console.log(user)
     if (user.type_id === 1){
-        console.log('Es Docente')
+        console.log('Docente')
         return false;
     }else{
-        console.log('Es Estudiante')
+        console.log('Estudiante')
         return true;
     }
 }

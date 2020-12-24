@@ -6,8 +6,9 @@ controller.get_new= (req, res)=>{
 
 }
 controller.get_view_only_user= async (req, res)=>{
-    const exam = await pool.query('SELECT * FROM exam WHERE id', [req.user.user_id])
-    console.log('$$$$$$$$$$$$$$$$$$$$')
+    const exam = await pool.query('SELECT * FROM exam WHERE user_id = ?', [req.user.user_id])
+    console.log('$$$$$$$$$$$$$$$$$$$$____')
+    console.log(req.user.user_id);
     console.log(exam)
     res.render('view_exam/view',{
         data: exam,
@@ -26,8 +27,6 @@ controller.get_view_all = async (req, res)=>{
 }
 controller.get_create= (req, res)=>{
     res.render('view_exam/create')
-
-
 }
 controller.post_create= async (req, res)=>{
     console.log('#########################')
