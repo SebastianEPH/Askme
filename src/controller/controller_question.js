@@ -58,16 +58,16 @@ controller.post_update = async(req, res)=>{
     res.redirect ('/question')
 }
 controller.get_show_onlyUser = async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
+    const data = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
     res.render('data_question/show',{
-        question: question,
-        all: false
+        data: data,
+        all:false
     })
 }
 controller.get_show_all = async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question', [req.user.user_id])
+    const data= await pool.query('SELECT * FROM question', [req.user.user_id])
     res.render('data_question/show',{
-        question: question,
+        data: data,
         all:true
     })
 }

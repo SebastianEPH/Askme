@@ -6,7 +6,7 @@ controller.get_new= (req, res)=>{
 
 }
 controller.get_view_only_user= async (req, res)=>{
-    const exam = await pool.query('SELECT * FROM exam', [req.user.user_id])
+    const exam = await pool.query('SELECT * FROM exam WHERE id', [req.user.user_id])
     console.log('$$$$$$$$$$$$$$$$$$$$')
     console.log(exam)
     res.render('view_exam/view',{
@@ -15,8 +15,14 @@ controller.get_view_only_user= async (req, res)=>{
     })
 
 }
-controller.get_view_all = (req, res)=>{
-
+controller.get_view_all = async (req, res)=>{
+    const exam = await pool.query('SELECT * FROM exam', [req.user.user_id])
+    console.log('$$$$$$$$$$$$$$$$$$$$')
+    console.log(exam)
+    res.render('view_exam/view',{
+        data: exam,
+        all:true
+    })
 }
 controller.get_create= (req, res)=>{
     res.render('view_exam/create')
