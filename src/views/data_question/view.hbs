@@ -3,9 +3,9 @@
         <div class="col-md-7 mx-auto">
             <div class="card ">
                 <div class="card-body">
-                    <h2>{{{question.que_que}}} </h2>
+                    <h2 style="text-align: center">{{{question.que_que}}} </h2>
 
-
+                    <br>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" {{checkQuestionTrue 1 question.que_true}}>
                         <label class="form-check-label" for="exampleRadios1">
@@ -48,11 +48,14 @@
                         <span class="input-group-text" id="basic-addon1">Tipo: </span>
                         <input type="text" value="{{{type question.ty_id}}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
-
-
+                    <div style="text-align: center">
+                        <a href="/question/edit/{{que_id}}" class="btn btn-warning">Editar</a>
+                        <a href="/question/delete/{{que_id}}" class="btn btn-danger">Eliminar</a>
+                    </div>
 
                         <!--button type="submit" class="btn btn-success">Actualizar pregunta</button-->
                 </div>
+
             </div>
         </div>
     </div>

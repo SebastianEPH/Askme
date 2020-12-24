@@ -1,80 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../database') // database import
-const subpath = 'data_question'
+
+const ques = require('../controller/controller_question')
+
 // protege rutas
 const {isLoggedIn, isNotLoggedIn, passIsTeacher, passIsStudent} = require('../lib/auth') // se usará en todas las listas qe se desea proteger
 
-router.get('/add', isLoggedIn,passIsTeacher, (req, res)=>{
-    res.render(subpath+'/add')
-})
-router.post('/add', isLoggedIn, passIsTeacher, async (req,res)=>{
-    const {cat_id, lev_id, ty_id, que_que, que_1, que_2, que_3, que_4, que_true} = req.body;
-    const newQuestion= {
-        cat_id,
-        lev_id,
-        ty_id,
-        que_que,
-        que_1,
-        que_2,
-        que_3,
-        que_4,
-        que_true,
-        user_id : req.user.user_id
-    }
-    await pool.query('INSERT INTO question SET ? ', [newQuestion]);
-    req.flash('success', 'Se guardó la pregunta correctamente')
-    res.redirect('/question')
-})
-router.get('/delete/:id', isLoggedIn, passIsTeacher, async (req, res)=>{
-    const {id} = req.params;
-    console.log(req.params)
-    await pool.query('DELETE FROM question WHERE que_id = ? ',[id])
-    req.flash('success', 'Se eliminó la pregunta correctamente')
-    res.redirect('/question')
-
-})
-router.get('/edit/:id', isLoggedIn, passIsTeacher,  async (req, res)=>{
-    const {id} = req.params
-    console.log(req.params)
-    console.log([id])
-    const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
-    console.log(question)
-    res.render(subpath + '/edit',{
-        question : question[0] //  question[0]
-    })
-})
-router.get('/view/:id', isLoggedIn, passIsTeacher,  async (req, res)=>{
-    const {id} = req.params
-    console.log(req.params)
-    console.log([id])
-    const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
-    console.log(question)
-    res.render(subpath + '/view',{
-        question : question[0] //  question[0]
-    })
-})
-router.post('/update/:id', isLoggedIn,passIsTeacher, async(req, res)=>{
-    const {id} = req.params
-    const data = req.body
-    await pool.query('UPDATE question set ? WHERE que_id = ?', [data, id])
-    req.flash('success', "Se editó la pregunta correctamente")
-    res.redirect ('/question')
-} )
-router.get('/', isLoggedIn, passIsTeacher, async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
-    res.render(subpath+'/show',{
-        question: question,
-        all: false
-    })
-})
-router.get('/all', isLoggedIn, passIsTeacher, async (req,res)=>{
-    const question = await pool.query('SELECT * FROM question', [req.user.user_id])
-    res.render(subpath+'/show',{
-        question: question,
-        all:true
-
-    })
-})
+router.get('/add',  isLoggedIn,passIsTeacher, ques.get_add)
+router.post('/add', isLoggedIn, passIsTeacher, ques.post_add)
+router.get('/delete/:id', isLoggedIn, passIsTeacher, ques.get_delete)
+router.get('/edit/:id', isLoggedIn, passIsTeacher,  ques.get_edit)
+router.get('/view/:id', isLoggedIn, passIsTeacher, ques.view)
+router.post('/view/:id', isLoggedIn, passIsTeacher, ques.view )
+router.post('/update/:id', isLoggedIn,passIsTeacher, ques.post_update)
+router.get('/', isLoggedIn, passIsTeacher, ques.get_show_onlyUser)
+router.get('/all', isLoggedIn, passIsTeacher, ques.get_show_all )
 
 module.exports = router;
