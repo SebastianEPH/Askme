@@ -12,39 +12,32 @@
             <div class="container">
                 <div class="row">
                     {{#each data}}
-                        <div class="gallery_product col-md-7 filter center ">
+                       <div class="col-sm-6">
+                           <div class="card-header">
+                               <ul class="nav nav-tabs card-header-tabs">
+                                   <li class="nav-item">
+                                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{category cat_id}}</a>
+                                   </li>
+                                   <li class="nav-item">
+                                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{level lev_id}}</a>
+                                   </li>
 
-
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Special title treatment</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    2 days ago
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Special title treatment</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    2 days ago
-                                </div>
-                            </div>
-                        </div>
-                    {{/each}}
+                               </ul>
+                           </div>
+                           <div class="card">
+                               <div class="card-body">
+                                   <h5 class="card-title">{{title}}</h5>
+                                   <p class="card-text">{{commentary}}</p>
+                                   <a href="#" class="btn btn-primary">Tomar Exámen</a>
+                                   <a href="#" class="btn btn-primary">Editar Exámen</a>
+                                   <a href="#" class="btn btn-primary">Eliminar</a>
+                               </div>
+                           </div>
+                           <div class="card-footer text-muted">
+                               2 days ago
+                           </div>
+                       </div>
+                {{/each}}
                 </div>
 
             </div>

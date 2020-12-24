@@ -26,9 +26,10 @@ controller.get_create= (req, res)=>{
 controller.post_create= async (req, res)=>{
     console.log('#########################')
     console.log(req.body)
-    const {title, category, level, random, time, question, } = req.body;
+    const {title, commentary, category, level, random, time, question, } = req.body;
     const newExam= {
         title,
+        commentary,
         cat_id: category,
         lev_id: level,
         reply_ran: random,
