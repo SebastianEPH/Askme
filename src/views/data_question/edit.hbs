@@ -1,6 +1,6 @@
-<div class="container p-10">
+<div class="container p-5">
     <div class="row">
-        <div class="col-md-4 mx-auto">
+        <div class="col-md-5 mx-auto">
             <div class="card ">
                 <div class="card-body">
                     <form action="/question/update/{{question.que_id}}" method="post">
@@ -63,7 +63,12 @@
                                 <option value="4" {{{selected question.que_true 4}}} >Alternativa 4</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-success">Actualizar pregunta</button>
+                        <div class="form-group" style="text-align: center">
+                            <button class="btn btn-success "> <!--btn-block-->
+                                Guardar pregunta
+                            </button>
+                        </div>
+
 
                     </form>
                 </div>

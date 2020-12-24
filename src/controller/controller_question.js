@@ -69,7 +69,6 @@ controller.get_show_all = async (req,res)=>{
     res.render('data_question/show',{
         question: question,
         all:true
-
     })
 }
 

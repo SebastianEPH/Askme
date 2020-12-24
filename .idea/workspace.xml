@@ -20,8 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/view_exam/create.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/view_exam/view.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/data_question/view.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/view.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_exam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/data_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/data_exam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/data_question/edit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/edit.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/data_question/show.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/show.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partials/message.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/message.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +114,7 @@
       <workItem from="1608095020241" duration="1626000" />
       <workItem from="1608126846157" duration="3687000" />
       <workItem from="1608597204753" duration="25602000" />
-      <workItem from="1608732715503" duration="47906000" />
+      <workItem from="1608732715503" duration="54135000" />
     </task>
     <servers />
   </component>

@@ -53,7 +53,7 @@ app.use((req, res, next)=>{
 app.use(require('./routes/index'));  // No es necesario escribir la extension o el nombre si es index
 app.use(require('./routes/authentication'));
 app.use('/question', require('./routes/data_question'));
-app.use('/exam',require('./routes/data_question'));
+app.use('/exam',require('./routes/data_exam'));
 
 
 // Public <= Código y archivos que el navegador puede acceder

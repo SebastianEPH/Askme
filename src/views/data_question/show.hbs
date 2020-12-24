@@ -1,5 +1,5 @@
 <div class="container p-4">
-    {{#if question}}
+    {{#if data}}
         {{#if all}}
             <h1 style="text-align: center">Todas las preguntas <span class="badge bg-secondary"></span></h1>
         {{else}}
@@ -21,7 +21,7 @@
                 </div>
                 <br><br>
                 <div class="row">
-                    {{#each question}}
+                    {{#each data}}
                         <div class="gallery_product col-md-4 filter center {{cat_id}}">
 
                                     <div class="card text-center">
