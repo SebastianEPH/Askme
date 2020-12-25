@@ -31,15 +31,16 @@ passport.use('local.signup', new Strategy({
     passwordField: 'user_pass',
     passReqToCallback: true // Recibe el objeto requess dentro de esta función
 },async (req, user_nick, user_pass, done )=>{ // Callback
-    const { fullname, type_id, user_email, user_phone_prefijo, user_phone } = req.body;
+    const {fullname, type_id, genero, user_email,  user_phone_prefijo, user_phone } = req.body;
 
     const newUser = {
         user_nick,
-        user_password: user_pass,
         user_fullname: fullname,
         user_email,
+        user_password: user_pass,
         user_phone: user_phone_prefijo + user_phone,
         type_id,
+        user_gen:genero
     }
     newUser.user_password = await helpers.encryptPassword(user_pass)
     console.log(newUser)
