@@ -23,7 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/partials/navegation.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navegation.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/view_exam/view.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/view.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +110,7 @@
       <workItem from="1608126846157" duration="3687000" />
       <workItem from="1608597204753" duration="25602000" />
       <workItem from="1608732715503" duration="55387000" />
-      <workItem from="1608842615522" duration="18617000" />
+      <workItem from="1608842615522" duration="23084000" />
     </task>
     <servers />
   </component>

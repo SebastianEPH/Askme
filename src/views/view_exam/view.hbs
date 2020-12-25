@@ -12,31 +12,25 @@
             <div class="container">
                 <div class="row">
                     {{#each data}}
-                       <div class="col-sm-6">
-                           <div class="card-header">
-                               <ul class="nav nav-tabs card-header-tabs">
-                                   <li class="nav-item">
-                                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{category cat_id}}</a>
-                                   </li>
-                                   <li class="nav-item">
-                                       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{level lev_id}}</a>
-                                   </li>
+                           <div class="col-sm-6 ">
+                               <div class="card-header">
+                                   <span class="badge bg-secondary">{{category cat_id}}</span>
+                                   <span class="badge bg-secondary">{{level lev_id}}</span>
+                                   <span class="badge bg-danger"></span>
+                                   <span class="badge bg-secondary">{{cant_ques}} preguntas</span>
 
-                               </ul>
-                           </div>
-                           <div class="card">
-                               <div class="card-body">
-                                   <h5 class="card-title">{{title}}</h5>
-                                   <p class="card-text">{{commentary}}</p>
-                                   <a href="#" class="btn btn-primary">Tomar Exámen</a>
-                                   <a href="#" class="btn btn-primary">Editar Exámen</a>
-                                   <a href="#" class="btn btn-primary">Eliminar</a>
                                </div>
+                               <div class="card">
+                                   <div class="card-body">
+                                       <h5 class="card-title">{{title}}</h5>
+                                       <p class="card-text"><b>Nota:</b> {{commentary}}</p>
+                                       <a href="#" class="btn btn-success">Tomar Exámen</a>
+                                       <a href="#" class="btn btn-warning">Editar Exámen</a>
+                                       <a href="#" class="btn btn-danger">Eliminar</a>
+                                   </div>
+                               </div>
+                               <div class="p-3"></div>
                            </div>
-                           <div class="card-footer text-muted">
-                               2 days ago
-                           </div>
-                       </div>
                 {{/each}}
                 </div>
 

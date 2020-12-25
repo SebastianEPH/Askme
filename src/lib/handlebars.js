@@ -14,7 +14,7 @@ helpers.category = (num)=>{
         case 4 : return "Diseño gráfico";
         case 5 : return "Cultura general";
         case 6 : return "Office";
-        default: return "Sin categoría"
+        default: return "Todas"
     }
 }
 helpers.level = (level)=>{
@@ -22,7 +22,7 @@ helpers.level = (level)=>{
         case 1 : return "Facil";
         case 2 : return "Intermedio";
         case 3 : return "Dificil";
-        default: return "level Error in database"
+        default: return "Variado"
     }
 }
 helpers.type = (type)=>{
