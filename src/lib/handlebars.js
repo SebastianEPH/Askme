@@ -60,7 +60,8 @@ helpers.checkSuccessReply=(que, que_true)=>{
 
 helpers.typeUserText=(user_id)=>{
     console.log(user_id)
-    if (user_id.type_id === 2){
+    console.log('%$%$%$%$%$%$%$%$')
+    if (user_id === 2){
         console.log('Es estudiante')
         return "Estudiante";
     }else{
@@ -70,7 +71,7 @@ helpers.typeUserText=(user_id)=>{
 }
 helpers.isStudent=(user)=>{  // Verifica
     console.log(user)
-    if (user.type_id === 1){
+    if (user=== 2){
         console.log('Docente')
         return false;
     }else{
@@ -106,8 +107,13 @@ helpers.checkQuestionTrue=(que_que, que_true)=>{
     }else{
         return "disabled";
     }
-
-
+}
+helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
+    switch (gen){
+        case 1 : return 'img/profile/'+ path_men;
+        case 0 : return 'img/profile/'+ path_girl;
+        default: return 'img/profile/'+ path_other
+    }
 }
 
 module.exports = helpers;

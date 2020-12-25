@@ -50,13 +50,12 @@ passport.use('local.signup', new Strategy({
     return done(null, newUser)
 }));
 
-
 // Guarda en sesiones
 passport.serializeUser((user, done)=>{
     done(null, user.user_id)    // Guarda id del usuario
 })
 passport.deserializeUser(async(id, done)=>{
-    const rows = await pool.query('SELECT * FROM user WHERE user_id = ? ',[id]);  // Vuelve a optener los datos
+    const rows = await pool.query('SELECT * FROM user WHERE user_id = ? ', [id]);  // Vuelve a optener los datos
     done(null, rows[0])
 })
 // referente a login e inicio de sesión

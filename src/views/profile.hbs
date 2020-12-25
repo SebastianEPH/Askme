@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="p-5" style="text-align: center">Hola {{user.user_fullname}}, usted puede acceder a las siguientes Zonas: </h3>
-    <p>Modo: {{typeUserText user.user_id}}</p>
+    <p>Modo: {{typeUserText user.type_id}}</p>
     <br>
     <br>
     <br>
@@ -63,7 +63,7 @@
         <br><br>
 
         <div class="col-lg-4 mx-auto  p-5  ">
-            <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
+            <img class="rounded-circle" src="{{ifMenPicture user.user_gen 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona mi perfil</h2>
             <p>Podrá ver su información , tambien editar y actualizar sus datos.
             </p>
