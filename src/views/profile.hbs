@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="p-5" style="text-align: center">Hola {{user.user_fullname}}, usted puede acceder a las siguientes Zonas: </h3>
+    <h3 class="p-4" style="text-align: center">Hola {{user.user_fullname}}, usted puede acceder a las siguientes Zonas: </h3>
     <p>Modo: {{typeUserText user.type_id}}</p>
     <br>
     <br>
@@ -14,34 +14,35 @@
             </p>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pregunta
+                    Ver lista
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="#">Crear pregunta</a></li>
+                    <li><a class="dropdown-item" href="/view/student">Estudiantes</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Ver mis preguntas</a></li>
-                    <li><a class="dropdown-item" href="#">Ver todas las preguntas</a></li>
+                    <li><a class="dropdown-item" href="/view/teacher">Docentes</a></li>
                 </ul>
             </div>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="rounded-circle" src="img/profile/exam.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Zona Examenes</h2>
-            <p>{{user.user_fullname}} usted como docente puede crear, editar, y eliminar exámenes. </p>
-            <p>Puede establecer un tiempo limite, cantidad de preguntas y mucho más.</p>
+        {{#if (isTeacher user.type_id)}}
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="img/profile/exam.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Zona Examenes</h2>
+                <p>{{user.user_fullname}} usted como docente puede crear, editar, y eliminar exámenes. </p>
+                <p>Puede establecer un tiempo limite, cantidad de preguntas y mucho más.</p>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                         Exámen
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Crear un exámen</a></li>
+                        <li><a class="dropdown-item" href="/exam/create">Crear un exámen</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Ver mis exámenes</a></li>
-                        <li><a class="dropdown-item" href="#">Ver todos los examenes</a></li>
+                        <li><a class="dropdown-item" href="/exam/">Ver mis exámenes</a></li>
+                        <li><a class="dropdown-item" href="/exam/all">Ver todos los examenes</a></li>
                     </ul>
                 </div>
+            </div><!-- /.col-lg-4 -->
+        {{/if}}
 
-        </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona preguntas</h2>
@@ -53,16 +54,18 @@
                     Pregunta
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="#">Crear pregunta</a></li>
+                    <li><a class="dropdown-item" href="/question/add/">Crear pregunta</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Ver mis preguntas</a></li>
-                    <li><a class="dropdown-item" href="#">Ver todas las preguntas</a></li>
+                    <li><a class="dropdown-item" href="/question/">Ver mis preguntas</a></li>
+                    <li><a class="dropdown-item" href="/question/all/">Ver todas las preguntas</a></li>
                 </ul>
             </div>
-        </div><!-- /.col-lg-4 -->
-        <br><br>
-
-        <div class="col-lg-4 mx-auto  p-5  ">
+        </div>
+        <div class="col-lg-4 mx-auto">
+            {{{isTeacherText user.type_id '
+            <div class="p-4">
+            </div>'
+             ''}}}
             <img class="rounded-circle" src="{{ifMenPicture user.user_gen 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona mi perfil</h2>
             <p>Podrá ver su información , tambien editar y actualizar sus datos.
@@ -72,8 +75,8 @@
                     Mi perfil
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="#">Ver datos</a></li>
-                    <li><a class="dropdown-item" href="#">Editar mi datos</a></li>
+                    <li><a class="dropdown-item" href="/profile/view/">Ver datos</a></li>
+                    <li><a class="dropdown-item" href="/profile/edit/">Editar mi datos</a></li>
 
                 </ul>
             </div>

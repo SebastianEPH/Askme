@@ -69,26 +69,39 @@ helpers.typeUserText=(user_id)=>{
         return "Docente";
     }
 }
-helpers.isStudent=(user)=>{  // Verifica
-    console.log(user)
+// return True or False
+helpers.isStudent=(user)=>{
     if (user=== 2){
-        console.log('Docente')
         return false;
     }else{
-        console.log('Estudiante')
         return true;
     }
 }
+// return string personalized
+helpers.isStudentText=(user, success, error)=>{
+    if (user=== 2){
+        return error;
+    }else{
+        return success;
+    }
+}
+// return True or False
 helpers.isTeacher=(user)=>{  // Verifica
-    console.log(user)
-    if (user.type_id === 1){
-        console.log('Es Docente')
+    if (user=== 1){
         return true;
     }else{
-        console.log('Es Estudiante')
         return false;
     }
 }
+// return string personalized
+helpers.isTeacherText=(user, success, error)=>{  // Verifica
+    if (user=== 1){
+        return success;
+    }else{
+        return error;
+    }
+}
+
 helpers.isQuestionTrue=(que_true, que_1, que_2, que_3, que_4)=>{
 
     switch (que_true){
