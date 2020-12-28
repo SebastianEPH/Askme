@@ -42,10 +42,11 @@ app.use(passport.session());
 
 // Global Valiables
 app.use((req, res, next)=>{
-    app.locals.success =  req.flash('success') // <==Almacenamos mensaje
-    app.locals.warning = req.flash('warning')
+    app.locals.success =  req.flash('success') // <== Texto de ventana emergente | Exito |
+    app.locals.warning = req.flash('warning')   // <== Texto de ventana emergente | Advertencia |
     app.locals.user = req.user; // Almacenamos datos del usuario
-
+    app.locals.exam = req.exam; // Almacenamos Preguntas
+    //app.locals.exam = req.d; // Almacenamos Preguntas
     next();
 });
 
@@ -59,8 +60,8 @@ app.use('/exam',require('./routes/data_exam'));
 // Public <= Código y archivos que el navegador puede acceder
 app.use(express.static(path.join(__dirname, 'public')))
 
-//starting the server
 
+//starting the server
 app.listen(app.get('port'),()=>{
     console.log('Server on port ', app.get('port'));
 });

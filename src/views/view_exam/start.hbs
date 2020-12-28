@@ -1,0 +1,68 @@
+<div class="container p-10">
+    <h1>El Examen comenzó</h1>
+    <br><br><br> <div class="row">
+    <div class="col-md-7 mx-auto">
+        <div class="card ">
+            <div class="card-body">
+
+                <form action="/exam/start/{{exam.id}}/{{question.que_true}}" method="post">
+                    <h2 style="text-align: center">{{{question.que_que}}} </h2>
+
+                    <br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios1" value="1">
+                        <label class="form-check-label" for="exampleRadios1">
+                            {{{question.que_1}}}
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            {{{question.que_2}}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios3" value="3">
+                        <label class="form-check-label" for="exampleRadios3">
+                            {{{question.que_3}}}
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios4" value="4">
+                        <label class="form-check-label" for="exampleRadios4">
+                            {{{question.que_4}}}
+                        </label>
+                    </div>
+                    <br>
+
+                    <div style="text-align: center">
+                        <button type="submit" class="btn btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                            </svg>
+                            Siguiente
+                        </button>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{_success}}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: {{_error}}%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    function deshabilitaRetroceso(){
+        console.log('Borro el cachéé')
+        window.location.hash="no-back-button";
+        window.location.hash="Again-No-back-button" //chrome
+        window.onhashchange=function(){window.location.hash="no-back-button";}
+    }
+</script>
