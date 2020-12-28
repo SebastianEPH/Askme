@@ -5,7 +5,7 @@
         <div class="card ">
             <div class="card-body">
 
-                <form action="/exam/start/{{exam.id}}/{{question.que_true}}" method="post">
+                <form action="/exam/start/{{exam.id}}/{{question.que_id}}/{{question.que_true}}/{{que_num}}/{{exam.cant_ques}}/{{attempts}}" method="post">
                     <h2 style="text-align: center">{{{question.que_que}}} </h2>
 
                     <br>
@@ -15,7 +15,6 @@
                             {{{question.que_1}}}
                         </label>
                     </div>
-
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios2" value="2">
                         <label class="form-check-label" for="exampleRadios2">
@@ -35,7 +34,6 @@
                         </label>
                     </div>
                     <br>
-
                     <div style="text-align: center">
                         <button type="submit" class="btn btn-success">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">

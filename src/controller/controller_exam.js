@@ -43,6 +43,7 @@ controller.post_create= async (req, res)=>{
         cant_ques: question,
         user_id : req.user.user_id
     }
+
     console.log(newExam)
     await pool.query('INSERT INTO exam SET ? ', [newExam]);
     req.flash('success', 'Se creó el examen correctamente')
@@ -56,29 +57,46 @@ controller.get_start = async (req, res)=>{
     console.log(exam[0])
     const question = await pool.query('SELECT * FROM question ' )
     //console.log(question)
-    console.log(question[3].que_id)
+    console.log(question[45].que_id)
     res.render('view_exam/start',{
-        question: question[5],
+        question: question[52],
         exam: exam[0],
+        que_num:1,
+        attempts: 1,
         _error: 21,
         _success:50
     })
     //res.send('finalizó')
 }
 controller.post_start =async (req, res)=>{
-    const {exam_id, que_reply} = req.params ;   // Correct
+    /*
+    # información
+    exam_id:    Id del examen actual
+    que_id:     Pregunta actual
+    que_true:   Respuesta correcta de la pregunta
+    que_reply:  Respuesta del usuario
+
+    # Metadata
+    que_n:      de N preguntas , en cual estamos
+    que_total:  Maximo de preguntas
+    attempts:   Intentos
+
+ */
+   // const exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [id])
+
     const {user_reply} = req.body; // User Reply
     const exam_user = {
-        exam_id : exam_id,
+        exam_id : req.params.exam_id,
         user_id : req.user.user_id,
-        que_id: 93,
-        que_istrue: 1,
-        que_n : 3,
-        que_total: 23,
-        attempts: 2
+        que_id: req.params.que_id,
+        que_istrue: 2,
+        //que_true: req.params.que_true,
+        que_n : req.params.que_n,
+        que_total: req.params.que_total,
+        attempts: req.params.attempts
     }
-
-    if(user_reply === que_reply){
+    console.log(exam_user)
+    if(req.params.que_true === user_reply){
         success = "Respuesta correcta + feedback"
         exam_user.que_istrue  = 1 ;
     }else{
@@ -86,7 +104,7 @@ controller.post_start =async (req, res)=>{
         exam_user.que_istrue  = 0 ;
     }
 
-    //await pool.query('INSERT INTO exam_user SET ? ', [exam_user])
+    await pool.query('INSERT INTO exam_user SET ? ', [exam_user])
     //console.log(exam_insert)
 
 
