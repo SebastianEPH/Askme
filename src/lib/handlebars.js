@@ -1,4 +1,6 @@
 const {format} = require('timeago.js')
+const pool = require('../database') // async
+
 
 const helpers = {}
 // Convierte fecha a tiempo transcurrido
@@ -128,5 +130,17 @@ helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
         default: return 'img/profile/'+ path_other
     }
 }
+/*
+helpers.get_name_user = async ( user_id) =>{
 
+    const user_=  await pool.query('SELECT * FROM user WHERE user_id = ?', [user_id])
+    console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR')
+    console.log(user_[0].fullname)
+    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+
+    return String(user_[0].fullname)
+
+    //return userr[user_id]
+}
+*/
 module.exports = helpers;

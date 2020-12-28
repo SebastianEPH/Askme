@@ -9,7 +9,7 @@ controller.get_view_only_user= async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam WHERE user_id = ?', [req.user.user_id])
     console.log('$$$$$$$$$$$$$$$$$$$$____')
     console.log(req.user.user_id);
-    console.log(exam)
+
     res.render('view_exam/view',{
         data: exam,
         all:false
@@ -19,8 +19,6 @@ controller.get_view_only_user= async (req, res)=>{
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam', )
     console.log('$$$$$$$$$$$$$$$$$$$$')
-    console.log(exam)
-
     res.render('view_exam/view',{
         data: exam,
         all:true
@@ -54,8 +52,9 @@ controller.get_start = async (req, res)=>{
     console.log(id)
     // get exam
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [id])
-    console.log(exam[0])
     const question = await pool.query('SELECT * FROM question ' )
+
+
     //console.log(question)
     console.log(question[45].que_id)
     res.render('view_exam/start',{
