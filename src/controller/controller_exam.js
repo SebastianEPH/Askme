@@ -2,7 +2,7 @@ const pool = require('../database') // database import
 const controller = {}
 
 
-controller.get_new= (req, res)=>{
+controller.get_delete= (req, res)=>{
 
 }
 controller.get_view_only_user= async (req, res)=>{
