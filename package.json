@@ -19,6 +19,7 @@
   "homepage": "https://github.com/SebastianEPH/NodeJS_AdministratorInformation#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootswatch": "^4.5.3",
     "connect-flash": "^0.1.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",

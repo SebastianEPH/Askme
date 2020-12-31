@@ -124,6 +124,9 @@ helpers.checkQuestionTrue=(que_que, que_true)=>{
     }
 }
 helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
+    console.log('El tgenero que lelgo es ')
+    console.log(gen)
+    console.log("FINDINFIN")
     switch (gen){
         case 1 : return 'img/profile/'+ path_men;
         case 0 : return 'img/profile/'+ path_girl;
