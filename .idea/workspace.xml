@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/layouts/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/others/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/others/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +113,7 @@
       <workItem from="1609165461679" duration="10000" />
       <workItem from="1609182655241" duration="625000" />
       <workItem from="1609267005318" duration="2888000" />
-      <workItem from="1609330210926" duration="11825000" />
+      <workItem from="1609330210926" duration="12612000" />
     </task>
     <servers />
   </component>
