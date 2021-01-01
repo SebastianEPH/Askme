@@ -46,8 +46,9 @@ controller.post_create= async (req, res)=>{
         cant_ques: question,
         user_id : req.user.user_id
     }
-    console.log(newExam)
-    await pool.query('INSERT INTO exam SET ? ', [newExam]);
+    //console.log(newExam)
+
+    //await pool.query('INSERT INTO exam SET ? ', [newExam]);
     req.flash('success', 'Se creó el examen correctamente')
     res.redirect('/exam')
 }
