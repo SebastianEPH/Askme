@@ -123,6 +123,14 @@ helpers.checkQuestionTrue=(que_que, que_true)=>{
         return "disabled";
     }
 }
+helpers.checkQuestionTrueSelected=(que_que, que_true)=>{
+
+    if (que_que === que_true){
+        return 'selected ';
+    }else{
+        return "";
+    }
+}
 helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
     console.log('El tgenero que lelgo es ')
     console.log(gen)
@@ -133,6 +141,17 @@ helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
         default: return 'img/profile/'+ path_other
     }
 }
+/*
+helpers.ifUserR = (user_id, return_true, return_false)=>{
+    console.log(user_id)
+    console.log(app.locals.user)
+    if (user_id=== req.user.user_id){
+        return return_true;
+    }else{
+        return return_false;
+    }
+
+}*/
 /*
 helpers.get_name_user = async ( user_id) =>{
 

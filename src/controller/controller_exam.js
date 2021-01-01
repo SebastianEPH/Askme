@@ -14,7 +14,6 @@ controller.get_view_only_user= async (req, res)=>{
         data: exam,
         all:false
     })
-
 }
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam', )
@@ -24,8 +23,14 @@ controller.get_view_all = async (req, res)=>{
         all:true
     })
 }
-controller.get_create= (req, res)=>{
-    res.render('view_exam/create')
+controller.get_create= async (req, res)=>{
+    const data= await pool.query('SELECT * FROM question', [req.user.user_id])
+    data.nuevoitem = req.user.user_id
+    res.render('view_exam/create', {
+        data: data,
+        all:true,
+    });
+    console.log(data)
 }
 controller.post_create= async (req, res)=>{
     console.log('#########################')
@@ -41,7 +46,6 @@ controller.post_create= async (req, res)=>{
         cant_ques: question,
         user_id : req.user.user_id
     }
-
     console.log(newExam)
     await pool.query('INSERT INTO exam SET ? ', [newExam]);
     req.flash('success', 'Se creó el examen correctamente')
@@ -113,14 +117,6 @@ controller.post_start =async (req, res)=>{
 
 
 }
-
-
-
-
-
-
-
-
 
 
 
