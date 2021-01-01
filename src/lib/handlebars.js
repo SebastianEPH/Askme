@@ -53,11 +53,7 @@ helpers.selected = (value, valor)=>{
 
 }
 helpers.checkSuccessReply=(que, que_true)=>{
-        if (que === que_true){
-            return true;
-        }else{
-            return false;
-        }
+        return que === que_true;
 }
 
 helpers.typeUserText=(user_id)=>{
@@ -73,11 +69,7 @@ helpers.typeUserText=(user_id)=>{
 }
 // return True or False
 helpers.isStudent=(user)=>{
-    if (user=== 2){
-        return false;
-    }else{
-        return true;
-    }
+    return user !== 2;
 }
 // return string personalized
 helpers.isStudentText=(user, success, error)=>{
@@ -89,11 +81,7 @@ helpers.isStudentText=(user, success, error)=>{
 }
 // return True or False
 helpers.isTeacher=(user)=>{  // Verifica
-    if (user=== 1){
-        return true;
-    }else{
-        return false;
-    }
+    return user === 1;
 }
 // return string personalized
 helpers.isTeacherText=(user, success, error)=>{  // Verifica

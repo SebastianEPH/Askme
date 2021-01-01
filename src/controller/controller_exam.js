@@ -33,24 +33,32 @@ controller.get_create= async (req, res)=>{
     console.log(data)
 }
 controller.post_create= async (req, res)=>{
-    console.log('#########################')
-    console.log(req.body)
-    const {title, commentary, category, level, random, time, question, } = req.body;
-    const newExam= {
-        title,
-        commentary,
-        cat_id: category,
-        lev_id: level,
-        is_random: random,
-        limit_time: time,
-        cant_ques: question,
-        user_id : req.user.user_id
-    }
-    //console.log(newExam)
+    const {title, commentary, time, category, level, chosen_questions } = req.body;
+    if (chosen_questions){
+        const newExam= {
+            title,
+            commentary,
+            //time,
+            cat_id:category,
+            lev_id: level,
+            cant_ques : chosen_questions.length,   // Cantidad de preguntas
+            ques_list : chosen_questions.toString(),    // ID separado por arrays
+            user_id : req.user.user_id
+        }
+        console.log(newExam)
+        if(chosen_questions.length <=3 ){
+            req.flash('warning', 'Error, Debe escoger mínimamente 3 preguntas')
+            res.redirect('/exam')
+        }else{
+            await pool.query('INSERT INTO exam SET ? ', [newExam]);
+            req.flash('success', 'Se creó el examen correctamente')
+            res.redirect('/exam')
+        }
 
-    //await pool.query('INSERT INTO exam SET ? ', [newExam]);
-    req.flash('success', 'Se creó el examen correctamente')
-    res.redirect('/exam')
+    }else{
+        req.flash('warning', 'Error, usted no escogio ninguna pregunta')
+        res.redirect('/exam')
+    }
 }
 controller.get_start = async (req, res)=>{
     const {id} = req.params ;
@@ -58,7 +66,6 @@ controller.get_start = async (req, res)=>{
     // get exam
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [id])
     const question = await pool.query('SELECT * FROM question ' )
-
 
     //console.log(question)
     console.log(question[45].que_id)
