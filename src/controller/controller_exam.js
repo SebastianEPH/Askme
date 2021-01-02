@@ -47,7 +47,7 @@ controller.post_create= async (req, res)=>{
             user_id : req.user.user_id
         }
         console.log(newExam)
-        if(chosen_questions.length <=3 ){
+        if(chosen_questions.length <=2 ){
             req.flash('warning', 'Error, Debe escoger mínimamente 3 preguntas')
             res.redirect('/exam')
         }else{
@@ -77,7 +77,6 @@ controller.get_start = async (req, res)=>{
         ques_list : exam[0].ques_list,    // ID separado por arrays
         user_id : req.user.user_id
     }
-
     const user_exam = {
         que_current: 0,
         user_id: req.user.user_id,
@@ -86,20 +85,21 @@ controller.get_start = async (req, res)=>{
         que_false_reply: 0,
         exam_id : id
     }
-    var cadena = exam[0].ques_list,
-        separador = ",",
-        questions_list = cadena.split(separador);
-    console.log(questions_list)
-    // mostrar preguntas aleatorios
 
-    const chosen_question = Math.floor(Math.random()*questions_list.length)
-    console.log(chosen_question)
-    console.log(Math.floor(Math.random()*questions_list.length))
-    
-    
+    // Convierte String en Array
+    let question_array = util.string_to_array(exam[0].ques_list, ',')
+
+    // Selecciona del array un data aleatorio
+    const chosen_question = util.random(question_array.length)
+
+    // Elimina la pregunta.
+    //question_array = util.removeItemFromArr(question_array, chosen_question)
+
+
+
     
     // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[questions_list[chosen_question]] )
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[question_array[chosen_question]] )
 
 
 
@@ -127,14 +127,13 @@ controller.post_start =async (req, res)=>{
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
 
-
+    req.params.que_current = parseInt(req.params.que_current)   +1
 
     // Verifica si es la primer pregunta
     if (get_exam_user[0].que_list_reply.length <=1){get_exam_user[0].que_list_reply = user_reply
     }else{get_exam_user[0].que_list_reply =","+ user_reply}
 
     const user_exam = {
-        que_current: get_exam_user[0].que_current+1,
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
         que_true_reply: get_exam_user[0].que_true_reply,
         que_false_reply:get_exam_user[0].que_false_reply
@@ -153,40 +152,41 @@ controller.post_start =async (req, res)=>{
 
     // se muestra una pregunta nueva
 
-    //if(get_exam_user[0].que_current >=  get_exam_user[0].cant_ques)
-
     // si exam.cant_ques se supero entonces pasar a la fista final
-
-
-    var cadena = exam[0].ques_list,
-        separador = ",",
-        arregloDeSubCadenas = cadena.split(separador);
-    console.log(arregloDeSubCadenas)
-    // mostrar preguntas aleatorios
-    // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[1]] )
-    res.render('view_exam/start',{
-        question: questions[0],
-        exam: exam[0],
-        que_current: user_exam.que_current,
-        que_total:exam[0].cant_ques,
-        que_true_reply: 0,
-        que_false_reply:0,
-        exam_user_id,
-        _error: 0,
-        _success:0
-    })
+    //  Verifica si es la pregunta final
+    console.log('Pregunta actual: '+req.params.que_current )
+    console.log('Total de preguntas: '+exam[0].cant_ques)
+    if (  req.params.que_current > exam[0].cant_ques ){
+        res.send('El examen terminó')
 
 
 
+    }else{
+        console.log('todavia no llega a las preguntas')
+        // Convierte String en Array
+        let question_array = util.string_to_array(exam[0].ques_list, ',')
+
+        // Selecciona del array un data aleatorio
+        const chosen_question = util.random(question_array.length)
 
 
-
-
-
+        // mostrar preguntas aleatorios
+        // mostrar alternativas aletorias?
+        const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[question_array[chosen_question]] )
+        res.render('view_exam/start',{
+            question: questions[0],
+            exam: exam[0],
+            que_current: req.params.que_current,
+            que_total:exam[0].cant_ques,
+            que_true_reply: 0,
+            que_false_reply:0,
+            exam_user_id,
+            _error: 0,
+            _success:0
+        })
+    }
 
     /*
-
     const {user_reply} = req.body; // User Reply
     const exam_user = {
         exam_id : req.params.exam_id,
@@ -198,8 +198,6 @@ controller.post_start =async (req, res)=>{
         que_total: req.params.que_total,
         attempts: req.params.attempts
     }
-    console.log(exam_user)
-
 
     await pool.query('INSERT INTO exam_user SET ? ', [exam_user])
     //console.log(exam_insert)
@@ -207,7 +205,6 @@ controller.post_start =async (req, res)=>{
     //res.send('post pex lleg+o normal')
     res.redirect('/exam/start/4')
     */
-
 }
 
 
