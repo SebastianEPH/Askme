@@ -120,13 +120,7 @@ controller.post_start =async (req, res)=>{
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
 
-    const get_exam= {
-        cat_id:exam[0].cat_id,
-        lev_id: exam[0].lev_id,
-        cant_ques : exam[0].cant_ques,   // Cantidad de preguntas
-        ques_list : exam[0].ques_list,    // ID separado por arrays
-        user_id : req.user.user_id
-    }
+
 
     // Verifica si es la primer pregunta
     if (get_exam_user[0].que_list_reply.length <=1){get_exam_user[0].que_list_reply = user_reply
@@ -150,6 +144,40 @@ controller.post_start =async (req, res)=>{
 
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
+    // se muestra una pregunta nueva
+
+    //if(get_exam_user[0].que_current >=  get_exam_user[0].cant_ques)
+
+    // si exam.cant_ques se supero entonces pasar a la fista final
+
+
+    var cadena = exam[0].ques_list,
+        separador = ",",
+        arregloDeSubCadenas = cadena.split(separador);
+    console.log(arregloDeSubCadenas)
+    // mostrar preguntas aleatorios
+    // mostrar alternativas aletorias?
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[1]] )
+    res.render('view_exam/start',{
+        question: questions[0],
+        exam: exam[0],
+        que_current: user_exam.que_current,
+        que_total:exam[0].cant_ques,
+        que_true_reply: 0,
+        que_false_reply:0,
+        exam_user_id,
+        _error: 0,
+        _success:0
+    })
+
+
+
+
+
+
+
+
+
     /*
 
     const {user_reply} = req.body; // User Reply
@@ -172,7 +200,6 @@ controller.post_start =async (req, res)=>{
     //res.send('post pex lleg+o normal')
     res.redirect('/exam/start/4')
     */
-    res.send('se envió ')
 
 }
 
