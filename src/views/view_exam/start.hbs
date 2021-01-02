@@ -1,15 +1,18 @@
 <div class="container p-10">
-    <h1>El Examen comenzó</h1>
+    <br>
+    <br>
+    <h1>Pregunta:  n°{{que_current}} de {{que_total}}</h1>
     <br><br><br> <div class="row">
     <div class="col-md-7 mx-auto">
-        <div class="card ">
+        <div class="card p-4 ">
             <div class="card-body">
 
-                <form action="/exam/start/{{exam.id}}/{{question.que_id}}/{{question.que_true}}/{{que_num}}/{{exam.cant_ques}}/{{attempts}}" method="post">
+                <form action="/exam/start/{{que_current}}/{{question.que_true}}/{{que_true_reply}}/{{que_false_reply}}/{{exam.id}}/{{exam_user_id}}" method="post">
                     <h2 style="text-align: center">{{{question.que_que}}} </h2>
 
                     <br>
-                    <div class="form-check">
+                    <div class="form-check ">
+
                         <input class="form-check-input" type="radio" name="user_reply" id="exampleRadios1" value="1">
                         <label class="form-check-label" for="exampleRadios1">
                             {{{question.que_1}}}
@@ -54,6 +57,16 @@
         </div>
     </div>
 </div>
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-danger">
+            Recuerda que una vez responda no podrá volver a la pregunta anterior</a>
+
+    </div>
 </div>
 <script>
     function deshabilitaRetroceso(){

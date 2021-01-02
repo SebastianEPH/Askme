@@ -61,39 +61,143 @@ controller.post_create= async (req, res)=>{
     }
 }
 controller.get_start = async (req, res)=>{
+
     const {id} = req.params ;
-    console.log(id)
     // get exam
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [id])
-    const question = await pool.query('SELECT * FROM question ' )
 
-    //console.log(question)
-    console.log(question[45].que_id)
+    const get_exam= {
+        title: exam[0].title,
+        commentary: exam[0].commentary,
+        //time,
+        cat_id:exam[0].cat_id,
+        lev_id: exam[0].lev_id,
+        cant_ques : exam[0].cant_ques,   // Cantidad de preguntas
+        ques_list : exam[0].ques_list,    // ID separado por arrays
+        user_id : req.user.user_id
+    }
+
+    var cadena = exam[0].ques_list,
+        separador = ",", // un espacio en blanco
+        arregloDeSubCadenas = cadena.split(separador);
+    console.log(arregloDeSubCadenas)
+    let question_id_current = 1
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[question_id_current]] )
+
+
+    // mostrar preguntas aleatorios
+    // mostrar alternativas aletorias?
+
+
+    const user_exam = {
+        que_current: 0,
+        user_id: req.user.user_id,
+        que_list_reply: "",
+        que_true_reply: 0,
+        que_false_reply: 0,
+        exam_id : id
+    }
+    const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
+    console.log('examen es igual al')
+    console.log(insert_exam_user)
     res.render('view_exam/start',{
-        question: question[52],
+        question: questions[0],
         exam: exam[0],
-        que_num:1,
-        attempts: 1,
-        _error: 21,
-        _success:50
+        que_current:question_id_current,
+        que_total:exam[0].cant_ques,
+        que_true_reply: 0,
+        que_false_reply:0,
+        exam_user_id:insert_exam_user.insertId,
+        _error: 0,
+        _success:0
     })
     //res.send('finalizó')
 }
 controller.post_start =async (req, res)=>{
+
+    const {user_reply} = req.body
+    const {que_current, que_true, que_true_reply, que_false_reply, exam_id, exam_user_id} = req.params
+
+    const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
+    console.log('3######')
+    console.log(get_exam_user)
     /*
-    # información
-    exam_id:    Id del examen actual
-    que_id:     Pregunta actual
-    que_true:   Respuesta correcta de la pregunta
-    que_reply:  Respuesta del usuario
 
-    # Metadata
-    que_n:      de N preguntas , en cual estamos
-    que_total:  Maximo de preguntas
-    attempts:   Intentos
 
- */
-   // const exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [id])
+    // get exam info
+    const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
+    const get_exam= {
+        cat_id:exam[0].cat_id,
+        lev_id: exam[0].lev_id,
+        cant_ques : exam[0].cant_ques,   // Cantidad de preguntas
+        ques_list : exam[0].ques_list,    // ID separado por arrays
+        user_id : req.user.user_id
+    }
+
+    // user exam
+
+
+    if (get_exam_user[0].que_list_reply.length <=1){
+        get_exam_user[0].que_list_reply = user_reply
+    }else{
+        get_exam_user[0].que_list_reply =","+user_reply
+    }
+
+
+    const user_exam = {
+        que_current: get_exam_user[0].que_current+1,
+        que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
+        que_true_reply: get_exam_user[0].que_true_reply,
+        que_false_reply:get_exam_user[0].que_false_reply
+    }
+
+    // Verifica i la respuesta es correcta
+    if(que_true === user_reply){
+        success = "Respuesta correcta + feedback"
+        user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
+    }else{
+        warning = "la respues es incorrecta + su feedback"
+        user_exam.que_false_reply = user_exam.que_false_reply +1;
+    }
+
+    console.log(user_exam)
+
+
+
+    //await pool.query('UPDATE question set ? WHERE que_id = ?', [data, id])
+
+
+
+
+
+
+    */
+
+
+
+
+
+
+
+    /*
+
+    user_exam.que_list_reply = ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const {user_reply} = req.body; // User Reply
     const exam_user = {
@@ -107,22 +211,15 @@ controller.post_start =async (req, res)=>{
         attempts: req.params.attempts
     }
     console.log(exam_user)
-    if(req.params.que_true === user_reply){
-        success = "Respuesta correcta + feedback"
-        exam_user.que_istrue  = 1 ;
-    }else{
-        warning = "la respues es incorrecta + su feedback"
-        exam_user.que_istrue  = 0 ;
-    }
+
 
     await pool.query('INSERT INTO exam_user SET ? ', [exam_user])
     //console.log(exam_insert)
-
-
-
+    /*
     //res.send('post pex lleg+o normal')
     res.redirect('/exam/start/4')
-
+    */
+    res.send('se envió ')
 
 }
 
