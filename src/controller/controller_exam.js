@@ -77,17 +77,6 @@ controller.get_start = async (req, res)=>{
         user_id : req.user.user_id
     }
 
-    var cadena = exam[0].ques_list,
-        separador = ",", // un espacio en blanco
-        arregloDeSubCadenas = cadena.split(separador);
-    console.log(arregloDeSubCadenas)
-    let question_id_current = 1
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[question_id_current]] )
-
-
-    // mostrar preguntas aleatorios
-    // mostrar alternativas aletorias?
-
 
     const user_exam = {
         que_current: 0,
@@ -97,13 +86,23 @@ controller.get_start = async (req, res)=>{
         que_false_reply: 0,
         exam_id : id
     }
+    var cadena = exam[0].ques_list,
+        separador = ",",
+        arregloDeSubCadenas = cadena.split(separador);
+    console.log(arregloDeSubCadenas)
+    // mostrar preguntas aleatorios
+    // mostrar alternativas aletorias?
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[1]] )
+
+
+
     const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
     console.log('examen es igual al')
     console.log(insert_exam_user)
     res.render('view_exam/start',{
         question: questions[0],
         exam: exam[0],
-        que_current:question_id_current,
+        que_current: user_exam.que_current +1,
         que_total:exam[0].cant_ques,
         que_true_reply: 0,
         que_false_reply:0,
@@ -116,7 +115,7 @@ controller.get_start = async (req, res)=>{
 controller.post_start =async (req, res)=>{
 
     const {user_reply} = req.body
-    const {que_current, que_true, que_true_reply, que_false_reply, exam_id, exam_user_id} = req.params
+    const {que_true, que_true_reply, que_false_reply, exam_id, exam_user_id} = req.params
 
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
@@ -148,53 +147,10 @@ controller.post_start =async (req, res)=>{
         //warning = "la respues es incorrecta + su feedback"
         user_exam.que_false_reply = user_exam.que_false_reply +1;
     }
-    console.log(user_exam )
+
+    await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
     /*
-
-
-
-    // Verifica i la respuesta es correcta
-
-
-    console.log(user_exam)
-
-
-
-    //await pool.query('UPDATE question set ? WHERE que_id = ?', [data, id])
-
-
-
-
-
-
-    */
-
-
-
-
-
-
-
-    /*
-
-    user_exam.que_list_reply = ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const {user_reply} = req.body; // User Reply
     const exam_user = {
