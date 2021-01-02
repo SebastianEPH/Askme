@@ -1,5 +1,6 @@
 const pool = require('../database') // database import
 const controller = {}
+const util = require('../functions/util')
 
 
 controller.get_delete= (req, res)=>{
@@ -77,7 +78,6 @@ controller.get_start = async (req, res)=>{
         user_id : req.user.user_id
     }
 
-
     const user_exam = {
         que_current: 0,
         user_id: req.user.user_id,
@@ -88,11 +88,18 @@ controller.get_start = async (req, res)=>{
     }
     var cadena = exam[0].ques_list,
         separador = ",",
-        arregloDeSubCadenas = cadena.split(separador);
-    console.log(arregloDeSubCadenas)
+        questions_list = cadena.split(separador);
+    console.log(questions_list)
     // mostrar preguntas aleatorios
+
+    const chosen_question = Math.floor(Math.random()*questions_list.length)
+    console.log(chosen_question)
+    console.log(Math.floor(Math.random()*questions_list.length))
+    
+    
+    
     // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[arregloDeSubCadenas[1]] )
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[questions_list[chosen_question]] )
 
 
 
