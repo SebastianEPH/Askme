@@ -165,17 +165,27 @@ controller.post_start =async (req, res)=>{
     //  Verifica si es la pregunta final
     console.log('Pregunta actual: '+req.params.que_current )
     console.log('Total de preguntas: '+exam[0].cant_ques)
+
     if (  req.params.que_current > exam[0].cant_ques ){
         res.send('El examen terminó')
     }else{
+        const user_exam__= {
+            que_list_temp: get_exam_user[0].que_list_temp
+        }
+        console.log(user_exam__)
+
         // Convierte String en Array
-        let question_array = util.string_to_array(exam[0].ques_list, ',')
+        let question_array = util.string_to_array(user_exam__.que_list_temp, ',')
 
         // Selecciona del array un data aleatorio
         const chosen_question = util.random(question_array.length)
+        console.log('Pregunta escogida'+chosen_question)
 
-
-        // mostrar preguntas aleatorios
+        // Elimina la pregunta.
+        user_exam__.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
+        user_exam__.que_list_temp = String(user_exam__.que_list_temp)
+        console.log(user_exam.que_list_temp)
+        await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam__, exam_user_id])
 
         // mostrar alternativas aletorias?
         const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[question_array[chosen_question]] )
