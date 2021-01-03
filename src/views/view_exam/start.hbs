@@ -7,7 +7,7 @@
         <div class="card p-4 ">
             <div class="card-body">
 
-                <form action="/exam/start/{{que_current}}/{{question.que_true}}/{{que_true_reply}}/{{que_false_reply}}/{{exam.id}}/{{exam_user_id}}" method="post">
+                <form action="/exam/start/{{que_current}}/{{question.que_true}}/{{que_true_reply}}/{{que_false_reply}}/{{que_nothing_reply}}/{{exam.id}}/{{exam_user_id}}" method="post">
                     <h2 style="text-align: center">{{{question.que_que}}} </h2>
 
                     <br>
@@ -56,7 +56,7 @@
                 <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage que_total que_true_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
             </div>
             <div class="progress">
-                <div class="progress-bar bg-warning" role="progressbar" style="width: {{percentage que_total 1}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{percentage que_total que_nothing_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
             </div>
             <div class="progress">
                 <div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage que_total que_false_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>

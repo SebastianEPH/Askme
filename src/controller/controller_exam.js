@@ -83,6 +83,7 @@ controller.get_start = async (req, res)=>{
         que_list_reply: "",
         que_true_reply: 0,
         que_false_reply: 0,
+        que_nothing_reply: 0,
         exam_id : id
     }
 
@@ -111,6 +112,7 @@ controller.get_start = async (req, res)=>{
         que_total:exam[0].cant_ques,
         que_true_reply: 0,
         que_false_reply:0,
+        que_nothing_reply: 0,
         exam_user_id:insert_exam_user.insertId,
         _error: 0,
         _success:0
@@ -118,7 +120,7 @@ controller.get_start = async (req, res)=>{
     //res.send('finalizó')
 }
 controller.post_start =async (req, res)=>{
-
+    let user_reply__ = false
     let {user_reply} = req.body
     const {que_true, que_true_reply, que_false_reply, exam_id, exam_user_id} = req.params
 
@@ -128,7 +130,10 @@ controller.post_start =async (req, res)=>{
     req.params.que_current = parseInt(req.params.que_current) + 1
 
     // Si el usuario no respondió, la respuesta es igual a 0
-    if (!user_reply){user_reply = 0}
+    if (!user_reply){
+        user_reply = 0;
+        user_reply__ = true
+    }
 
     console.log(get_exam_user)
     // Verifica si es la primer pregunta
@@ -141,17 +146,24 @@ controller.post_start =async (req, res)=>{
     const user_exam = {
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
         que_true_reply: get_exam_user[0].que_true_reply,
-        que_false_reply:get_exam_user[0].que_false_reply
+        que_false_reply:get_exam_user[0].que_false_reply,
+        que_nothing_reply:get_exam_user[0].que_nothing_reply
     }
     console.log(user_exam )
     // Verifica si la respuesta es correcta
-    if(que_true === user_reply){
+    if(user_reply__){
         //success = "Respuesta correcta + feedback"
-        user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
+        user_exam.que_nothing_reply = user_exam.que_nothing_reply + 1 ;
     }else{
-        //warning = "la respues es incorrecta + su feedback"
-        user_exam.que_false_reply = user_exam.que_false_reply +1;
+        if(que_true === user_reply){
+            //success = "Respuesta correcta + feedback"
+            user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
+        }else{
+            //warning = "la respues es incorrecta + su feedback"
+            user_exam.que_false_reply = user_exam.que_false_reply +1;
+        }
     }
+
 
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
@@ -179,9 +191,8 @@ controller.post_start =async (req, res)=>{
             que_total:exam[0].cant_ques,
             que_true_reply: user_exam.que_true_reply,
             que_false_reply:user_exam.que_false_reply,
+            que_nothing_reply:user_exam.que_nothing_reply,
             exam_user_id,
-            _error: 0,
-            _success:0
         })
     }
 
