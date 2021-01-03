@@ -104,8 +104,6 @@ controller.get_start = async (req, res)=>{
 
 
     const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
-    console.log('examen es igual al')
-    console.log(insert_exam_user)
     res.render('view_exam/start',{
         question: questions[0],
         exam: exam[0],
@@ -179,8 +177,8 @@ controller.post_start =async (req, res)=>{
             exam: exam[0],
             que_current: req.params.que_current,
             que_total:exam[0].cant_ques,
-            que_true_reply: 0,
-            que_false_reply:0,
+            que_true_reply: user_exam.que_true_reply,
+            que_false_reply:user_exam.que_false_reply,
             exam_user_id,
             _error: 0,
             _success:0

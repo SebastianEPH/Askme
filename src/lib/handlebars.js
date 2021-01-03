@@ -129,6 +129,12 @@ helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
         default: return 'img/profile/'+ path_other
     }
 }
+helpers.percentage = (max, value)=>{
+    return (value * 100)/max
+}
+helpers.is_init = (value)=>{
+    return value === 1
+}
 /*
 helpers.ifUserR = (user_id, return_true, return_false)=>{
     console.log(user_id)
