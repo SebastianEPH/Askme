@@ -121,17 +121,24 @@ controller.get_start = async (req, res)=>{
 }
 controller.post_start =async (req, res)=>{
 
-    const {user_reply} = req.body
+    let {user_reply} = req.body
     const {que_true, que_true_reply, que_false_reply, exam_id, exam_user_id} = req.params
 
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
 
-    req.params.que_current = parseInt(req.params.que_current)   +1
+    req.params.que_current = parseInt(req.params.que_current) + 1
 
+    // Si el usuario no respondió, la respuesta es igual a 0
+    if (!user_reply){user_reply = 0}
+
+    console.log(get_exam_user)
     // Verifica si es la primer pregunta
-    if (get_exam_user[0].que_list_reply.length <=1){get_exam_user[0].que_list_reply = user_reply
-    }else{get_exam_user[0].que_list_reply =","+ user_reply}
+    if (get_exam_user[0].que_list_reply === "" ){
+        get_exam_user[0].que_list_reply =  user_reply
+    }else{
+        get_exam_user[0].que_list_reply = get_exam_user[0].que_list_reply + ","+ user_reply
+    }
 
     const user_exam = {
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
@@ -151,18 +158,12 @@ controller.post_start =async (req, res)=>{
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
     // se muestra una pregunta nueva
-
-    // si exam.cant_ques se supero entonces pasar a la fista final
     //  Verifica si es la pregunta final
     console.log('Pregunta actual: '+req.params.que_current )
     console.log('Total de preguntas: '+exam[0].cant_ques)
     if (  req.params.que_current > exam[0].cant_ques ){
         res.send('El examen terminó')
-
-
-
     }else{
-        console.log('todavia no llega a las preguntas')
         // Convierte String en Array
         let question_array = util.string_to_array(exam[0].ques_list, ',')
 
