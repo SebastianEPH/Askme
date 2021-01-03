@@ -12,8 +12,9 @@ util.removeItemFromArr = ( arr, item ) => {
 util.string_to_array = (string, separator )=>{
     return string.split(separator);
 }
-util.random = (max)=>{
-    return Math.floor(Math.random() * max)
+util.random = (arr)=>{
+
+    return arr[Math.floor(Math.random() * arr.length)]
 }
 
 

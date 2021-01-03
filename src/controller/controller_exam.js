@@ -82,7 +82,7 @@ controller.get_start = async (req, res)=>{
     let question_array = util.string_to_array(user_exam.que_list_temp, ',')
     console.log(question_array)
     // Selecciona del array un data aleatorio
-    const chosen_question = util.random(question_array.length)
+    const chosen_question = util.random(question_array)
     console.log('Pregunta escogida'+chosen_question)
     // Elimina la pregunta.
 
@@ -94,8 +94,9 @@ controller.get_start = async (req, res)=>{
 
 
     // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[question_array[chosen_question]] )
-
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[chosen_question] )
+    console.log(question_array[chosen_question])
+    console.log(questions)
 
 
     const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
@@ -179,12 +180,13 @@ controller.post_start =async (req, res)=>{
 
         // Selecciona del array un data aleatorio
         const chosen_question = util.random(question_array.length)
-        console.log('Pregunta escogida'+chosen_question)
+        console.log('Pregunta escogida: '+ chosen_question)
 
         // Elimina la pregunta.
         user_exam__.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
+        console.log(user_exam__.que_list_temp)
         user_exam__.que_list_temp = String(user_exam__.que_list_temp)
-        console.log(user_exam.que_list_temp)
+
         await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam__, exam_user_id])
 
         // mostrar alternativas aletorias?
