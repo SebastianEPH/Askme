@@ -131,43 +131,24 @@ controller.post_start =async (req, res)=>{
     console.log(user_exam )
 
 
-    if (  req.params.que_current > exam[0].cant_ques ){
-        //let ids = exam[0].ques_list
-        //console.log(ids)
-        //ids = String(ids)
-        const questions_= await pool.query('SELECT * FROM question WHERE que_id in ( 29 ,30)')
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
-        console.log(questions_)
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
-        //*
-        res.render('view_exam/finish_exam',{
-            questions: questions_,
-            exam: exam,
-            que_current: req.params.que_current,
-            que_total:exam[0].cant_ques,
-            que_true_reply: get_exam_user[0].que_true_reply,
-            que_false_reply:get_exam_user[0].que_false_reply,
-            que_nothing_reply:get_exam_user[0].que_nothing_reply,
-            exam_user_id,
-        })
-        //*/
-        //res.send('finish')
+    // Si el usuario no respondió, la respuesta es igual a 0
+    if (!user_reply){
+        user_reply = 0;
+        user_reply__ = true
+    }
 
-    }else{
-
-        // Si el usuario no respondió, la respuesta es igual a 0
-        if (!user_reply){
-            user_reply = 0;
-            user_reply__ = true
-        }
-
+    // Evita que al actualizar la pagina, se vuelva a enviar la respuesta
+    if(util.string_to_array(exam[0].ques_list, ',').length > util.string_to_array(user_exam.que_list_reply, ',').length  ){
         console.log(get_exam_user)
         // Verifica si es la primer pregunta
         if (get_exam_user[0].que_list_reply === "" ){
-            get_exam_user[0].que_list_reply =  user_reply
+            user_exam.que_list_reply =  user_reply
+            console.log('primera. '+ user_reply)
         }else{
-            get_exam_user[0].que_list_reply = get_exam_user[0].que_list_reply + ","+ user_reply
+            console.log('ya pasó'+ user_exam.que_list_reply + ","+ user_reply)
+            user_exam.que_list_reply = user_exam.que_list_reply + ","+ user_reply
         }
+
 
         // Verifica si la respuesta es correcta
         if(user_reply__){
@@ -183,8 +164,34 @@ controller.post_start =async (req, res)=>{
             }
         }
 
+    }
 
-        await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
+
+    await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
+
+
+    if (  req.params.que_current > exam[0].cant_ques ){
+
+        const questions_= await pool.query('SELECT * FROM question WHERE que_id in ( '+ String(exam[0].ques_list) +' )')
+        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
+        console.log(questions_)
+        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
+        //*
+        console.log(user_exam)
+        res.render('view_exam/finish_exam',{
+            questions: questions_,
+            exam: exam,
+            que_list_reply: user_exam.que_list_reply,
+            que_current: req.params.que_current,
+            que_total:exam[0].cant_ques,
+            que_true_reply: user_exam.que_true_reply,
+            que_false_reply:user_exam.que_false_reply,
+            que_nothing_reply:user_exam.que_nothing_reply,
+            exam_user_id,
+        })
+
+    }else{
+
 
         // se muestra una pregunta nueva
         console.log('Pregunta actual: '+req.params.que_current )

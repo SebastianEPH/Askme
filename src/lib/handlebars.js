@@ -111,6 +111,14 @@ helpers.checkQuestionTrue=(que_que, que_true)=>{
         return "disabled";
     }
 }
+helpers.checkQuestionTrueMessage=(que_que, que_true, messTrue, messFalse)=>{
+
+    if (que_que === que_true){
+        return String(messTrue);
+    }else{
+        return String(messFalse);
+    }
+}
 helpers.checkQuestionTrueSelected=(que_que, que_true)=>{
 
     if (que_que === que_true){
@@ -132,9 +140,39 @@ helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
 helpers.percentage = (max, value)=>{
     return (value * 100)/max
 }
+helpers.note = (values, total )=>{
+    return ( values* 20)/total
+    //return ( values* total )/20
+}
 helpers.is_init = (value)=>{
     return value === 1
 }
+helpers.isTrue_falseNothing = (list_reply, index, que_true)=>{
+    console.log('index: '+ index)
+    console.log('lista por handlebarss: '+ list_reply)
+    let nnew = list_reply.split(',');
+    console.log(nnew[index])
+    console.log(que_true)
+    if (String(nnew[index] )=== String(que_true)){
+        return 'bg-success';
+    }else{
+        return 'bg-danger';
+    }
+
+}
+
+helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
+   let nnew = list_reply.split(',');
+    switch (nnew[index]){
+        case '1' : return que_1;
+        case '2' : return que_2;
+        case '3' : return que_3;
+        case '4' : return que_4;
+        default: return "No respondió"
+    }
+
+}
+
 /*
 helpers.ifUserR = (user_id, return_true, return_false)=>{
     console.log(user_id)

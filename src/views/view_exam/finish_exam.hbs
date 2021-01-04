@@ -3,11 +3,27 @@
     <br>
     <h1>Resultados del examen</h1>
     <br><br><div class="row">
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage que_total que_true_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: {{percentage que_total que_nothing_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage que_total que_false_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
+        </div>
+        <br>
+        <h2>Su nota es de: {{note que_true_reply que_total}}</h2>
+        <br>
+        <br>
+
+    </div>
     {{#each questions}}
         <div class="col-md-7 mx-auto">
             <div class="card ">
                 <div class="card-body">
-                    <h2 style="text-align: center">{{{que_que}}} </h2>
+                    <h4 style="text-align: center">{{{que_que}}} </h4>
 
                     <br>
                     <div class="form-check">
@@ -36,44 +52,19 @@
                         </label>
                     </div>
                     <br>
+                    <br>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Respuesta correcta:</span>
                         <input type="text" value="{{ isQuestionTrue que_true que_1 que_2 que_3 que_4}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Categoría: </span>
-                        <input type="text" value="{{{ category cat_id}}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        <span class="input-group-text" id="basic-addon1">Usted respondió: </span>
+                        <input type="text" value="{{getReplyUser ../que_list_reply @index que_1 que_2 que_3 que_4}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Nivel: </span>
-                        <input type="text" value="{{{ level lev_id }}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Tipo: </span>
-                        <input type="text" value="{{{type ty_id}}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div style="text-align: center">
-                        <a href="/question/edit/{{que_id}}" class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-                        </svg>
-                            Editar</a>
-                        <a href="/question/delete/{{que_id}}" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg>
-                            Eliminar</a>
+                    <div class="progress">
+                        <div class="progress-bar {{isTrue_falseNothing ../que_list_reply @index  que_true}}" role="progressbar" style="width: 100%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
                     </div>
 
-                    <!--button type="submit" class="btn btn-success">Actualizar pregunta</button-->
-                </div>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage que_total que_true_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: {{percentage que_total que_nothing_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
-                </div>
-                <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage que_total que_false_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
                 </div>
             </div>
         </div>
@@ -81,9 +72,12 @@
         <br>
         <br>
     {{/each}}
+
 </div>
 
     <div class="container">
+
+
         <br>
         <br>
         <br>
