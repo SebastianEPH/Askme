@@ -1,10 +1,10 @@
 <div class="container p-10 mx-auto">
     {{#if teacher}}
         <br>
-        <h1 style="text-align: center">Todos los Docentes</h1>
+        <h1 class="animate__heartBeat" style="text-align: center">Todos los Docentes</h1>
         <div class="row mx-auto">
             {{#each teacher}}
-                <div class="row p-4 mx-auto" >
+                <div class="row p-4 mx-auto animate__animated animate__backInDown" >
                     <div class="row p-3 text-center">
                         <img class="rounded-circle" src="{{ifMenPicture user_is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{user_nick}}" width="140" height="140">
 
@@ -58,7 +58,7 @@
             {{/each}}
         </div>
 
-        <div class="col-md-7 mx-auto">
+        <div class="col-md-7 mx-auto animate__animated animate__bounceInUp">
             <br><br><br><br><br>
             <div class="card ">
                 <a href="#" class="btn btn-info">
@@ -75,7 +75,7 @@
 
     {{else}}
         <br>
-        <h1 style="text-align: center">No existe ningun docente</h1>
+        <h1 class="animate__heartBeat" style="text-align: center">No existe ningun docente</h1>
     {{/if}}
 
 </div>
