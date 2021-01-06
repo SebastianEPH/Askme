@@ -55,6 +55,22 @@ helpers.selected = (value, valor)=>{
 helpers.checkSuccessReply=(que, que_true)=>{
         return que === que_true;
 }
+helpers.getYear = (date)=>{
+    let fecha = new Date(Date.parse(date))
+    return fecha.getFullYear();
+}
+helpers.getDay = (date)=>{
+    let fecha = new Date(Date.parse(date))
+    return fecha.getDay();
+}
+helpers.getMonth = (date)=>{
+    let fecha = new Date(Date.parse(date))
+    return fecha.getMonth()
+}
+helpers.getOnlyDate = (date)=>{
+    let fecha = new Date(Date.parse(date))
+    return fecha.getDay() + "/" +fecha.getMonth() +'/' +fecha.getFullYear();
+}
 
 helpers.typeUserText=(user_id)=>{
     console.log(user_id)
