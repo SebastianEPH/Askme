@@ -1,10 +1,10 @@
 <div class="container p-10 mx-auto">
     {{#if students}}
         <br>
-        <h1 style="text-align: center">Todos los estudiantes</h1>
-       <div class="row mx-auto">
+        <h1 style="text-align: center" class=" animate__animated animate__backInUp">Todos los estudiantes</h1>
+       <div class="row mx-auto ">
            {{#each students}}
-               <div class="row p-4 mx-auto" >
+               <div class="row p-4 mx-auto  animate__animated animate__backInDown" >
                    <div class="row p-3 text-center">
                        <img class="rounded-circle" src="{{ifMenPicture user_is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{user_nick}}" width="140" height="140">
 
@@ -33,7 +33,7 @@
                </div>
            {{/each}}
        </div>
-        <div class="col-md-7 mx-auto">
+        <div class="col-md-7 mx-auto animate__animated animate__backInUp">
             <br><br><br><br><br>
             <div class="card ">
                 <a href="#" class="btn btn-info">
