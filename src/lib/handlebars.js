@@ -73,8 +73,6 @@ helpers.getOnlyDate = (date)=>{
 }
 
 helpers.typeUserText=(user_id)=>{
-    console.log(user_id)
-    console.log('%$%$%$%$%$%$%$%$')
     if (user_id === 2){
         console.log('Es estudiante')
         return "Estudiante";
@@ -83,6 +81,20 @@ helpers.typeUserText=(user_id)=>{
         return "Docente";
     }
 }
+helpers.isMeExam =(id_user_exam, id_user)=>{
+    //console.log('user_id exam: '+ id_user_exam)
+    //console.log('user_id del foreach: '+ id_user)
+    return id_user === id_user_exam
+}
+/*helpers.examExisUser =(exam, index,id_user)=>{
+
+    if(exam[index].user_id=== id_user){
+        console.log('se cumplio')
+        return true
+    }
+    console.log('no cumplio')
+    return false
+}*/
 // return True or False
 helpers.isStudent=(user)=>{
     return user !== 2;
