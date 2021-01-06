@@ -11,8 +11,13 @@ controller.view_student = async (req, res)=>{
     const students = await pool.query('SELECT * FROM user WHERE type_id = 2 ')
     res.render('list/students', {
         students
-    })
-
+    });
+}
+controller.view_teacher = async (req, res)=>{
+    const teacher = await pool.query('SELECT * FROM user WHERE type_id = 1 ')
+    res.render('list/teacher', {
+        teacher
+    });
 }
 
 
