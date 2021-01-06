@@ -20,11 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/list/students.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_exam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/view_exam/start.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/start.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/partials/navegation.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navegation.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +124,8 @@
       <workItem from="1609450985456" duration="1587000" />
       <workItem from="1609452785280" duration="23112000" />
       <workItem from="1609530775817" duration="25551000" />
-      <workItem from="1609602259482" duration="61214000" />
+      <workItem from="1609602259482" duration="61331000" />
+      <workItem from="1609890297903" duration="5595000" />
     </task>
     <servers />
   </component>
@@ -149,10 +153,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="734" y="355" width="1092" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-900.0.900.1600/2560.352.1920.1080@0.0.2560.1400" timestamp="1606888005052" />
-    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609009237779">
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1609890472273">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605549698633" />
+    <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.349.1920.1080@0.0.2560.1400" timestamp="1609890472273" />
     <state x="1029" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1609009237779" />
     <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1606367576445">
       <screen x="0" y="0" width="2560" height="1400" />

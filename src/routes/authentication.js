@@ -11,4 +11,5 @@ router.post('/signin', isNotLoggedIn, auth.post_signin )
 router.get('/profile',isLoggedIn, auth.get_profile)
 router.get('/logout',isLoggedIn, auth.get_logout)
 
+
 module.exports = router;

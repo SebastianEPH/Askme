@@ -127,14 +127,12 @@ helpers.checkQuestionTrueSelected=(que_que, que_true)=>{
         return "";
     }
 }
-helpers.ifMenPicture = (gen, path_men, path_girl, path_other)=>{
-    console.log('El tgenero que lelgo es ')
-    console.log(gen)
-    console.log("FINDINFIN")
+helpers.ifMenPicture = (gen,sub_path,  path_men, path_girl, path_other)=>{
+    console.log('El genero que llegó es: '+gen)
     switch (gen){
-        case 1 : return 'img/profile/'+ path_men;
-        case 0 : return 'img/profile/'+ path_girl;
-        default: return 'img/profile/'+ path_other
+        case 1 : return sub_path+ path_men;
+        case 0 : return sub_path+ path_girl;
+        default: return sub_path+ path_other
     }
 }
 helpers.percentage = (max, value)=>{
