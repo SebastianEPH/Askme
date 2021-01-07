@@ -1,9 +1,9 @@
 <div class="container p-4">
     {{#if data}}
         {{#if all}}
-            <h1 style="text-align: center">Todos los examenes<span class="badge bg-secondary"></span></h1>
+            <h1 style="text-align: center" class="animate__animated animate__backInUp">Todos los examenes</h1>
         {{else}}
-            <h1 style="text-align: center">Mis Examenes<span class="badge bg-secondary"></span></h1>
+            <h1 style="text-align: center" class="animate__animated animate__backInUp" >Mis Examenes<span class="badge bg-secondary"></span></h1>
         {{/if}}
         <br>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     {{#each data}}
-                           <div class="col-sm-6 ">
+                           <div class="col-sm-6  animate__animated animate__backInDown">
                                <div class="card-header">
                                    <span class="badge rounded-pill bg-dark text-light">{{user_id}}</span>
                                    <span class="badge rounded-pill bg-dark text-light">{{category cat_id}}</span>
