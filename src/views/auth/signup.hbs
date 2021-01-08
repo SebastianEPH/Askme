@@ -4,39 +4,42 @@
         <div class="col-md-5 mx-auto">
             <div class="card text-center">
                 <div class="card-header">
-                    <h3>Crear Cuenta</h3>
+                    <h3>Crear nueva cuenta</h3>
                 </div>
                 <div class="card-body text-left">
                     <form action="/signup" method="post">
-
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Usuario</label>
                             <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                 </svg>
                             </span>
-                                <input type="text" name="user_nick" placeholder="Escriba aquí" class="form-control">
+                                <input type="text" name="user_nick" placeholder="Usuario" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Nombre Completo</label>
                             <div class="input-group flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping">
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-badge" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h7A2.5 2.5 0 0 1 14 2.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2.5zM4.5 1A1.5 1.5 0 0 0 3 2.5v10.795a4.2 4.2 0 0 1 .776-.492C4.608 12.387 5.937 12 8 12s3.392.387 4.224.803a4.2 4.2 0 0 1 .776.492V2.5A1.5 1.5 0 0 0 11.5 1h-7z"/>
                                   <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"/>
                                 </svg>
                             </span>
-                                <input type="text" name="fullname" placeholder="Escriba aquí" class="form-control">
+                                <input type="text" name="fullname" placeholder="Nombre completo" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Género</label>
+                            <div class="form-group">
+                                <div class="input-group flex-nowrap">
+                                    <span class="input-group-text" id="addon-wrapping">@ </span>
+                                    <input type="email" name="user_email" placeholder="Correo" class="form-control">
+                                </div>
+                            </div>
+                            <small class="text-muted">Género</small>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping">
-                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-emoji-laughing-fill" viewBox="0 0 16 16">
                                       <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM7 6.5c0 .501-.164.396-.415.235C6.42 6.629 6.218 6.5 6 6.5c-.218 0-.42.13-.585.235C5.164 6.896 5 7 5 6.5 5 5.672 5.448 5 6 5s1 .672 1 1.5zm5.331 3a1 1 0 0 1 0 1A4.998 4.998 0 0 1 8 13a4.998 4.998 0 0 1-4.33-2.5A1 1 0 0 1 4.535 9h6.93a1 1 0 0 1 .866.5zm-1.746-2.765C10.42 6.629 10.218 6.5 10 6.5c-.218 0-.42.13-.585.235C9.164 6.896 9 7 9 6.5c0-.828.448-1.5 1-1.5s1 .672 1 1.5c0 .501-.164.396-.415.235z"/>
                                     </svg>
                                 </span>
@@ -47,45 +50,39 @@
                                 </select>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Correo</label>
-                            <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">
-                             @
-                        </span>
-                                <input type="email" name="user_email" placeholder="Escriba aquí" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Teléfono</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
                                       <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
                                     </svg>
                                 </span>
                                 <select class="form-control col-md-3" name="user_phone_prefijo" id="exampleFormControlSelect1" >
+                                    <option value=""  >otro</option>
                                     <option value="+51"  >+51</option>
                                     <option value="+52"  >+52</option>
+                                    <option value="+54"  >+54</option>
+                                    <option value="+57"  >+57</option>
+                                    <option value="+58"  >+58</option>
                                 </select>
-                                <input type="number" name="user_phone" placeholder="Escriba aquí"  min="111111111" max="9999999999" class="form-control">
+                                <input type="number" name="user_phone" placeholder="Teléfono"  min="111111111" max="9999999999" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Contraseña</label>
                             <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm.5 7.415a1.5 1.5 0 1 0-1 0l-.385 1.99a.5.5 0 0 0 .491.595h.788a.5.5 0 0 0 .49-.595L8.5 7.915z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-shield-lock-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm.5 7.415a1.5 1.5 0 1 0-1 0l-.385 1.99a.5.5 0 0 0 .491.595h.788a.5.5 0 0 0 .49-.595L8.5 7.915z"/></svg>
                         </span>
-                                <input type="password" name="user_pass" placeholder="Escriba aquí" class="form-control">
+                                <input type="password" name="user_pass" placeholder="Contraseña" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Usted es: </label>
+                            <small class="text-muted">Usted es</small>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                       <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                     </svg>
                                 </span>
