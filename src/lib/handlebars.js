@@ -82,8 +82,8 @@ helpers.typeUserText=(user_id)=>{
     }
 }
 helpers.isMeExam =(id_user_exam, id_user)=>{
-    //console.log('user_id exam: '+ id_user_exam)
-    //console.log('user_id del foreach: '+ id_user)
+    console.log('user_id exam: '+ id_user_exam)
+    console.log('user_id del foreach: '+ id_user)
     return id_user === id_user_exam
 }
 /*helpers.examExisUser =(exam, index,id_user)=>{
@@ -198,6 +198,7 @@ helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
     }
 
 }
+
 
 /*
 helpers.ifUserR = (user_id, return_true, return_false)=>{

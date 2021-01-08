@@ -17,7 +17,7 @@ controller.get_delete= async (req, res)=>{
 
     }else{
         console.log('Usted no es el dueño del examen')
-        req.flash('success', 'Usted no tiene permisos para realizar esta opción')
+        req.flash('warning', 'Usted no tiene los permisos para realizar esta acción')
     }
     res.redirect('/exam')
 }
@@ -37,6 +37,7 @@ controller.get_view_all = async (req, res)=>{
     console.log('$$$$$$$$$$$$$$$$$$$$')
     res.render('view_exam/view',{
         data: exam,
+        current_user_id: req.user.user_id ,
         all:true
     })
 }

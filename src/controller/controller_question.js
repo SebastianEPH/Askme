@@ -47,7 +47,7 @@ controller.view = async (req, res)=>{
     const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
     console.log(question)
     res.render('data_question/view',{
-        question : question[0] //  question[0]
+        question : question[0] //  question[0],
     })
 }
 controller.post_update = async(req, res)=>{
@@ -61,6 +61,7 @@ controller.get_show_onlyUser = async (req,res)=>{
     const data = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
     res.render('data_question/show',{
         data: data,
+        current_user_id: req.user.user_id ,
         all:false
     })
 }
@@ -68,6 +69,7 @@ controller.get_show_all = async (req,res)=>{
     const data= await pool.query('SELECT * FROM question', [req.user.user_id])
     res.render('data_question/show',{
         data: data,
+        current_user_id: req.user.user_id ,
         all:true
     })
 }
