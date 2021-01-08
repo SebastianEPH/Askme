@@ -21,18 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/auth/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signin.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/auth/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signup.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/data_question/add.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/add.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/data_question/edit.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/edit.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/data_question/show.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/show.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/data_question/view.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/data_question/view.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/layouts/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/list/students.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/list/students.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/list/teacher.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/list/teacher.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/others/about.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/others/about.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/others/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/others/main.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_exam.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/view_exam/view.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/view.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +122,7 @@
       <workItem from="1609602259482" duration="61331000" />
       <workItem from="1609890297903" duration="25483000" />
       <workItem from="1609943438421" duration="10289000" />
-      <workItem from="1610079408503" duration="7930000" />
+      <workItem from="1610079408503" duration="10364000" />
     </task>
     <servers />
   </component>

@@ -3,11 +3,27 @@ const controller = {}
 const util = require('../functions/util')
 
 
-controller.get_delete= (req, res)=>{
+controller.get_delete= async (req, res)=>{
+    const {id} = req.params;
+    const get_exam = await pool.query('SELECT * FROM exam WHERE id = ?', [id] )//[req.user.user_id])
+    console.log('exam user_id : '+ get_exam[0].user_id)
+    console.log('user_id : '+ req.user.user_id)
+    // Solo puede eliminar la pregunta si es el dueño
+    if (get_exam[0].user_id === req.user.user_id ){
+        console.log('Si tiene permiso para eliminar el examen')
+        await pool.query('UPDATE exam SET is_show = 0 WHERE id = ?',[id])
 
+        req.flash('success', 'Se eliminó la pregunta correctamente')
+
+    }else{
+        console.log('Usted no es el dueño del examen')
+        req.flash('success', 'Usted no tiene permisos para realizar esta opción')
+    }
+    res.redirect('/exam')
 }
 controller.get_view_only_user= async (req, res)=>{
-    const exam = await pool.query('SELECT * FROM exam WHERE user_id = ?', [req.user.user_id])
+
+    const exam = await pool.query('SELECT * FROM exam WHERE user_id = ? AND is_show = 1', [req.user.user_id])
     console.log('$$$$$$$$$$$$$$$$$$$$____')
     console.log(req.user.user_id);
 
@@ -17,7 +33,7 @@ controller.get_view_only_user= async (req, res)=>{
     })
 }
 controller.get_view_all = async (req, res)=>{
-    const exam = await pool.query('SELECT * FROM exam', )
+    const exam = await pool.query('SELECT * FROM exam WHERE is_show = 1', )
     console.log('$$$$$$$$$$$$$$$$$$$$')
     res.render('view_exam/view',{
         data: exam,
@@ -231,7 +247,6 @@ controller.post_start =async (req, res)=>{
         })
     }
 }
-
 
 
 module.exports = controller;
