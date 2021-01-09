@@ -29,6 +29,7 @@ controller.get_view_only_user= async (req, res)=>{
 
     res.render('view_exam/view',{
         data: exam,
+        current_user_id: req.user.user_id,
         all:false
     })
 }
@@ -92,6 +93,7 @@ controller.get_start = async (req, res)=>{
         que_false_reply: 0,
         que_nothing_reply: 0,
         que_list_temp: exam[0].ques_list,
+        que_list_saved: "",
         exam_id : id
     }
 
@@ -101,6 +103,9 @@ controller.get_start = async (req, res)=>{
     // Selecciona del array un data aleatorio
     const chosen_question = util.random(question_array)
     console.log('Pregunta escogida'+chosen_question)
+
+    user_exam.que_list_saved = chosen_question;
+
     // Elimina la pregunta.
 
     user_exam.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
@@ -143,6 +148,7 @@ controller.post_start =async (req, res)=>{
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
         que_true_reply: get_exam_user[0].que_true_reply,
         que_false_reply:get_exam_user[0].que_false_reply,
+        que_list_saved: get_exam_user[0].que_list_saved,
         que_nothing_reply:get_exam_user[0].que_nothing_reply
     }
     console.log(user_exam )
@@ -183,18 +189,13 @@ controller.post_start =async (req, res)=>{
 
     }
 
-
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
-
     if (  req.params.que_current > exam[0].cant_ques ){
+        // SELECT * FROM `question` WHERE que_id IN ( 5, 10 , 1 , 50) ORDER BY FIELD( que_id, 5, 10 , 1 , 50 )
+        const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
 
-        const questions_= await pool.query('SELECT * FROM question WHERE que_id in ( '+ String(exam[0].ques_list) +' )')
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
         console.log(questions_)
-        console.log('$$$$$$$$$$$$$$$$$$$$$$$$$')
-        //*
-        console.log(user_exam)
         res.render('view_exam/finish_exam',{
             questions: questions_,
             exam: exam,
@@ -216,7 +217,8 @@ controller.post_start =async (req, res)=>{
 
 
         const user_exam__= {
-            que_list_temp: get_exam_user[0].que_list_temp
+            que_list_temp: get_exam_user[0].que_list_temp,
+            que_list_saved: get_exam_user[0].que_list_saved
         }
         console.log(user_exam__)
 
@@ -227,15 +229,20 @@ controller.post_start =async (req, res)=>{
         const chosen_question = util.random(question_array)
         console.log('Pregunta escogida: '+ chosen_question)
 
+        user_exam__.que_list_saved = String( user_exam__.que_list_saved + ","+ chosen_question);
+        console.log(user_exam__.que_list_saved +'<= pregunta en lists saved ')
+
+
         // Elimina la pregunta.
         user_exam__.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
         console.log(user_exam__.que_list_temp)
         user_exam__.que_list_temp = String(user_exam__.que_list_temp)
 
         await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam__, exam_user_id])
-
+        console.log('Lo que se guardó ')
         // mostrar alternativas aletorias?
         const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[chosen_question] )
+        console.log( questions[0])
         res.render('view_exam/start',{
             question: questions[0],
             exam: exam[0],

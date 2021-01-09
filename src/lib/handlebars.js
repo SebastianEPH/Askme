@@ -188,7 +188,9 @@ helpers.isTrue_falseNothing = (list_reply, index, que_true)=>{
 }
 
 helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
-   let nnew = list_reply.split(',');
+    console.log('lista que llegó de respuestas'+list_reply)
+    let nnew = list_reply.split(',');
+
     switch (nnew[index]){
         case '1' : return que_1;
         case '2' : return que_2;

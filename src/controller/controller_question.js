@@ -47,7 +47,8 @@ controller.view = async (req, res)=>{
     const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
     console.log(question)
     res.render('data_question/view',{
-        question : question[0] //  question[0],
+        question : question[0], //  question[0],
+        current_user_id: req.user.user_id
     })
 }
 controller.post_update = async(req, res)=>{
