@@ -179,6 +179,9 @@ helpers.isTrue_falseNothing = (list_reply, index, que_true)=>{
     let nnew = list_reply.split(',');
     console.log(nnew[index])
     console.log(que_true)
+    if (String(nnew[index]) === String(0)){
+        return 'bg-warning'
+    }
     if (String(nnew[index] )=== String(que_true)){
         return 'bg-success';
     }else{
