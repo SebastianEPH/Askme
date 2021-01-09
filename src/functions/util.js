@@ -16,7 +16,9 @@ util.random = (arr)=>{
 
     return arr[Math.floor(Math.random() * arr.length)]
 }
-
+util.calcule_note = (values, total ) =>{
+    return ( values* 20)/total
+}
 
 
 

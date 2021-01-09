@@ -94,6 +94,7 @@ controller.get_start = async (req, res)=>{
         que_nothing_reply: 0,
         que_list_temp: exam[0].ques_list,
         que_list_saved: "",
+        note: 0,
         exam_id : id
     }
 
@@ -149,6 +150,7 @@ controller.post_start =async (req, res)=>{
         que_true_reply: get_exam_user[0].que_true_reply,
         que_false_reply:get_exam_user[0].que_false_reply,
         que_list_saved: get_exam_user[0].que_list_saved,
+        note: get_exam_user[0].note,
         que_nothing_reply:get_exam_user[0].que_nothing_reply
     }
     console.log(user_exam )
@@ -163,6 +165,7 @@ controller.post_start =async (req, res)=>{
     // Evita que al actualizar la pagina, se vuelva a enviar la respuesta
     if(util.string_to_array(exam[0].ques_list, ',').length > util.string_to_array(user_exam.que_list_reply, ',').length  ){
         console.log(get_exam_user)
+
         // Verifica si es la primer pregunta
         if (get_exam_user[0].que_list_reply === "" ){
             user_exam.que_list_reply =  user_reply
@@ -186,7 +189,12 @@ controller.post_start =async (req, res)=>{
                 user_exam.que_false_reply = user_exam.que_false_reply + 1;
             }
         }
-
+        // Coloca nota Temporal o final
+        //let note_temp = util.string_to_array(user_exam.que_list_reply, ',')
+        console.log('NOTA cantidad '+exam[0].cant_ques)
+        console.log('NOTA que true reply '+user_exam.que_true_reply)
+        user_exam.note = util.calcule_note(user_exam.que_true_reply, exam[0].cant_ques)
+        console.log('NOTA: '+ user_exam)
     }
 
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
