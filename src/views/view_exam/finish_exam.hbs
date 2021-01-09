@@ -1,9 +1,32 @@
 <div class="container p-10">
     <br>
-    <br>
-    <h1>Resultados del examen</h1>
+    <h1 STYLE="text-align: center">Resumen del Examen</h1>
+
     <br><br><div class="row">
     <div class="container">
+
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">{{exam.title}}</h1>
+                    <p class="card-text"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sticky-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z"/>
+                    </svg><h6>{{exam.commentary}}</h6></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h5><b>Docente: </b>{{exam.user_id}}</h5></li>
+                    <li class="list-group-item"><h5><b>Categoría: </b>{{category exam.cat_id}}</h5></li>
+                    <li class="list-group-item"><h5><b>Nivel: </b>{{level exam.lev_id}}</h5></li>
+                    <li class="list-group-item"><h5><b>Total de preguntas: </b>{{que_total}}</h5></li>
+                    <li class="list-group-item"><h5><b>Preguntas contestadas correctamente: </b>{{que_true_reply}}</h5></li>
+                    <li class="list-group-item"><h5><b>Preguntas contestadas erroneas: </b>{{que_false_reply}}</h5></li>
+                    <li class="list-group-item"><h5><b>Preguntas contestadas en blanco: </b>{{que_nothing_reply}}</h5></li>
+                    <li class="list-group-item"><h3><b>Nota Final: </b>{{note que_true_reply que_total}}</h3></li>
+
+                </ul>
+            </div>
+        </div>
+        <br>
         <div class="progress">
             <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage que_total que_true_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
         </div>
@@ -13,9 +36,7 @@
         <div class="progress">
             <div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage que_total que_false_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
         </div>
-        <br>
-        <h2>Su nota es de: {{note que_true_reply que_total}}</h2>
-        <br>
+
         <br>
 
     </div>
@@ -72,6 +93,20 @@
 
     {{/each}}
 
+    <div class="col-md-7 mx-auto animate__animated animate__backInUp">
+        <br><br><br><br><br>
+        <div class="card ">
+            <a href="#" class="btn btn-info">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                </svg>
+                Ir Arriba
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
 </div>
 
     <div class="container">

@@ -206,7 +206,7 @@ controller.post_start =async (req, res)=>{
         console.log(questions_)
         res.render('view_exam/finish_exam',{
             questions: questions_,
-            exam: exam,
+            exam: exam[0],
             que_list_reply: user_exam.que_list_reply,
             que_current: req.params.que_current,
             que_total:exam[0].cant_ques,
