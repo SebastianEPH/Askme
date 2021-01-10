@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/public/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/auth/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signup.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,11 +62,11 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views\data_question" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views\data_question" />
       <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views" />
     </key>
   </component>
@@ -121,7 +123,8 @@
       <workItem from="1609602259482" duration="61331000" />
       <workItem from="1609890297903" duration="25483000" />
       <workItem from="1609943438421" duration="10289000" />
-      <workItem from="1610079408503" duration="38663000" />
+      <workItem from="1610079408503" duration="38707000" />
+      <workItem from="1610316876188" duration="827000" />
     </task>
     <servers />
   </component>

@@ -40,7 +40,7 @@ passport.use('local.signup', new Strategy({
         user_password: user_pass,
         user_phone: user_phone_prefijo + user_phone,
         type_id,
-        user_gen:genero
+        user_is_male:genero
     }
     newUser.user_password = await helpers.encryptPassword(user_pass)
     console.log(newUser)
