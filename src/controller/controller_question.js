@@ -5,7 +5,7 @@ controller.get_add = (req, res)=>{
         res.render('data_question/add')
 }
 controller.post_add = async (req,res)=>{
-    const {cat_id, lev_id, ty_id, que_que, que_1, que_2, que_3, que_4, que_true} = req.body;
+    const {cat_id, lev_id, feedback, ty_id, que_que, que_1, que_2, que_3, que_4, que_true} = req.body;
     const newQuestion= {
         cat_id,
         lev_id,
@@ -15,9 +15,19 @@ controller.post_add = async (req,res)=>{
         que_2,
         que_3,
         que_4,
+        feedback,
         que_true,
         user_id : req.user.user_id
     }
+    // Limpia los input
+    if (String(ty_id ) === String('1') || String(ty_id ) === String('2')){
+        newQuestion.que_3 = ""
+        newQuestion.que_4 = ""
+    }else if(String(ty_id ) === String('3')){
+        newQuestion.que_4 = ""
+    }
+
+
     await pool.query('INSERT INTO question SET ? ', [newQuestion]);
     req.flash('success', 'Se guardó la pregunta correctamente')
     res.redirect('/question')

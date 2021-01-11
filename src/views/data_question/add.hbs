@@ -59,6 +59,10 @@
                             <label id="que_4_text"      for="exampleFormControlSelect1">Alternativa 4</label>
                             <input id="que_4_text_input" type="text" name="que_4" placeholder="Escribe una alternativa" class="form-control">
                         </div>
+                        <div class="form-group" >
+                            <label for="exampleFormControlSelect1">Retroalimentación</label>
+                            <input type="text" name="feedback" placeholder="Mensaje que leerá el estudiante si responde mal" class="form-control">
+                        </div>
                         <div class="form-group" id="alternatives">
                             <label for="exampleFormControlSelect1">Escoge la alternativa correcta</label>
                             <select class="form-control" name="que_true" id="alternatives" onclick=" get_alternative();">
@@ -70,7 +74,6 @@
                         </div>
                         <button type="submit" class="btn btn-success">Guardar Pregunta</button>
                         <a href="/question/add" class="btn btn-light">Limpiar</a>
-
 
                     </form>
                 </div>
