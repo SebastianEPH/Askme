@@ -35,7 +35,9 @@ controller.post_add = async (req,res)=>{
 controller.get_delete = async (req, res)=>{
     const {id} = req.params;
     console.log(req.params)
-    await pool.query('DELETE FROM question WHERE que_id = ? ',[id])
+
+    //await pool.query('DELETE FROM question WHERE que_id saddddddddddddddddddd= ?  AND is_show = 1',[id])
+    await pool.query('UPDATE question set is_show = 0 WHERE que_id = ?', [ id])
     req.flash('success', 'Se eliminó la pregunta correctamente')
     res.redirect('/question')
 
@@ -54,7 +56,7 @@ controller.view = async (req, res)=>{
     const {id} = req.params
     console.log(req.params)
     console.log([id])
-    const question = await pool.query('SELECT * FROM question WHERE que_id = ?',[id]);
+    const question = await pool.query('SELECT * FROM question WHERE que_id = ? AND is_show = 1',[id]);
     console.log(question)
     res.render('data_question/view',{
         question : question[0], //  question[0],
@@ -69,7 +71,7 @@ controller.post_update = async(req, res)=>{
     res.redirect ('/question')
 }
 controller.get_show_onlyUser = async (req,res)=>{
-    const data = await pool.query('SELECT * FROM question WHERE user_id = ?', [req.user.user_id])
+    const data = await pool.query('SELECT * FROM question WHERE user_id = ? AND is_show = 1', [req.user.user_id])
     res.render('data_question/show',{
         data: data,
         current_user_id: req.user.user_id ,
@@ -77,7 +79,7 @@ controller.get_show_onlyUser = async (req,res)=>{
     })
 }
 controller.get_show_all = async (req,res)=>{
-    const data= await pool.query('SELECT * FROM question', [req.user.user_id])
+    const data= await pool.query('SELECT * FROM question WHERE is_show = 1')
     res.render('data_question/show',{
         data: data,
         current_user_id: req.user.user_id ,

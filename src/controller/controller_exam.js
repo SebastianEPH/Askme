@@ -43,7 +43,7 @@ controller.get_view_all = async (req, res)=>{
     })
 }
 controller.get_create= async (req, res)=>{
-    const data= await pool.query('SELECT * FROM question', [req.user.user_id])
+    const data= await pool.query('SELECT * FROM question  WHERE is_show = 1', [req.user.user_id])
     data.nuevoitem = req.user.user_id
     res.render('view_exam/create', {
         data: data,
@@ -117,7 +117,7 @@ controller.get_start = async (req, res)=>{
 
 
     // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[chosen_question] )
+    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?  AND is_show = 1',[chosen_question] )
     console.log(questions)
 
 
