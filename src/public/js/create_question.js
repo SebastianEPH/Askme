@@ -120,6 +120,8 @@ function get_alternative(){
 
 }
 
+type_alternative_on()
+
 
 
 

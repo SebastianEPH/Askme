@@ -52,24 +52,36 @@ controller.get_create= async (req, res)=>{
     console.log(data)
 }
 controller.post_create= async (req, res)=>{
-    const {title, commentary, time, category, level, chosen_questions } = req.body;
-    if (chosen_questions){
-        const newExam= {
-            title,
-            commentary,
-            //time,
-            cat_id:category,
-            lev_id: level,
-            cant_ques : chosen_questions.length,   // Cantidad de preguntas
-            ques_list : chosen_questions.toString(),    // ID separado por arrays
+
+    if (req.body.chosen_questions){
+
+        const exam = {
+            title: req.body.title,
+            commentary: req.body.commentary,
+            date_init: req.body.in_time_init_1 + " "+ req.body.in_time_init_2 + ":00",
+            date_finish: req.body.in_time_finish_1 + " "+ req.body.in_time_finish_2 + ":00",
+            time_limit: req.body.in_time_limit_1 + ":"+req.body.in_time_limit_2,
+            cat_id: req.body.category,
+            cant_ques : req.body.chosen_questions.length,
+            ques_list : req.body.chosen_questions.toString(),
+            lev_id: req.body.level,
             user_id : req.user.user_id
         }
-        console.log(newExam)
-        if(chosen_questions.length <1 ){
+        if (req.body.name_time_init === "0"){exam.date_create = ""}
+        if (req.body.name_time_finish === "0"){exam.date_finish = ""}
+        if (req.body.name_value_time_limit === "1"){exam.time_limit = ""}
+
+        console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRR')
+        console.log(req.body)
+        console.log('OOOOOOOOOOOOOOOOOOOOOOOOOOO')
+        console.log(exam)
+        console.log('YYYYYYYYYYYYYYYYYYYYYYYYYYY')
+
+        if(req.body.chosen_questions.length <1 ){
             req.flash('warning', 'Error, Debe escoger mínimamente 1 pregunta')
             res.redirect('/exam')
         }else{
-            await pool.query('INSERT INTO exam SET ? ', [newExam]);
+            await pool.query('INSERT INTO exam SET ? ', [exam]);
             req.flash('success', 'Se creó el examen correctamente')
             res.redirect('/exam')
         }

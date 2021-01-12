@@ -27,6 +27,33 @@ helpers.level = (level)=>{
         default: return "Variado"
     }
 }
+helpers.get_type = (type, num)=>{
+    switch (type){
+        case 1 :    // Verdadero y falso
+            if (num === 1){return `style="display: block;"`}
+            if (num === 2){return `style="display: block;"`}
+            if (num === 3){return `style="display: none;"`}
+            if (num === 4){return `style="display: none;"`}
+            break
+        case 2 :    // 2 alternativas
+            if (num === 1){return `style="display: block;"`}
+            if (num === 2){return `style="display: block;"`}
+            if (num === 3){return `style="display: none;"`}
+            if (num === 4){return `style="display: none;"`}
+            break
+        case 3 :    // 3 alternativas
+            if (num === 1){return `style="display: block;"`}
+            if (num === 2){return `style="display: block;"`}
+            if (num === 3){return `style="display: block;"`}
+            if (num === 4){return `style="display: none;"`}
+            break
+        default:
+            if (num === 1){return `style="display: block;"`}
+            if (num === 2){return `style="display: block;"`}
+            if (num === 3){return `style="display: block;"`}
+            if (num === 4){return `style="display: block;"`}
+    }
+}
 helpers.type = (type)=>{
     switch (type){
         case 1 : return "Verdadero o falso";

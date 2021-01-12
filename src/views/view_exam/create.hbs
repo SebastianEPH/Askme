@@ -2,41 +2,127 @@
 
 <div class="container p-4 ">
     <div class="row animate__animated animate__shakeX">
-        <div class="col-md-5 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card ">
                <div class="card-header">
                    <h1>Creando examen</h1>
                </div>
                 <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="title" placeholder="Título" min="5" class="form-control" minlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="commentary" class="form-control"  placeholder="Describe de que se tratará el examen " rows="3" minlength="6" required></textarea>
+                    </div>
 
-
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Título</label>
-                            <input type="text" name="title" placeholder="Escriba aquí" class="form-control" minlength="6" required>
+                    <label>Habilitar examen desde una fecha establecida</label>
+                    <div class="form-group">
+                        <select name="name_time_init" class="form-control" id="select_time_init" onchange="select_time_init_f();">
+                            <option value="0" selected>No</option>
+                            <option value="1">Si</option>
+                        </select>
+                        <div id="time_init">
+                            <small class="text-muted">Definir fecha</small>
+                            <div class="input-group flex-nowrap">
+                            <span class="input-group-text">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
+                                  <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                                  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                                </svg>
+                            </span>
+                                <input type="date" class="form-control" name="in_time_init_1" value="2021-01-01" min="2021-01-01">
+                                <span class="input-group-text" >
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg>
+                            </span>
+                                <input type="time" name="in_time_init_2" value="13:00" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Comentario</label>
-                            <textarea name="commentary" class="form-control" id="exampleFormControlTextarea1" rows="3" minlength="6" required></textarea>
-                            <!--input type="text" name="que_que" placeholder="Pregunta" class="form-control"-->
-                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label> Tiempo de duración del examen</label>
-                            <select class="form-control" name="time" >
-                                <option value="1">10 minutos</option>
-                                <option value="2">20 minutos</option>
-                                <option value="3">30 minutos</option>
-                                <option value="4" selected>45 minutos</option>
-                                <option value="5">1 Hora</option>
-                                <option value="6">1 Hora y 15 minutos</option>
-                                <option value="7">1 Hora y 30 minutos</option>
-                                <option value="8">1 Hora y 45 minutos</option>
-                                <option value="9">2 Hora</option>
-                                <option value="10">2 Hora y 15 minutos</option>
-                                <option value="11">2 Hora y 30 minutos</option>
-                                <option value="12">2 Hora y 45 minutos</option>
+                    <label>Deshabilitar el examen en una fecha y hora establecida</label>
+                    <div class="form-group">
+                        <select name="name_time_finish"class="form-control" id="select_time_finish" onchange="select_time_finish_f()">
+                            <option value="0" selected>No</option>
+                            <option value="1">Si</option>
+                        </select>
+                        <div id="time_finish">
+                            <small class="text-muted">Definir fecha y hora </small>
+                            <div class="input-group flex-nowrap">
+                            <span class="input-group-text">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
+                                  <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                                  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                                </svg>
+                            </span>
+                                <input name="in_time_finish_1" type="date" class="form-control"  value="2021-01-01" min="2021-01-01">
+                                <span class="input-group-text" >
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg>
+                            </span>
+                                <input name="in_time_finish_2" type="time"  value="16:00" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <label>Definir tiempo limite de examen</label>
+                    <div class="form-group">
+                        <div class="input-group flex-nowrap">
+                            <select name="name_value_time_limit" class="form-control" id="select_time_limit" onchange="time_limit_f();">
+                                <option value="0" selected>Con tiempo limite</option>
+                                <option value="1" >Sin tiempo limite</option>
                             </select>
+                            <div id="time_limit" >
+                                <div class="input-group flex-nowrap">
+                                   <span class="input-group-text" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                                        <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                                    </svg>
+                                </span>
+                                <select class="form-control" name="in_time_limit_1"  >
+                                    <option value="00" selected></option>
+                                    <option value="01">1 Hora</option>
+                                    <option value="02">2 Horas</option>
+                                    <option value="03">3 Horas</option>
+                                    <option value="04">4 Horas</option>
+                                    <option value="05">5 Horas</option>
+                                    <option value="06">6 Horas</option>
+                                    <option value="07">7 Horas</option>
+                                    <option value="08">8 Horas</option>
+                                    <option value="09">9 Horas</option>
+                                    <option value="10">10 Horas</option>
+                                    <option value="11">11 Horas</option>
+                                    <option value="12">12 Horas</option>
+                                </select>
+                                <select class="form-control" name="in_time_limit_2"  >
+                                    <option value="00" selected>00</option>
+                                    <option value="05">05 min</option>
+                                    <option value="10">10 min</option>
+                                    <option value="15">15 min</option>
+                                    <option value="20">20 min</option>
+                                    <option value="25">25 min</option>
+                                    <option value="30">30 min</option>
+                                    <option value="35">35 min</option>
+                                    <option value="40">40 min</option>
+                                    <option value="45">45 min</option>
+                                    <option value="40">40 min</option>
+                                    <option value="55">55 min</option>
+                                    <option value="50">50 min</option>
+                                    <option value="55">55 min</option>
+
+                                </select>
+                                </div>
+                            </div>
                         </div>
+
+                    </div>
+
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Categoría</label>
                             <select class="form-control" name="category" id="exampleFormControlSelect1" >
@@ -47,7 +133,6 @@
                                 <option value="4">Diseño gráfico</option>
                                 <option value="5">Cultura General</option>
                                 <option value="6">Office</option>
-
                             </select>
                         </div>
                         <div class="form-group">
@@ -107,39 +192,31 @@
 
                 <div class="row animate__animated animate__backInDown">
 
-
                     {{#each data}}
-
                         <div class="gallery_product col-md-4 filter center {{cat_id}}  {{lev_id }}l  {{ty_id}}t">
-
                             <div class="card text-center  ">
                                 <div class="card-body ">
 
                                     <div class="form-check text-left " >
-
                                         <input type="checkbox" class="form-check-input" name="chosen_questions" value="{{que_id}}">
                                     </div>
-
-
                                     <h3 class="card-title " style="color: blue">{{que_que}}</h3> <!-- text-uppercase -->
                                     <!--/a-->
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">{{category   cat_id}}</li>
                                         <li class="list-group-item">{{level      lev_id }}</li>
                                         <li class="list-group-item">{{type       ty_id}}</li>
-
                                         <li class="list-group-item"></li>
                                         <select class="text-center" >
-                                            <option  {{checkQuestionTrueSelected 1 que_true}}>{{que_1}}</option>
-                                            <option  {{checkQuestionTrueSelected 2 que_true}}>{{que_2}}</option>
-                                            <option  {{checkQuestionTrueSelected 3 que_true}}>{{que_3}}</option>
-                                            <option  {{checkQuestionTrueSelected 4 que_true}}>{{que_4}}</option>
+                                            <option {{{get_type ty_id 1}}} {{checkQuestionTrueSelected 1 que_true}}>{{que_1}}</option>
+                                            <option {{{get_type ty_id 2}}} {{checkQuestionTrueSelected 2 que_true}}>{{que_2}}</option>
+                                            <option {{{get_type ty_id 3}}}  {{checkQuestionTrueSelected 3 que_true}}>{{que_3}}</option>
+                                            <option {{{get_type ty_id 4}}}  {{checkQuestionTrueSelected 4 que_true}}>{{que_4}}</option>
                                         </select>
 
                                         <li class="list-group-item"></li>
 
                                     </ul>
-
 
                                 </div>
                             </div>
@@ -184,8 +261,6 @@
     <br>
 
 
-
-
 </div>
 
 <!--div class="col-md-7 mx-auto"-->
@@ -200,6 +275,6 @@
             </svg>
         </a>
     </div>
-
+    <script src="/js/create_exam.js"></script>
 </form>
 <!--/div-->
