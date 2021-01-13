@@ -2,7 +2,6 @@ const pool = require('../database') // database import
 const controller = {}
 const util = require('../functions/util')
 
-
 controller.get_delete= async (req, res)=>{
     const {id} = req.params;
     const get_exam = await pool.query('SELECT * FROM exam WHERE id = ?', [id] )//[req.user.user_id])
@@ -12,7 +11,6 @@ controller.get_delete= async (req, res)=>{
     if (get_exam[0].user_id === req.user.user_id ){
         console.log('Si tiene permiso para eliminar el examen')
         await pool.query('UPDATE exam SET is_show = 0 WHERE id = ?',[id])
-
         req.flash('success', 'Se eliminó la pregunta correctamente')
 
     }else{
@@ -35,12 +33,15 @@ controller.get_view_only_user= async (req, res)=>{
 }
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam WHERE is_show = 1', )
-    console.log('$$$$$$$$$$$$$$$$$$$$')
+
     res.render('view_exam/view',{
         data: exam,
         current_user_id: req.user.user_id ,
         all:true
     })
+
+
+
 }
 controller.get_create= async (req, res)=>{
     const data= await pool.query('SELECT * FROM question  WHERE is_show = 1', [req.user.user_id])
@@ -110,43 +111,52 @@ controller.get_start = async (req, res)=>{
         exam_id : id
     }
 
-    // Convierte String en Array
-    let question_array = util.string_to_array(user_exam.que_list_temp, ',')
-    console.log(question_array)
-    // Selecciona del array un data aleatorio
-    const chosen_question = util.random(question_array)
-    console.log('Pregunta escogida'+chosen_question)
+    if (util.compare_date_init(exam[0].date_init)){
 
-    user_exam.que_list_saved = chosen_question;
+        // Convierte String en Array
+        let question_array = util.string_to_array(user_exam.que_list_temp, ',')
+        console.log(question_array)
+        // Selecciona del array un data aleatorio
+        const chosen_question = util.random(question_array)
+        console.log('Pregunta escogida'+chosen_question)
 
-    // Elimina la pregunta.
+        user_exam.que_list_saved = chosen_question;
 
-    user_exam.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
-    //console.log(util.removeItemFromArr(question_array, String(chosen_question)))
-    user_exam.que_list_temp = String(user_exam.que_list_temp)
-    console.log(user_exam.que_list_temp)
-    await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, id])
+        // Elimina la pregunta.
 
-
-    // mostrar alternativas aletorias?
-    const questions = await pool.query('SELECT * FROM question WHERE que_id = ?  AND is_show = 1',[chosen_question] )
-    console.log(questions)
+        user_exam.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
+        //console.log(util.removeItemFromArr(question_array, String(chosen_question)))
+        user_exam.que_list_temp = String(user_exam.que_list_temp)
+        console.log(user_exam.que_list_temp)
+        await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, id])
 
 
-    const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
-    res.render('view_exam/start',{
-        question: questions[0],
-        exam: exam[0],
-        que_current: 1,
-        que_total:exam[0].cant_ques,
-        que_true_reply: 0,
-        que_false_reply:0,
-        que_nothing_reply: 0,
-        exam_user_id:insert_exam_user.insertId,
-        _error: 0,
-        _success:0
-    })
-    //res.send('finalizó')
+        // mostrar alternativas aletorias?
+        const questions = await pool.query('SELECT * FROM question WHERE que_id = ?  AND is_show = 1',[chosen_question] )
+        console.log(questions)
+
+
+        const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
+        res.render('view_exam/start',{
+            question: questions[0],
+            exam: exam[0],
+            que_current: 1,
+            que_total:exam[0].cant_ques,
+            que_true_reply: 0,
+            que_false_reply:0,
+            que_nothing_reply: 0,
+            exam_user_id:insert_exam_user.insertId,
+            _error: 0,
+            _success:0
+        })
+    }else{
+        //const d = util.date_recent(exam[0].date_init)
+
+        req.flash('warning', 'El examen se habilitará en ' + util.date_beautiful(exam[0].date_init))
+        res.redirect('/exam')
+    }
+
+
 }
 controller.post_start =async (req, res)=>{
     let user_reply__ = false
