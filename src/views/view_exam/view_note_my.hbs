@@ -16,7 +16,8 @@
                         <thead>
                         <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Comentario</th>
+                            <th scope="col">docente</th>
+                            <th scope="col">Estudiante</th>
                             <th scope="col">Nota </th>
                             <th scope="col">Correctas</th>
                             <th scope="col">Falló</th>
@@ -33,7 +34,8 @@
                                     {{#if (istrue_ exam_id ../id)}}
                                         <tr class="table-primary text-dark">
                                             <td>{{../title}}</td>
-                                            <td>{{../commentary}}</td>
+                                            <td>{{../user_id}}</td>
+                                            <td>{{user_id}}</td>
                                             <td>{{note que_true_reply ../cant_ques}}</td>
                                             <td>{{que_true_reply}} preguntas</td>
                                             <td>{{que_false_reply}} preguntas</td>

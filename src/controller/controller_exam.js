@@ -303,13 +303,38 @@ controller.post_start =async (req, res)=>{
 controller.get_view_my = async (req, res)=> {
     const user_exam = await pool.query('SELECT * FROM exam_user WHERE user_id = ?', [req.user.user_id])
     const exam = await pool.query('SELECT * FROM exam ' )
-    res.render('view_exam/view_note',{
+    res.render('view_exam/view_note_my',{
         all: false,
         exam,
+        __user: req.user.user_id,
         user_exam,
     })
 }
 controller.get_view_students= async (req, res)=>{
+    const exam = await pool.query('SELECT * FROM exam  WHERE user_id = ? ',[req.user.user_id])
+    if (exam){
+        let new_exam_id = ""
+        for (let i = 0; i < exam.length; i++) {
+            if(new_exam_id === ""){
+                new_exam_id  = exam[i].id
+            }else{
+                new_exam_id  = new_exam_id + ","+exam[i].id
+            }
+        }
+        console.log(new_exam_id)
+        const user_exam = await pool.query('SELECT * FROM exam_user WHERE exam_id IN ('+new_exam_id+')'  )
+
+        res.render('view_exam/view_note_all',{
+            all: true,
+            exam,
+            __user: req.user.user_id,
+            user_exam,
+        })
+
+    }else{
+
+        res.send('nadie tomo tus examenes')
+    }
 
 }
 

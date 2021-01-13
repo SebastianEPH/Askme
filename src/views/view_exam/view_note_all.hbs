@@ -1,0 +1,72 @@
+<div class="container p-4">
+    {{#if user_exam}}
+        {{#if all}}
+            <h1 style="text-align: center" class="animate__animated animate__backInUp">Notas de mis estudiantes</h1>
+        {{else}}
+            <h1 style="text-align: center" class="animate__animated animate__backInUp" >Mis Notas<span class="badge bg-secondary"></span></h1>
+        {{/if}}
+        <hr>
+        <br>
+        <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" />
+
+        <br>
+        <div class="row">
+
+            <table  id="tabla" class="table table-dark table-bordered border-primary">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">docente</th>
+                    <th scope="col">Estudiante</th>
+                    <th scope="col">Nota </th>
+                    <th scope="col">Correctas</th>
+                    <th scope="col">Falló</th>
+                    <th scope="col">En blanco</th>
+                    <th scope="col">hora de inicio</th>
+                    <th scope="col">hora de finalización</th>
+                    <th scope="col">Botón ver</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                {{#each exam}}
+                    {{#each ../user_exam}}
+                        {{#if (istrue_ exam_id ../id)}}
+                            <tr class="table-primary text-dark">
+                                <td>{{../title}}</td>
+                                <td>{{../user_id}}</td>
+                                <td>{{user_id}}</td>
+                                <td>{{note que_true_reply ../cant_ques}}</td>
+                                <td>{{que_true_reply}} preguntas</td>
+                                <td>{{que_false_reply}} preguntas</td>
+                                <td>{{que_nothing_reply}} preguntas</td>
+                                <td>{{ date_string date_init}}</td>
+                                <td>{{ date_string date_finish}}</td>
+                                <td>
+                                    <a href="#" class="btn btn-primary">Detallado</a>
+                                </td>
+                            </tr>
+
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+                </tbody>
+            </table>
+
+        </div>
+    {{else}}
+        <br>
+        <h1>No se encontró ninguna nota<span class="badge bg-secondary"></span></h1>
+        <br><br>
+        <a href="/exam/all" class="btn btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+            </svg>
+            Desea tomar examen
+        </a>
+        <br><br><br><br><br><br><br>
+
+    {{/if}}
+
+    <script src="/js/filtrar.js"></script>
+</div>
