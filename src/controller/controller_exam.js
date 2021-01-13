@@ -68,9 +68,9 @@ controller.post_create= async (req, res)=>{
             lev_id: req.body.level,
             user_id : req.user.user_id
         }
-        if (req.body.name_time_init === "0"){exam.date_create = ""}
-        if (req.body.name_time_finish === "0"){exam.date_finish = ""}
-        if (req.body.name_value_time_limit === "1"){exam.time_limit = ""}
+        if (req.body.name_time_init === "0"){exam.date_init= null}
+        if (req.body.name_time_finish === "0"){exam.date_finish = null}
+        if (req.body.name_value_time_limit === "1"){exam.time_limit = null}
 
         console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRR')
         console.log(req.body)
