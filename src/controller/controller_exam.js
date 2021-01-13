@@ -222,6 +222,16 @@ controller.post_start =async (req, res)=>{
         const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
 
         console.log(questions_)
+
+        // guarda métadatos a `exam_user`
+        const _exam_user_ = {
+            que_true_reply: user_exam.que_true_reply,
+            que_false_reply: user_exam.que_false_reply,
+            que_nothing_reply: user_exam.que_nothing_reply
+        }
+        console.log(_exam_user_)
+        await pool.query('UPDATE exam_user set ? WHERE id = ?', [_exam_user_, exam_user_id])
+
         res.render('view_exam/finish_exam',{
             questions: questions_,
             exam: exam[0],
