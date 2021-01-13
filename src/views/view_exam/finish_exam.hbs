@@ -18,32 +18,46 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Docente:</span>
-                <input type="text" value="{{exam.user_id}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{exam.user_id}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Categoría: </span>
-                <input type="text" value="{{category exam.cat_id}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{category exam.cat_id}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nivel: </span>
-                <input type="text" value="{{level exam.lev_id}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{level exam.lev_id}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Total de preguntas: </span>
-                <input type="text" value="{{que_total}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{que_total}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Preguntas contestadas correctamente: </span>
-                <input type="text" value="{{que_true_reply}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{que_true_reply}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Preguntas contestadas erroneas: </span>
-                <input type="text" value="{{que_false_reply}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{que_false_reply}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Preguntas contestadas en blanco: </span>
-                <input type="text" value="{{que_nothing_reply}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" value="{{que_nothing_reply}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Hora de inicio:</span>
+                <input type="text" value="{{date_string exam_user_.date_init}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Hora de entrega:</span>
+                <input type="text" value="{{date_string exam_user_.date_finish}}" disabled class="form-control" placeholder="No se registro datos"  aria-describedby="basic-addon1">
+            </div>
+
+
+
+
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nota Final: </span>
                 <input type="text" value="{{note que_true_reply que_total}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">

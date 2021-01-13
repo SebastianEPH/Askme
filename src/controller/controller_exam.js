@@ -68,6 +68,7 @@ controller.post_create= async (req, res)=>{
             lev_id: req.body.level,
             user_id : req.user.user_id
         }
+        // Verifica si
         if (req.body.name_time_init === "0"){exam.date_init= null}
         if (req.body.name_time_finish === "0"){exam.date_finish = null}
         if (req.body.name_value_time_limit === "1"){exam.time_limit = null}
@@ -171,6 +172,7 @@ controller.post_start =async (req, res)=>{
         que_false_reply:get_exam_user[0].que_false_reply,
         que_list_saved: get_exam_user[0].que_list_saved,
         note: get_exam_user[0].note,
+        date_finish:get_exam_user[0].date_finish,
         que_nothing_reply:get_exam_user[0].que_nothing_reply
     }
     console.log(user_exam )
@@ -227,7 +229,10 @@ controller.post_start =async (req, res)=>{
         const _exam_user_ = {
             que_true_reply: user_exam.que_true_reply,
             que_false_reply: user_exam.que_false_reply,
-            que_nothing_reply: user_exam.que_nothing_reply
+            que_nothing_reply: user_exam.que_nothing_reply,
+        }
+        if (user_exam.date_finish === null){
+            _exam_user_.date_finish = new Date()
         }
         console.log(_exam_user_)
         await pool.query('UPDATE exam_user set ? WHERE id = ?', [_exam_user_, exam_user_id])
@@ -235,6 +240,7 @@ controller.post_start =async (req, res)=>{
         res.render('view_exam/finish_exam',{
             questions: questions_,
             exam: exam[0],
+            exam_user_: get_exam_user[0],
             que_list_reply: user_exam.que_list_reply,
             que_current: req.params.que_current,
             que_total:exam[0].cant_ques,

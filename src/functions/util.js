@@ -18,7 +18,8 @@ util.random = (arr)=>{
     return arr[Math.floor(Math.random() * arr.length)]
 }
 util.calcule_note = (values, total ) =>{
-    return ( values* 20)/total
+    const note = ( values* 20)/total
+    return note.toFixed(2)
 }
 
 util.compare_date_init = (date_init) =>{

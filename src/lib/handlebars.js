@@ -113,6 +113,16 @@ helpers.isMeExam =(id_user_exam, id_user)=>{
     console.log('user_id del foreach: '+ id_user)
     return id_user === id_user_exam
 }
+helpers.date_beautiful= (date)=>{
+    if (date === "" || date === null){
+        return ""
+    }
+    return  format(new Date(date)); // January 12th 2021, 8:18:05 pm
+}
+helpers.date_string= (date)=>{
+    const date_ = new Date(date)
+    return date_.getFullYear() + " "+ date_.toTimeString()
+}
 /*helpers.examExisUser =(exam, index,id_user)=>{
 
     if(exam[index].user_id=== id_user){
