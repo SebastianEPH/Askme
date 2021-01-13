@@ -151,11 +151,9 @@ controller.get_start = async (req, res)=>{
         })
     }else{
         //const d = util.date_recent(exam[0].date_init)
-
         req.flash('warning', 'El examen se habilitará en ' + util.date_beautiful(exam[0].date_init))
         res.redirect('/exam')
     }
-
 
 }
 controller.post_start =async (req, res)=>{
@@ -177,51 +175,49 @@ controller.post_start =async (req, res)=>{
     }
     console.log(user_exam )
 
+    // Evita que al actualizar la pagina, se vuelva a enviar la respuesta
+    if(util.string_to_array(exam[0].ques_list, ',').length > util.string_to_array(user_exam.que_list_reply, ',').length  ){
+            console.log(get_exam_user)
 
+            // Verifica si es la primer pregunta
+            if (get_exam_user[0].que_list_reply === "" ){
+                user_exam.que_list_reply =  user_reply
+                console.log('primera. '+ user_reply)
+            }else{
+                console.log('ya pasó'+ user_exam.que_list_reply + ","+ user_reply)
+                user_exam.que_list_reply = user_exam.que_list_reply + ","+ user_reply
+            }
+
+
+            // Verifica si la respuesta es correcta
+            if(user_reply__){
+                //success = "Respuesta correcta + feedback"
+                user_exam.que_nothing_reply = user_exam.que_nothing_reply + 1 ;
+            }else{
+                if(que_true === user_reply){
+                    //success = "Respuesta correcta + feedback"
+                    user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
+                }else{
+                    //warning = "la respues es incorrecta + su feedback"
+                    user_exam.que_false_reply = user_exam.que_false_reply + 1;
+                }
+            }
+            // Coloca nota Temporal o final
+            //let note_temp = util.string_to_array(user_exam.que_list_reply, ',')
+            console.log('NOTA cantidad '+exam[0].cant_ques)
+            console.log('NOTA que true reply '+user_exam.que_true_reply)
+            user_exam.note = util.calcule_note(user_exam.que_true_reply, exam[0].cant_ques)
+            console.log('NOTA: '+ user_exam)
+        }
     // Si el usuario no respondió, la respuesta es igual a 0
     if (!user_reply){
         user_reply = 0;
         user_reply__ = true
     }
-
-    // Evita que al actualizar la pagina, se vuelva a enviar la respuesta
-    if(util.string_to_array(exam[0].ques_list, ',').length > util.string_to_array(user_exam.que_list_reply, ',').length  ){
-        console.log(get_exam_user)
-
-        // Verifica si es la primer pregunta
-        if (get_exam_user[0].que_list_reply === "" ){
-            user_exam.que_list_reply =  user_reply
-            console.log('primera. '+ user_reply)
-        }else{
-            console.log('ya pasó'+ user_exam.que_list_reply + ","+ user_reply)
-            user_exam.que_list_reply = user_exam.que_list_reply + ","+ user_reply
-        }
-
-
-        // Verifica si la respuesta es correcta
-        if(user_reply__){
-            //success = "Respuesta correcta + feedback"
-            user_exam.que_nothing_reply = user_exam.que_nothing_reply + 1 ;
-        }else{
-            if(que_true === user_reply){
-                //success = "Respuesta correcta + feedback"
-                user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
-            }else{
-                //warning = "la respues es incorrecta + su feedback"
-                user_exam.que_false_reply = user_exam.que_false_reply + 1;
-            }
-        }
-        // Coloca nota Temporal o final
-        //let note_temp = util.string_to_array(user_exam.que_list_reply, ',')
-        console.log('NOTA cantidad '+exam[0].cant_ques)
-        console.log('NOTA que true reply '+user_exam.que_true_reply)
-        user_exam.note = util.calcule_note(user_exam.que_true_reply, exam[0].cant_ques)
-        console.log('NOTA: '+ user_exam)
-    }
-
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
-    if (  req.params.que_current > exam[0].cant_ques ){
+    // Verifica si ya se supero al fecha actual
+    if (req.params.que_current > exam[0].cant_ques || util.compare_date_finish(exam[0].date_init)){
         // SELECT * FROM `question` WHERE que_id IN ( 5, 10 , 1 , 50) ORDER BY FIELD( que_id, 5, 10 , 1 , 50 )
         const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
 
@@ -239,7 +235,6 @@ controller.post_start =async (req, res)=>{
         })
 
     }else{
-
 
         // se muestra una pregunta nueva
         console.log('Pregunta actual: '+req.params.que_current )
@@ -284,6 +279,10 @@ controller.post_start =async (req, res)=>{
             exam_user_id,
         })
     }
+
+
+
+
 }
 
 

@@ -22,7 +22,10 @@ util.calcule_note = (values, total ) =>{
 }
 
 util.compare_date_init = (date_init) =>{
-    return new Date() < new Date(date_init);
+    return new Date() > new Date(date_init);
+}
+util.compare_date_finish = (date_finish) =>{
+    return new Date() > new Date(date_finish);
 }
 util.date_beautiful= (date)=>{
     return  format(new Date(date)); // January 12th 2021, 8:18:05 pm
