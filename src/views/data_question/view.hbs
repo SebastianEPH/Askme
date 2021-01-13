@@ -19,18 +19,23 @@
                             {{{question.que_2}}}
                         </label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"{{checkQuestionTrue 3 question.que_true}}>
-                        <label class="form-check-label" for="exampleRadios3">
-                            {{{question.que_3}}}
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option4"{{checkQuestionTrue 4 question.que_true}}>
-                        <label class="form-check-label" for="exampleRadios4">
-                            {{{question.que_4}}}
-                        </label>
-                    </div>
+                    {{#if question.que_3}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"{{checkQuestionTrue 3 question.que_true}}>
+                            <label class="form-check-label" for="exampleRadios3">
+                                {{{question.que_3}}}
+                            </label>
+                        </div>
+                    {{/if}}
+                    {{#if question.que_4}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option4"{{checkQuestionTrue 4 question.que_true}}>
+                            <label class="form-check-label" for="exampleRadios4">
+                                {{{question.que_4}}}
+                            </label>
+                        </div>
+                    {{/if}}
+
                     <br>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Respuesta correcta:</span>

@@ -11,6 +11,8 @@ router.post('/create', exam.post_create )
 router.get('/start/:id', exam.get_start)    // RunOnce
 router.get('/start/:id:/:is_true', exam.get_start)  // muestra pregunta perot ambien
 router.post('/start/:que_current/:que_true/:que_true_reply/:que_false_reply/:que_nothing_reply/:exam_id/:exam_user_id', exam.post_start) // :
+router.get('/view/my', exam.get_view_my)
+router.get('/view/student', exam.get_view_students)
 
 
 

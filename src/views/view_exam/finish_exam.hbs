@@ -99,18 +99,23 @@
                             {{{que_2}}}
                         </label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}"{{checkQuestionTrue 3 que_true}}>
-                        <label class="form-check-label" for="exampleRadios3">
-                            {{{que_3}}}
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}"{{checkQuestionTrue 4 que_true}}>
-                        <label class="form-check-label" for="exampleRadios4">
-                            {{{que_4}}}
-                        </label>
-                    </div>
+                    {{#if que_3}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}"{{checkQuestionTrue 3 que_true}}>
+                            <label class="form-check-label" for="exampleRadios3">
+                                {{{que_3}}}
+                            </label>
+                        </div>
+                    {{/if}}
+                    {{#if que_4}}
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}"{{checkQuestionTrue 4 que_true}}>
+                            <label class="form-check-label" for="exampleRadios4">
+                                {{{que_4}}}
+                            </label>
+                        </div>
+                    {{/if}}
+
                     <br>
                     <br>
                     <!--div class="input-group mb-3">

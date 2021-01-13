@@ -300,6 +300,17 @@ controller.post_start =async (req, res)=>{
 
 
 }
+controller.get_view_my = async (req, res)=> {
+    const user_exam = await pool.query('SELECT * FROM exam_user WHERE user_id = ?', [req.user.user_id])
+    const exam = await pool.query('SELECT * FROM exam ' )
+    res.render('view_exam/view_note',{
+        all: false,
+        exam,
+        user_exam,
+    })
+}
+controller.get_view_students= async (req, res)=>{
 
+}
 
 module.exports = controller;

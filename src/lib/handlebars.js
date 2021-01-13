@@ -108,6 +108,11 @@ helpers.typeUserText=(user_id)=>{
         return "Docente";
     }
 }
+helpers.istrue_=(exam_id , exam_user_id)=>{
+    console.log('primero: '+exam_id)
+    console.log('segundo: '+ exam_user_id)
+    return  String(exam_id) === String(exam_user_id)
+}
 helpers.isMeExam =(id_user_exam, id_user)=>{
     console.log('user_id exam: '+ id_user_exam)
     console.log('user_id del foreach: '+ id_user)
