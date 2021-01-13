@@ -5,12 +5,14 @@
         {{else}}
             <h1 style="text-align: center" class="animate__animated animate__backInUp" >Mis Notas<span class="badge bg-secondary"></span></h1>
         {{/if}}
+        <hr>
         <br>
+        <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" />
 
-
+        <br>
             <div class="row">
 
-                    <table class="table table-dark">
+                <table  id="tabla" class="table table-dark table-bordered border-primary">
                         <thead>
                         <tr>
                             <th scope="col">Nombre</th>
@@ -21,31 +23,31 @@
                             <th scope="col">En blanco</th>
                             <th scope="col">hora de inicio</th>
                             <th scope="col">hora de finalización</th>
-                            <th scope="col">ver</th>
+                            <th scope="col">Botón ver</th>
                         </tr>
+
                         </thead>
                         <tbody>
-                    {{#each exam}}
-                        {{#each ../user_exam}}
-                            {{#if (istrue_ exam_id ../id)}}
-                                <tr class="table-primary text-dark">
-                                    <td>{{../title}}</td>
-                                    <td>{{../commentary}}</td>
-                                    <td>{{note que_true_reply ../cant_ques}}</td>
-                                    <td>{{que_true_reply}} preguntas</td>
-                                    <td>{{que_false_reply}} preguntas</td>
-                                    <td>{{que_nothing_reply}} preguntas</td>
-                                    <td>{{ date_string date_init}}</td>
-                                    <td>{{ date_string date_finish}}</td>
-                                    <td>
-                                        <a href="#" class="btn btn-primary">detallado</a>
-                                    </td>
-                                </tr>
+                            {{#each exam}}
+                                {{#each ../user_exam}}
+                                    {{#if (istrue_ exam_id ../id)}}
+                                        <tr class="table-primary text-dark">
+                                            <td>{{../title}}</td>
+                                            <td>{{../commentary}}</td>
+                                            <td>{{note que_true_reply ../cant_ques}}</td>
+                                            <td>{{que_true_reply}} preguntas</td>
+                                            <td>{{que_false_reply}} preguntas</td>
+                                            <td>{{que_nothing_reply}} preguntas</td>
+                                            <td>{{ date_string date_init}}</td>
+                                            <td>{{ date_string date_finish}}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary">Detallado</a>
+                                            </td>
+                                        </tr>
 
-
-                             {{/if}}
-                        {{/each}}
-                    {{/each}}
+                                     {{/if}}
+                                {{/each}}
+                            {{/each}}
                         </tbody>
                     </table>
 
@@ -64,5 +66,5 @@
 
     {{/if}}
 
-
+    <script src="/js/filtrar.js"></script>
 </div>
