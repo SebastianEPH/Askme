@@ -108,6 +108,15 @@ helpers.typeUserText=(user_id)=>{
         return "Docente";
     }
 }
+helpers.return_user_name= (id, obj_user)=>{
+    for (let i = 0; i < obj_user.length; i++) {
+       if(String(obj_user[i].user_id ) === String(id)){
+           return obj_user[i].user_fullname
+       }
+    }
+
+}
+
 helpers.istrue_=(exam_id , exam_user_id)=>{
     console.log('primero: '+exam_id)
     console.log('segundo: '+ exam_user_id)
@@ -209,8 +218,17 @@ helpers.percentage = (max, value)=>{
     return (value * 100)/max
 }
 helpers.note = (values, total )=>{
-    return ( values* 20)/total
-    //return ( values* total )/20
+    const numero =  ( values* 20)/total
+    //return ( values* total )/
+    if (isNaN(numero)){
+    } else {
+        if (numero % 1 === 0) {
+            return numero
+        } else {
+            return Number.parseFloat(numero).toFixed(1);
+        }
+    }
+
 }
 helpers.is_init = (value)=>{
     return value === 1

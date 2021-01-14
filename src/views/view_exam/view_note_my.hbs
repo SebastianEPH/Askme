@@ -34,8 +34,8 @@
                                     {{#if (istrue_ exam_id ../id)}}
                                         <tr class="table-primary text-dark">
                                             <td>{{../title}}</td>
-                                            <td>{{../user_id}}</td>
-                                            <td>{{user_id}}</td>
+                                            <td>{{return_user_name ../user_id ../../_user_}}</td>
+                                            <td>{{return_user_name user_id ../../_user_}}</td>
                                             <td>{{note que_true_reply ../cant_ques}}</td>
                                             <td>{{que_true_reply}} preguntas</td>
                                             <td>{{que_false_reply}} preguntas</td>

@@ -33,9 +33,11 @@ controller.get_view_only_user= async (req, res)=>{
 }
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam WHERE is_show = 1', )
-
+    const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user', )
+    console.log(_user_)
     res.render('view_exam/view',{
         data: exam,
+        _user_,
         current_user_id: req.user.user_id ,
         all:true
     })
@@ -303,9 +305,11 @@ controller.post_start =async (req, res)=>{
 controller.get_view_my = async (req, res)=> {
     const user_exam = await pool.query('SELECT * FROM exam_user WHERE user_id = ?', [req.user.user_id])
     const exam = await pool.query('SELECT * FROM exam ' )
+    const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user', )
     res.render('view_exam/view_note_my',{
         all: false,
         exam,
+        _user_,
         __user: req.user.user_id,
         user_exam,
     })
@@ -323,10 +327,11 @@ controller.get_view_students= async (req, res)=>{
         }
         console.log(new_exam_id)
         const user_exam = await pool.query('SELECT * FROM exam_user WHERE exam_id IN ('+new_exam_id+')'  )
-
+        const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user', )
         res.render('view_exam/view_note_all',{
             all: true,
             exam,
+            _user_,
             __user: req.user.user_id,
             user_exam,
         })
