@@ -8,10 +8,9 @@
         <div class="col-lg-4">
             <img class="rounded-circle" src="img/profile/users.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona usuarios</h2>
-            <p>Puede ver la lista de estudiantes y docentes.</p>
-            <p>
-                En el apartado de estudiantes, usted puede ver la lista de examanes tomados, y sus notas.
-            </p>
+            <p>Usted podrá ver a todos los estudiantes y docentes registrados en el sistema</p>
+
+
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                     Ver lista
@@ -23,44 +22,60 @@
                 </ul>
             </div>
         </div><!-- /.col-lg-4 -->
-        {{#if (isTeacher user.type_id)}}
+
             <div class="col-lg-4">
                 <img class="rounded-circle" src="img/profile/exam.png" alt="Generic placeholder image" width="140" height="140">
                 <h2>Zona Examenes</h2>
-                <p>{{user.user_fullname}} usted como docente puede crear, editar, y eliminar examenes. </p>
-                <p>Puede establecer un tiempo limite, cantidad de preguntas y mucho más.</p>
+                {{#if (isTeacher user.type_id)}}
+                    <p>{{user.user_fullname}} usted como docente puede crear, editar, y eliminar examenes. </p>
+                    <p>Puede establecer un tiempo limite, cantidad de preguntas y mucho más.</p>
+                {{else}}
+                    <p>{{user.user_fullname}} usted como estudiante, podrá ver las notas de todos sus examenes </p>
+                {{/if}}
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                         Examen
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="/exam/create">Crear un examen</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/exam/">Ver mis examenes</a></li>
-                        <li><a class="dropdown-item" href="/exam/all">Ver todos los examenes</a></li>
-                    </ul>
+                    {{#if (isTeacher user.type_id)}}
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="/exam/create">Crear un examen</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/exam/">Ver mis examenes</a></li>
+                            <li><a class="dropdown-item" href="/exam/all">Ver todos los examenes</a></li>
+                        </ul>
+                    {{else}}
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item" href="/exam/view/my">Ver mis notas</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/exam/all">Ver examenes disponibles</a></li>
+                        </ul>
+                    {{/if}}
                 </div>
             </div><!-- /.col-lg-4 -->
+
+
+        {{#if (isTeacher user.type_id)}}
+            <div class="col-lg-4">
+                <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Zona preguntas</h2>
+                <p>En este apartado usted puede crear, editar y eliminar preguntas escogiendo
+                    entre las categorías, niveles y el tipo de pregunta.
+                </p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Pregunta
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="/question/add">Crear pregunta</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/question/">Ver mis preguntas</a></li>
+                        <li><a class="dropdown-item" href="/question/all">Ver todas las preguntas</a></li>
+                    </ul>
+                </div>
+            </div>
         {{/if}}
 
-        <div class="col-lg-4">
-            <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Zona preguntas</h2>
-            <p>En este apartado usted puede crear, editar y eliminar preguntas escogiendo
-                entre las categorías, niveles y el tipo de pregunta.
-            </p>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pregunta
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="/question/add">Crear pregunta</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/question/">Ver mis preguntas</a></li>
-                    <li><a class="dropdown-item" href="/question/all">Ver todas las preguntas</a></li>
-                </ul>
-            </div>
-        </div>
+
         <div class="col-lg-4 mx-auto">
             {{{isTeacherText user.type_id '
             <div class="p-4">
