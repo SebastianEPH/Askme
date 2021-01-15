@@ -137,6 +137,10 @@ helpers.date_string= (date)=>{
     const date_ = new Date(String(date))
     return  date_.toDateString() //date_.getFullYear() + "/"+ date_.getMonth() + "/"+ date_.getDay()
 }
+helpers.text_minus = (text)=>{
+    text = String(text)
+    return text.toLowerCase();
+}
 helpers.getFaculty = (id_caulty, obj_faculty)=>{
     for (let i = 0; i < obj_faculty.length; i++) {
         if(String(obj_faculty[i].id ) === String(id_caulty)){
