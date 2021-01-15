@@ -1,38 +1,47 @@
-<div class="container p-10 mx-auto">
+<div class="container p-4">
     {{#if students}}
+            <h1 style="text-align: center" class="animate__animated animate__backInUp">Todos los estudiantes</h1>
+        <hr>
         <br>
-        <h1 style="text-align: center" class=" animate__animated animate__backInUp">Todos los estudiantes</h1>
-       <div class="row mx-auto ">
-           {{#each students}}
-               <div class="row p-4 mx-auto  animate__animated animate__backInDown" >
-                   <div class="row p-3 text-center">
-                       <img class="rounded-circle" src="{{ifMenPicture user_is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{user_nick}}" width="140" height="140">
+        <input id="buscar" type="text" class="form-control" placeholder="Escriba algo para filtrar" />
 
-                   </div>
-                   <div class="p-2">
-                       <div class="card p-1">
-                           <div class="mx-auto">
-                               <div class="d-flex position-relative">
-                                   <!--svg class="bd-placeholder-img flex-shrink-0 me-3" width="144" height="144" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generic placeholder image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Generic placeholder image</title><rect width="100%" height="100%" fill="#868e96" style="--darkreader-inline-fill:#585f63;" data-darkreader-inline-fill=""></rect></--svg-->
-                                   <div class="p-2">
-                                       <div style="width: 18rem; ">
-                                           <h4 class="mt-0">{{user_fullname}}</h4>
-                                           {{#if user_email}}
-                                               <p>Correo: {{user_email}}</p>
-                                           {{/if}}
-                                           {{#if user_phone}}
-                                               <p>Teléfono: {{user_phone}}</p>
-                                           {{/if}}
-                                           <p>Fecha de creación: {{getOnlyDate user_created}}</p>                                                         </span>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           {{/each}}
-       </div>
+        <br>
+        <div class="row">
+
+            <table  id="tabla" class="table table-dark table-bordered border-primary">
+                <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th SCOPE="col">Fecha de creación</th>
+                    <th scope="col">Facultad</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                {{#each students}}
+                            <tr class="table-primary text-dark">
+                                <td>{{user_fullname}}</td>
+                                <td>{{user_nick}}</td>
+                                <td>{{user_code}}</td>
+                                <td>{{user_dni}}</td>
+                                <td>{{user_email}}</td>
+                                <td>{{user_phone}}</td>
+                                <td>{{date_string  user_created}}</td>
+                                <td>{{getFaculty user_faculty ../obj_faculty}}</td>
+                            </tr>
+                            <!--div class="row p-3 text-center">
+                                <img class="rounded-circle" src="{{ifMenPicture user_is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{user_nick}}" width="140" height="140">
+                            </--div-->
+                {{/each}}
+                </tbody>
+            </table>
+
+        </div>
         <div class="col-md-7 mx-auto animate__animated animate__backInUp">
             <br><br><br><br><br>
             <div class="card ">
@@ -53,4 +62,5 @@
         <h1 style="text-align: center">No existe ningun estudiante</h1>
     {{/if}}
 
+    <script src="/js/filtrar.js"></script>
 </div>

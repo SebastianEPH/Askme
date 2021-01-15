@@ -26,17 +26,18 @@
     "express-handlebars": "^5.2.0",
     "express-mysql-session": "^2.1.5",
     "express-session": "^1.17.1",
-    "express-validator": "^6.9.0",
-    "firebase-admin": "^9.2.0",
+    "express-validator": "^6.9.2",
+    "firebase-admin": "^9.4.2",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "notenv": "^2.0.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.7"
   }
 }

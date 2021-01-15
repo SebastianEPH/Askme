@@ -327,7 +327,7 @@ controller.get_view_students= async (req, res)=>{
         }
         console.log(new_exam_id)
         const user_exam = await pool.query('SELECT * FROM exam_user WHERE exam_id IN ('+new_exam_id+')'  )
-        const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user', )
+        const _user_ = await pool.query('SELECT * FROM user' )
         res.render('view_exam/view_note_all',{
             all: true,
             exam,

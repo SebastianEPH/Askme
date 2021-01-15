@@ -9,8 +9,10 @@ controller.get_about = (req, res)=>{
 }
 controller.view_student = async (req, res)=>{
     const students = await pool.query('SELECT * FROM user WHERE type_id = 2 ')
+    const obj_faculty = await pool.query('SELECT * FROM user_faculty ')
     res.render('list/students', {
-        students
+        students,
+        obj_faculty
     });
 }
 controller.view_teacher = async (req, res)=>{

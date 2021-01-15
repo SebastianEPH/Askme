@@ -134,8 +134,15 @@ helpers.date_beautiful= (date)=>{
     return  format(new Date(date)); // January 12th 2021, 8:18:05 pm
 }
 helpers.date_string= (date)=>{
-    const date_ = new Date(date)
-    return date_.getFullYear() + " "+ date_.toTimeString()
+    const date_ = new Date(String(date))
+    return  date_.toDateString() //date_.getFullYear() + "/"+ date_.getMonth() + "/"+ date_.getDay()
+}
+helpers.getFaculty = (id_caulty, obj_faculty)=>{
+    for (let i = 0; i < obj_faculty.length; i++) {
+        if(String(obj_faculty[i].id ) === String(id_caulty)){
+            return obj_faculty[i].faculty
+        }
+    }
 }
 /*helpers.examExisUser =(exam, index,id_user)=>{
 
