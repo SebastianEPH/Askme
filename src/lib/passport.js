@@ -10,7 +10,7 @@ passport.use('local.signin', new Strategy({
 }, async (req, user_nick, user_pass, done)=>{
     console.log(req.body)
     console.log(user_nick)
-    console.log(user_pass)
+    //console.log(user_pass)
     const rows = await pool.query('SELECT * FROM user WHERE user_nick = ?', [user_nick]);
     if(rows.length > 0){
         const user = rows[0];
@@ -31,12 +31,15 @@ passport.use('local.signup', new Strategy({
     passwordField: 'user_pass',
     passReqToCallback: true // Recibe el objeto requess dentro de esta función
 },async (req, user_nick, user_pass, done )=>{ // Callback
-    const {fullname, type_id, genero, user_email,  user_phone_prefijo, user_phone } = req.body;
+    const {fullname, user_faculty, type_id,user_code, user_dni, genero, user_email,  user_phone_prefijo, user_phone } = req.body;
 
     const newUser = {
         user_nick,
         user_fullname: fullname,
         user_email,
+        user_code,
+        user_dni,
+        user_faculty,
         user_password: user_pass,
         user_phone: user_phone_prefijo + user_phone,
         type_id,

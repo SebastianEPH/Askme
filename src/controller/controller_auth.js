@@ -13,6 +13,7 @@ controller.get_signin = (req, res)=>{
     res.render('auth/signin')
 }
 controller.post_signin = (req,res, next )=>{
+
     passport.authenticate('local.signin',{
         successRedirect: '/profile',
         failureRedirect: '/signin',
