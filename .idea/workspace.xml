@@ -21,11 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/controller_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_exam.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authentication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/data_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/data_exam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/finish_exam.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/view_exam/view_note_all.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/view_note_all.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/view_exam/view_note_my.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/view_exam/view_note_my.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +131,7 @@
       <workItem from="1610595651824" duration="2932000" />
       <workItem from="1610678069026" duration="1943000" />
       <workItem from="1610683893987" duration="7095000" />
-      <workItem from="1610745846712" duration="15242000" />
+      <workItem from="1610745846712" duration="17005000" />
     </task>
     <servers />
   </component>
@@ -263,9 +261,10 @@
     <state x="-1095" y="360" width="1102" height="1087" key="dock-window-1/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1608955566739" />
     <state x="-893" y="-21" width="916" height="1387" maximized="true" key="dock-window-1/0.0.2560.1400/-900.0.900.1600/2560.352.1920.1080@0.0.2560.1400" timestamp="1606889457662" />
     <state x="139" y="169" width="916" height="1387" key="dock-window-1/0.0.2560.1400/2560.261.1920.1080@0.0.2560.1400" timestamp="1606914491964" />
-    <state x="-1927" y="360" width="846" height="1087" key="dock-window-2" timestamp="1608955566739">
-      <screen x="-1920" y="360" width="1920" height="1080" />
+    <state x="362" y="330" width="1005" height="1167" key="dock-window-2" timestamp="1610775889744">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="362" y="330" width="1005" height="1167" key="dock-window-2/0.0.2560.1400/-1920.349.1920.1080@0.0.2560.1400" timestamp="1610775889744" />
     <state x="-1927" y="360" width="846" height="1087" key="dock-window-2/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1608955566739" />
     <state x="867" y="166" width="1452" height="1007" key="dock-window-2/0.0.2560.1400/2560.261.1920.1080@0.0.2560.1400" timestamp="1606924393716" />
     <state x="921" y="426" width="700" height="530" key="recent.locations.popup" timestamp="1607835788298">

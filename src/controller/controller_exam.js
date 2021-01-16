@@ -349,7 +349,7 @@ controller.post_view_exam = async (req, res)=>{
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
     const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
-
+    const teacher = await pool.query('SELECT user_id, user_fullname FROM user WHERE type_id = 1 ')
     const user_exam = {
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
         que_true_reply: get_exam_user[0].que_true_reply,
@@ -372,6 +372,7 @@ controller.post_view_exam = async (req, res)=>{
     res.render('view_exam/finish_exam',{
         questions: questions_,
         exam: exam[0],
+        teacher,
         exam_user_: get_exam_user[0],
         que_list_reply: user_exam.que_list_reply,
         que_current: req.params.que_current,
