@@ -8,6 +8,18 @@ helpers.timeago = (timestamp)=>{
     const g = "0000-00-04T04:00:00.000Z"
     return format(timestamp-g);
 }
+helpers.get_faculty =(id)=>{
+    switch (id){
+        case 1 : return "Agropecuaria y nutrición";
+        case 2 : return "Ciencias";
+        case 3 : return "Ciencias empresariales";
+        case 4 : return "Ciencias sociales y humanidades";
+        case 5 : return "Educación Inicial";
+        case 6 : return "Pedagogía y cultura física";
+        case 7 : return "Tecnología";
+        default: return "Sin Facultad"
+    }
+}
 helpers.category = (num)=>{
     switch (num){
         case 1 : return "Hardware";

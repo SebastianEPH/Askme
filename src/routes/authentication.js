@@ -10,6 +10,8 @@ router.get('/signin', isNotLoggedIn, auth.get_signin)
 router.post('/signin', isNotLoggedIn, auth.post_signin )
 router.get('/profile',isLoggedIn, auth.get_profile)
 router.get('/logout',isLoggedIn, auth.get_logout)
+router.get('/profile/update',isLoggedIn, auth.get_update_profile)
+router.get('/profile/view',isLoggedIn, auth.get_view_profile)
 
 
 module.exports = router;

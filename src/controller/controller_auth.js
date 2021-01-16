@@ -1,4 +1,5 @@
 const controller = {}
+const pool = require('../database') // database import
 const passport = require('passport')
 controller.get_signup = (req, res)=>{
     res.render('auth/signup')
@@ -27,8 +28,17 @@ controller.get_logout = (req, res)=>{
     req.logOut();
     res.redirect('/signin')
 }
+controller.get_update_profile = async (req, res)=>{
+    const current_user = await pool.query('SELECT * FROM user WHERE user_id = ?' ,[req.user.user_id])
+    const obj_faculty = await pool.query('SELECT * FROM user_faculty ')
+    res.render('auth/update_profile', {
+        data: current_user[0],
+        obj_faculty
+    });
+}
+controller.get_view_profile = (req, res)=>{
 
-
+}
 
 
 
