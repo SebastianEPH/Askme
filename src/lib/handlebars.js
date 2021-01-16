@@ -120,10 +120,15 @@ helpers.typeUserText=(user_id)=>{
     }
 }
 helpers.return_user_name= (id, obj_user)=>{
-    for (let i = 0; i < obj_user.length; i++) {
-       if(String(obj_user[i].user_id ) === String(id)){
-           return obj_user[i].user_fullname
-       }
+    try {
+        for (let i = 0; i < obj_user.length; i++) {
+            if(String(obj_user[i].user_id ) === String(id)){
+                return obj_user[i].user_fullname
+            }
+        }
+    }catch (e) {
+        console.log(e)
+        return "username_err"
     }
 
 }
@@ -153,11 +158,17 @@ helpers.text_minus = (text)=>{
     return text.toLowerCase();
 }
 helpers.getFaculty = (id_caulty, obj_faculty)=>{
-    for (let i = 0; i < obj_faculty.length; i++) {
-        if(String(obj_faculty[i].id ) === String(id_caulty)){
-            return obj_faculty[i].faculty
+    try {
+        for (let i = 0; i < obj_faculty.length; i++) {
+            if(String(obj_faculty[i].id ) === String(id_caulty)){
+                return obj_faculty[i].faculty
+            }
         }
+    }catch (e) {
+        console.log(e)
+        return "faculty_err"
     }
+
 }
 /*helpers.examExisUser =(exam, index,id_user)=>{
 

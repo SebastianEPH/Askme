@@ -342,5 +342,45 @@ controller.get_view_students= async (req, res)=>{
     }
 
 }
+controller.post_view_exam = async (req, res)=>{
+
+    const exam_user_id = req.params.id
+    const exam_id = req.params.exam
+    const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
+    const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
+    const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
+
+    const user_exam = {
+        que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
+        que_true_reply: get_exam_user[0].que_true_reply,
+        que_false_reply:get_exam_user[0].que_false_reply,
+        que_list_saved: get_exam_user[0].que_list_saved,
+        note: get_exam_user[0].note,
+        date_finish:get_exam_user[0].date_finish,
+        que_nothing_reply:get_exam_user[0].que_nothing_reply
+    }
+    // guarda métadatos a `exam_user`
+    const _exam_user_ = {
+        que_true_reply: user_exam.que_true_reply,
+        que_false_reply: user_exam.que_false_reply,
+        que_nothing_reply: user_exam.que_nothing_reply,
+    }
+
+    console.log(_exam_user_)
+    await pool.query('UPDATE exam_user set ? WHERE id = ?', [_exam_user_, exam_user_id])
+
+    res.render('view_exam/finish_exam',{
+        questions: questions_,
+        exam: exam[0],
+        exam_user_: get_exam_user[0],
+        que_list_reply: user_exam.que_list_reply,
+        que_current: req.params.que_current,
+        que_total:exam[0].cant_ques,
+        que_true_reply: user_exam.que_true_reply,
+        que_false_reply:user_exam.que_false_reply,
+        que_nothing_reply:user_exam.que_nothing_reply,
+        exam_user_id,
+    })
+}
 
 module.exports = controller;

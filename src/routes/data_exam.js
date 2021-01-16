@@ -15,6 +15,10 @@ router.get('/start/:id:/:is_true', isLoggedIn,exam.get_start)  // muestra pregun
 router.post('/start/:que_current/:que_true/:que_true_reply/:que_false_reply/:que_nothing_reply/:exam_id/:exam_user_id', isLoggedIn,exam.post_start) // :
 router.get('/view/my', isLoggedIn,exam.get_view_my)
 router.get('/view/student', isLoggedIn,passIsTeacher, exam.get_view_students)
+router.get('/view/exam/id_:id/exam_:exam', isLoggedIn, exam.post_view_exam)
+
+
+
 
 
 

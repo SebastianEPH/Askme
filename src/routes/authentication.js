@@ -11,6 +11,7 @@ router.post('/signin', isNotLoggedIn, auth.post_signin )
 router.get('/profile',isLoggedIn, auth.get_profile)
 router.get('/logout',isLoggedIn, auth.get_logout)
 router.get('/profile/update',isLoggedIn, auth.get_update_profile)
+router.post('/profile/update/start',isLoggedIn, auth.post_update)
 router.get('/profile/view',isLoggedIn, auth.get_view_profile)
 
 
