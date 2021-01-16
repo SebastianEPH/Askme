@@ -23,10 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/controller_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/authentication.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/auth/update_profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/update_profile.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/auth/view_profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/view_profile.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,7 @@
       <workItem from="1610595651824" duration="2932000" />
       <workItem from="1610678069026" duration="1943000" />
       <workItem from="1610683893987" duration="7095000" />
-      <workItem from="1610745846712" duration="10474000" />
+      <workItem from="1610745846712" duration="12408000" />
     </task>
     <servers />
   </component>

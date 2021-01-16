@@ -36,8 +36,13 @@ controller.get_update_profile = async (req, res)=>{
         obj_faculty
     });
 }
-controller.get_view_profile = (req, res)=>{
-
+controller.get_view_profile = async (req, res)=>{
+    const current_user = await pool.query('SELECT * FROM user WHERE user_id = ?' ,[req.user.user_id])
+    const obj_faculty = await pool.query('SELECT * FROM user_faculty ')
+    res.render('auth/view_profile', {
+        data: current_user[0],
+        obj_faculty
+    });
 }
 
 

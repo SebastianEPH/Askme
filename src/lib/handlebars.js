@@ -89,7 +89,6 @@ helpers.selected = (value, valor)=>{
     //<option value="3" <% if(data.cat_id == 3){ %>selected <% } %> >Software</option>
     //</select>
 
-
 }
 helpers.checkSuccessReply=(que, que_true)=>{
         return que === que_true;
