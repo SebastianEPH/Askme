@@ -55,6 +55,7 @@ app.use(require('./routes/index'));  // No es necesario escribir la extension o 
 app.use(require('./routes/authentication'));
 app.use('/question', require('./routes/data_question'));
 app.use('/exam',require('./routes/data_exam'));
+app.use('/graphics',require('./routes/graphics'));
 
 
 // Public <= Código y archivos que el navegador puede acceder

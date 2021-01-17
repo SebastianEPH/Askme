@@ -4,12 +4,11 @@
     <br>
     <br>
     <br>
-    <div class="row">
+    <div class="row mx-auto text-center">
         <div class="col-lg-4">
             <img class="rounded-circle" src="img/profile/users.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona usuarios</h2>
             <p>Usted podrá ver a todos los estudiantes y docentes registrados en el sistema</p>
-
 
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,12 +74,37 @@
             </div>
         {{/if}}
 
+            <div class="col-lg-4 mx-auto">
+        {{#if (isTeacher user.type_id)}}
+            {{{isTeacherText user.type_id '
+            <div class="p-4">
+            </div>'
+                             ''}}}
+                <img class="rounded-circle" src="img/profile/question.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Zona estadistica</h2>
+                <p>Visualiza gráficos
+                </p>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        visualizar gráficso
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="/graphics/all">Graficos generales</a></li>
+                        <li><a class="dropdown-item" href="/graphics/my">Mis metadatos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/graphics/question">Gráficos de preguntas</a></li>
+                        <li><a class="dropdown-item" href="/graphics/exam">Gráficos de examenes</a></li>
+                    </ul>
+                </div>
+            </div>
+        {{/if}}
+
 
         <div class="col-lg-4 mx-auto">
             {{{isTeacherText user.type_id '
             <div class="p-4">
             </div>'
-             ''}}}
+                             ''}}}
             <img class="rounded-circle" src="{{ifMenPicture user.user_is_male 'img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="Generic placeholder image" width="140" height="140">
             <h2>Zona mi perfil</h2>
             <p>Podrá ver su información , tambien editar y actualizar sus datos.

@@ -1,0 +1,101 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+<input id="name" type="text" value="{{name_graphics}}">
+<input id="labels" type="text" value="{{labels}}">
+<input id="data" type="text" value="{{data}}">
+<input id="exist" type="text" value="{{exist}}">
+
+
+{{#if exist}}
+    <h1 class="p-4" style="text-align: center"> Gráficos de notas</h1>
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="mx-auto">
+                <canvas id="myChart" width="800" height="500"></canvas>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <h1 class="p-4" style="text-align: center"> Usted no tiene notas registradas</h1>
+    <div class="container mx-auto">
+        <center>
+                <img src="https://preview.free3d.com/img/2019/04/2140188957105718776/ucraw2m1-900.jpg" alt="" height="420">
+        </center>
+    </div>
+
+
+{{/if}}
+
+
+<script>
+
+
+    let back_color_ = ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)", "rgba(255, 205, 86, 0.2)"]
+    let border_color_ = ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)", "rgb(255, 205, 86)"]
+
+    // condición
+    let $exist = document.getElementById('exist')
+    $exist.style.display = 'none'
+    $exist = $exist.value
+    console.log($exist)
+    // Obtiene nombre
+    let $name = document.getElementById('name')
+    $name.style.display = 'none'
+    $name = $name.value
+
+    // Obtiene array de labels
+    let $labels = document.getElementById('labels')
+    $labels.style.display = 'none'
+    $labels = $labels.value
+    $labels = $labels.split(',')
+
+    // obtiene array de datos
+    let $data = document.getElementById('data')
+    $data.style.display = 'none'
+    $data = $data.value
+    $data = $data.split(',')
+
+    if($exist === "true"){
+        var ctx = document.getElementById('myChart').getContext('2d');
+        // Arregla colores de fondo y de border // por ahora , máximo 7 colores
+        let back_color = []
+        let border_color = []
+
+        for (let i = 0; i < $labels.length; i++){
+            back_color.push(back_color_[i])
+            border_color.push(border_color_[i])
+        }
+
+        console.log($name)
+        console.log($labels)
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: $labels,
+                datasets: [{
+                    label: $name,
+                    data: $data,
+                    backgroundColor: back_color,
+                    borderColor: border_color,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>
+
+
+
+
+

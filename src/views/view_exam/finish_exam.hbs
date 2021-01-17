@@ -4,10 +4,8 @@
 
     <br><br>
     <div class="row">
-
         <div class="card-body">
             <h2 style="text-align: center">{{exam.title}}</h2>
-
             <br>
             <div class="form-check">
                 <div class="input-group flex-nowrap">
@@ -15,10 +13,8 @@
                         <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z"/>
                     </svg><h6>   {{exam.commentary}}</h6>
                 </div>
-
             </div>
             <br>
-
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><b>Docente: </b></span>
                 <input type="text" value="{{return_user_name  exam.user_id teacher }}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
@@ -45,7 +41,6 @@
                 <span class="input-group-text" id="basic-addon1"><b>Preguntas contestadas en blanco: </b></span>
                 <input type="text" value="{{que_nothing_reply}}" disabled class="form-control" placeholder="No se registro datos" aria-describedby="basic-addon1">
             </div>
-
             <div class="input-group mb-3">
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="basic-addon1"><b>Hora de inicio: </b></span>
@@ -53,13 +48,7 @@
                     <span class="input-group-text" id="basic-addon1"><b>Hora de entrega: </b></span>
                     <input type="text" value="{{date_string exam_user_.date_finish}}" disabled class="form-control" placeholder="No se registro datos"  aria-describedby="basic-addon1">
                 </div>
-
             </div>
-
-
-
-
-
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><b>Nota Final: </b></span>
                 <input type="text" value="{{note que_true_reply que_total}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
@@ -74,11 +63,7 @@
                 <div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage que_total que_false_reply}}%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
             </div>
         </div>
-
-
     </div>
-
-
     <br>
     {{#each questions}}
         <div class="col-md-7 mx-auto">
@@ -86,7 +71,6 @@
             <div class="card ">
                 <div class="card-body">
                     <h4 style="text-align: center">{{{que_que}}} </h4>
-
                     <br>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}" {{checkQuestionTrue 1 que_true}}>
@@ -94,7 +78,6 @@
                             {{{que_1}}}
                         </label>
                     </div>
-
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}"{{checkQuestionTrue 2 que_true}}>
                         <label class="form-check-label" for="exampleRadios2">
