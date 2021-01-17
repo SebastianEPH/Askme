@@ -11,6 +11,9 @@ util.removeItemFromArr = ( arr, item ) => {
     return arr
 }
 util.string_to_array = (string, separator )=>{
+    //if (string.length === "" || string.length === 0  ){
+    //    return 0
+    //}
     return string.split(separator);
 }
 util.random = (arr)=>{
