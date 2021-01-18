@@ -1,10 +1,21 @@
-# NodeJS_AdministratorInformation
-admistración de información valiosa
 
+# Deploy
+https://aksme.herokuapp.com
+# Screenshot
 
+<img src="https://imgur.com/EFFiMz2.png" alt="">
 
- $env:GOOGLE_APPLICATION_CREDENTIALS="D:\SoftwareProjects\NoteJs\NodeJS_AdministratorInformation\llave-privada.json"
- 
- 
- 
- npm i express express-handlebars express-session mysql express-mysql-session morgan bcryptjs passport passport-local timeago.js connect-flash express-validator
+<img src="https://imgur.com/2Mg3AFo.png" alt="">
+
+<img src="https://imgur.com/d8ZziiN.png" alt="">
+
+<img src="https://imgur.com/bvehYwA.png" alt="">
+
+<img src="https://imgur.com/WCbcr73.png" alt="">
+
+<img src="https://imgur.com/ToHggZ0.png" alt="">
+
+<img src="https://imgur.com/kOD3OVC.png" alt="">
+
+<img src="https://imgur.com/3A8rNkD.png" alt="">
+
