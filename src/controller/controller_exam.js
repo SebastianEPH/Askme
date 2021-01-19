@@ -22,18 +22,20 @@ controller.get_delete= async (req, res)=>{
 controller.get_view_only_user= async (req, res)=>{
 
     const exam = await pool.query('SELECT * FROM exam WHERE user_id = ? AND is_show = 1', [req.user.user_id])
+    const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user  ')
     console.log('$$$$$$$$$$$$$$$$$$$$____')
     console.log(req.user.user_id);
 
     res.render('view_exam/view',{
         data: exam,
+        _user_,
         current_user_id: req.user.user_id,
         all:false
     })
 }
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam WHERE is_show = 1', )
-    const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user', )
+    const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user  ')
     console.log(_user_)
     res.render('view_exam/view',{
         data: exam,
