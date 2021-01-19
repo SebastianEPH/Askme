@@ -65,6 +65,7 @@ controller.post_create= async (req, res)=>{
             date_finish: req.body.in_time_finish_1 + " "+ req.body.in_time_finish_2 + ":00",
             time_limit: req.body.in_time_limit_1 + ":"+req.body.in_time_limit_2,
             cat_id: req.body.category,
+            date_create: util.get_current_date_db(),
             cant_ques : req.body.chosen_questions.length,
             ques_list : req.body.chosen_questions.toString(),
             lev_id: req.body.level,
