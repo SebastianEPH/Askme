@@ -16,6 +16,11 @@ util.string_to_array = (string, separator )=>{
     //}
     return string.split(separator);
 }
+util.get_current_date_db = ()=>{
+    let current_date = new Date()
+    return current_date.getFullYear() + '-'+ (parseInt(current_date.getMonth()) +1 )+ '-'+current_date.getDate()+ ' '+current_date.toLocaleTimeString()
+
+}
 util.random = (arr)=>{
     return arr[Math.floor(Math.random() * arr.length)]
 }

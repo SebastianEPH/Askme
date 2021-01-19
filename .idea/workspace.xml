@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/auth/update_profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/update_profile.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/profile.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +59,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/views/data_question" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -134,6 +136,9 @@
       <workItem from="1610809480005" duration="25315000" />
       <workItem from="1610897031079" duration="8987000" />
       <workItem from="1610912332171" duration="1220000" />
+      <workItem from="1611022323954" duration="648000" />
+      <workItem from="1611023003221" duration="174000" />
+      <workItem from="1611023191369" duration="10824000" />
     </task>
     <servers />
   </component>
@@ -243,12 +248,12 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2517" height="492" key="GridCell.Tab.3.right/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1606077600178" />
-    <state x="781" y="345" key="SettingsEditor" timestamp="1610812782098">
+    <state x="734" y="531" key="SettingsEditor" timestamp="1611025196086">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.247.1920.1080@0.0.2560.1400" timestamp="1605837982417" />
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.276.1920.1080@0.0.2560.1400" timestamp="1605292686617" />
-    <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.349.1920.1080@0.0.2560.1400" timestamp="1610812782098" />
+    <state x="734" y="531" key="SettingsEditor/0.0.2560.1400/-1920.349.1920.1080@0.0.2560.1400" timestamp="1611025196086" />
     <state x="781" y="345" key="SettingsEditor/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1608601127480" />
     <state x="759" y="305" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605841490231">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -287,5 +292,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1002" y="612" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.2560.1400/-1920.360.1920.1080@0.0.2560.1400" timestamp="1609029010476" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

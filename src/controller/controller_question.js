@@ -1,11 +1,13 @@
 const pool = require('../database') // database import
 const controller = {};
+const util = require('../functions/util')
 
 controller.get_add = (req, res)=>{
-        res.render('data_question/add')
+    res.render('data_question/add')
 }
 controller.post_add = async (req,res)=>{
     const {cat_id, lev_id, feedback, ty_id, que_que, que_1, que_2, que_3, que_4, que_true} = req.body;
+    console.log('Current date for new question: '+ util.get_current_date_db())
     const newQuestion= {
         cat_id,
         lev_id,
@@ -15,9 +17,11 @@ controller.post_add = async (req,res)=>{
         que_2,
         que_3,
         que_4,
-        feedback,
         que_true,
-        user_id : req.user.user_id
+        feedback,
+        que_created: util.get_current_date_db(),
+        user_id : req.user.user_id,
+        is_show: 1
     }
     // Limpia los input
     if (String(ty_id ) === String('1') || String(ty_id ) === String('2')){

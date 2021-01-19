@@ -109,7 +109,6 @@ helpers.getOnlyDate = (date)=>{
     let fecha = new Date(Date.parse(date))
     return fecha.getDay() + "/" +fecha.getMonth() +'/' +fecha.getFullYear();
 }
-
 helpers.typeUserText=(user_id)=>{
     if (user_id === 2){
         console.log('Es estudiante')
@@ -132,7 +131,6 @@ helpers.return_user_name= (id, obj_user)=>{
     }
 
 }
-
 helpers.istrue_=(exam_id , exam_user_id)=>{
     console.log('primero: '+exam_id)
     console.log('segundo: '+ exam_user_id)
@@ -170,15 +168,6 @@ helpers.getFaculty = (id_caulty, obj_faculty)=>{
     }
 
 }
-/*helpers.examExisUser =(exam, index,id_user)=>{
-
-    if(exam[index].user_id=== id_user){
-        console.log('se cumplio')
-        return true
-    }
-    console.log('no cumplio')
-    return false
-}*/
 // return True or False
 helpers.isStudent=(user)=>{
     return user !== 2;
@@ -203,7 +192,6 @@ helpers.isTeacherText=(user, success, error)=>{  // Verifica
         return error;
     }
 }
-
 helpers.isQuestionTrue=(que_true, que_1, que_2, que_3, que_4)=>{
 
     switch (que_true){
@@ -282,7 +270,6 @@ helpers.isTrue_falseNothing = (list_reply, index, que_true)=>{
     }
 
 }
-
 helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
     console.log('lista que llegó de respuestas'+list_reply)
     let nnew = list_reply.split(',');
@@ -296,30 +283,4 @@ helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
     }
 
 }
-
-
-/*
-helpers.ifUserR = (user_id, return_true, return_false)=>{
-    console.log(user_id)
-    console.log(app.locals.user)
-    if (user_id=== req.user.user_id){
-        return return_true;
-    }else{
-        return return_false;
-    }
-
-}*/
-/*
-helpers.get_name_user = async ( user_id) =>{
-
-    const user_=  await pool.query('SELECT * FROM user WHERE user_id = ?', [user_id])
-    console.log('RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR')
-    console.log(user_[0].fullname)
-    console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-
-    return String(user_[0].fullname)
-
-    //return userr[user_id]
-}
-*/
 module.exports = helpers;
