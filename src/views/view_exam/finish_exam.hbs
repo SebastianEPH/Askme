@@ -111,6 +111,13 @@
                         <span class="input-group-text" id="basic-addon1">Usted respondió: </span>
                         <input type="text" value="{{getReplyUser ../que_list_reply @index que_1 que_2 que_3 que_4}}" disabled class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
+                    {{#if feedback}}
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Retroalimentación</label>
+                            <textarea name="que_que" class="form-control" id="exampleFormControlTextarea1" rows="3" disabled>{{feedback}}</textarea>
+                            <!--input type="text" name="que_que" placeholder="Pregunta" class="form-control"-->
+                        </div>
+                    {{/if}}
                     <div class="progress">
                         <div class="progress-bar {{isTrue_falseNothing ../que_list_reply @index  que_true}}" role="progressbar" style="width: 100%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="{{que_total}}"></div>
                     </div>
