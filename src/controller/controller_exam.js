@@ -23,8 +23,7 @@ controller.get_view_only_user= async (req, res)=>{
 
     const exam = await pool.query('SELECT * FROM exam WHERE user_id = ? AND is_show = 1', [req.user.user_id])
     const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user  ')
-    console.log('$$$$$$$$$$$$$$$$$$$$____')
-    console.log(req.user.user_id);
+    console.log('El ID del usuario actual es: '+ req.user.user_id);
 
     res.render('view_exam/view',{
         data: exam,
@@ -36,15 +35,13 @@ controller.get_view_only_user= async (req, res)=>{
 controller.get_view_all = async (req, res)=>{
     const exam = await pool.query('SELECT * FROM exam WHERE is_show = 1', )
     const _user_ = await pool.query('SELECT user_id, user_nick , user_fullname FROM user  ')
-    console.log(_user_)
+    console.log('El ID del usuario actual es: '+ req.user.user_id);
     res.render('view_exam/view',{
         data: exam,
         _user_,
         current_user_id: req.user.user_id ,
         all:true
     })
-
-
 
 }
 controller.get_create= async (req, res)=>{
@@ -86,15 +83,17 @@ controller.post_create= async (req, res)=>{
 
         if(req.body.chosen_questions.length <1 ){
             req.flash('warning', 'Error, Debe escoger mínimamente 1 pregunta')
+            console.log('Error, Debe escoger mínimamente 1 pregunta')
             res.redirect('/exam')
         }else{
             await pool.query('INSERT INTO exam SET ? ', [exam]);
             req.flash('success', 'Se creó el examen correctamente')
+            console.log('Se creó el examen correctamente')
             res.redirect('/exam')
         }
-
     }else{
         req.flash('warning', 'Error, usted no escogio ninguna pregunta')
+        console.log('Error, usted no escogio ninguna pregunta')
         res.redirect('/exam')
     }
 }
@@ -107,10 +106,12 @@ controller.get_start = async (req, res)=>{
     const user_exam = {
         //que_current: 0,
         user_id: req.user.user_id,
+        date_init: util.get_current_date_db(),
         que_list_reply: "",
         que_true_reply: 0,
         que_false_reply: 0,
         que_nothing_reply: 0,
+        que_time_limit: null,
         que_list_temp: exam[0].ques_list,
         que_list_saved: "",
         note: 0,
@@ -119,41 +120,53 @@ controller.get_start = async (req, res)=>{
 
     if (util.compare_date_init(exam[0].date_init)){
 
-        // Convierte String en Array
-        let question_array = util.string_to_array(user_exam.que_list_temp, ',')
-        console.log('Array de preguntas: '+question_array)
-        // Selecciona del array un data aleatorio
-        const chosen_question = util.random(question_array)
-        console.log('Pregunta escogida al lazar: '+chosen_question)
+        if( !util.compare_date_finish(exam[0].date_finish)){ // ver si funciona
 
-        user_exam.que_list_saved = chosen_question;
+            // Iniciando su tiempo
+            if(exam[0].time_limit !== null){   // Si existe un tiempo limite
+                console.log('hora de inicio: '+ util.get_current_date_db() )
+                console.log('tiempo limite: '+ exam[0].time_limit )
+                user_exam.que_time_limit =  util.addTime(exam[0].time_limit)
+            }
 
-        // Elimina la pregunta.
+            // Convierte String en Array
+            let question_array = util.string_to_array(user_exam.que_list_temp, ',')
+            console.log('Array de preguntas: '+question_array)
+            // Selecciona del array un data aleatorio
+            const chosen_question = util.random(question_array)
+            console.log('Pregunta escogida al lazar: '+chosen_question)
 
-        user_exam.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
-        user_exam.que_list_temp = String(user_exam.que_list_temp)
-        console.log('Preguntas temporales: '+user_exam.que_list_temp)
-        await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, id])
+            user_exam.que_list_saved = chosen_question;
+
+            // Elimina la pregunta.
+            user_exam.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
+            user_exam.que_list_temp = String(user_exam.que_list_temp)
+            console.log('Preguntas temporales: '+user_exam.que_list_temp)
+            await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, id])
 
 
-        // mostrar alternativas aletorias?
-        const questions = await pool.query('SELECT * FROM question WHERE que_id = ?  AND is_show = 1',[chosen_question] )
-        console.log(questions)
+            // mostrar alternativas aletorias?
+            const questions = await pool.query('SELECT * FROM question WHERE que_id = ?  AND is_show = 1',[chosen_question] )
+            console.log(questions)
 
 
-        const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
-        res.render('view_exam/start',{
-            question: questions[0],
-            exam: exam[0],
-            que_current: 1,
-            que_total:exam[0].cant_ques,
-            que_true_reply: 0,
-            que_false_reply:0,
-            que_nothing_reply: 0,
-            exam_user_id:insert_exam_user.insertId,
-            _error: 0,
-            _success:0
-        })
+            const insert_exam_user = await pool.query('INSERT INTO exam_user SET ? ', [user_exam]);
+            res.render('view_exam/start',{
+                question: questions[0],
+                exam: exam[0],
+                que_current: 1,
+                que_total:exam[0].cant_ques,
+                que_true_reply: 0,
+                que_false_reply:0,
+                que_nothing_reply: 0,
+                exam_user_id:insert_exam_user.insertId,
+                _error: 0,
+                _success:0
+            })
+        }else{
+            req.flash('warning', 'Usted no puede tomar el examen porque ya finalizó ')
+            res.redirect('/exam')
+        }
     }else{
         //const d = util.date_recent(exam[0].date_init)
         req.flash('warning', 'El examen se habilitará en ' + util.date_beautiful(exam[0].date_init))
@@ -169,6 +182,7 @@ controller.post_start =async (req, res)=>{
     const get_exam_user = await pool.query('SELECT * FROM exam_user WHERE id = ? ', [exam_user_id])
     const exam = await pool.query('SELECT * FROM exam WHERE id = ? ', [exam_id])
 
+    // aumenta +1 en la pregunta actual
     req.params.que_current = parseInt(req.params.que_current) + 1
     const user_exam = {
         que_list_reply:get_exam_user[0].que_list_reply,  // llega por el req.body
@@ -179,14 +193,13 @@ controller.post_start =async (req, res)=>{
         date_finish:get_exam_user[0].date_finish,
         que_nothing_reply:get_exam_user[0].que_nothing_reply
     }
-    console.log(user_exam )
-    console.log(exam )
 
     // Si el usuario no respondió, la respuesta es igual a 0
     if (user_reply){
     }else{
         user_reply = 0;
         user_reply__ = true
+        console.log('El usuario no respondió')
     }
 
     // Evita que al actualizar la pagina, se vuelva a enviar la respuesta
@@ -207,10 +220,10 @@ controller.post_start =async (req, res)=>{
                 user_exam.que_nothing_reply = user_exam.que_nothing_reply + 1 ;
             }else{
                 if(que_true === user_reply){
-                    //success = "Respuesta correcta + feedback"
+                    req.flash('success', "Respuesta correcta + feedback")
                     user_exam.que_true_reply = user_exam.que_true_reply + 1 ;
                 }else{
-                    //warning = "la respues es incorrecta + su feedback"
+                    req.flash('warning', "la respues es incorrecta + su feedback")
                     user_exam.que_false_reply = user_exam.que_false_reply + 1;
                 }
             }
@@ -225,23 +238,31 @@ controller.post_start =async (req, res)=>{
 
     await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam, exam_user_id])
 
-    // Verifica si ya se supero al fecha actual
-    if (req.params.que_current > exam[0].cant_ques || util.compare_date_finish(exam[0].date_init)){
+    // Verifica si ya se llegó al tiempo limite de usuario
+    let _limit_ = false
+    if(exam[0].time_limit !== null){   // Si existe un tiempo limite
+        if( util.compare_date_finish(get_exam_user[0].que_time_limit)){
+            console.log('entro al if')
+            _limit_ = true
+        }else{
+            console.log('entro un pcoo al if')
+        }
+
+    }else{
+        console.log('no entro al if nada')
+    }
+    // Verifica si ya se supero al fecha actual // Verifica si ya se puede iniciar el examen por doncición
+    if (req.params.que_current > exam[0].cant_ques ||  util.compare_date_finish(exam[0].date_finish)|| _limit_){
+
         // SELECT * FROM `question` WHERE que_id IN ( 5, 10 , 1 , 50) ORDER BY FIELD( que_id, 5, 10 , 1 , 50 )
         const questions_= await pool.query('SELECT * FROM question WHERE que_id IN ( '+ String(get_exam_user[0].que_list_saved) +' ) ORDER BY FIELD (  que_id ,'+ String(get_exam_user[0].que_list_saved) +' )')
-
-        console.log(questions_)
-
         // guarda métadatos a `exam_user`
         const _exam_user_ = {
             que_true_reply: user_exam.que_true_reply,
             que_false_reply: user_exam.que_false_reply,
             que_nothing_reply: user_exam.que_nothing_reply,
         }
-        // coloca la fecha de entrega
-        /*if (user_exam.date_finish === null){
-            _exam_user_.date_finish = new Date()
-        }*/
+
         console.log(_exam_user_)
         await pool.query('UPDATE exam_user set ? WHERE id = ?', [_exam_user_, exam_user_id])
         const teacher = await pool.query('SELECT user_id, user_fullname FROM user WHERE type_id = 1 ')
@@ -265,7 +286,6 @@ controller.post_start =async (req, res)=>{
         console.log('Pregunta actual: '+req.params.que_current )
         console.log('Total de preguntas: '+exam[0].cant_ques)
 
-
         const user_exam__= {
             que_list_temp: get_exam_user[0].que_list_temp,
             que_list_saved: get_exam_user[0].que_list_saved
@@ -282,14 +302,12 @@ controller.post_start =async (req, res)=>{
         user_exam__.que_list_saved = String( user_exam__.que_list_saved + ","+ chosen_question);
         console.log(user_exam__.que_list_saved +'<= pregunta en lists saved ')
 
-
         // Elimina la pregunta.
         user_exam__.que_list_temp = util.removeItemFromArr(question_array, String(chosen_question))
         console.log(user_exam__.que_list_temp)
         user_exam__.que_list_temp = String(user_exam__.que_list_temp)
 
         await pool.query('UPDATE exam_user set ? WHERE id = ?', [user_exam__, exam_user_id])
-        console.log('Lo que se guardó ')
         // mostrar alternativas aletorias?
         const questions = await pool.query('SELECT * FROM question WHERE que_id = ?',[chosen_question] )
         console.log( questions[0])
@@ -304,9 +322,6 @@ controller.post_start =async (req, res)=>{
             exam_user_id,
         })
     }
-
-
-
 
 }
 controller.get_view_my = async (req, res)=> {

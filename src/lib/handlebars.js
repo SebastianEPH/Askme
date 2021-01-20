@@ -107,7 +107,7 @@ helpers.getMonth = (date)=>{
 }
 helpers.getOnlyDate = (date)=>{
     let fecha = new Date(Date.parse(date))
-    return fecha.getDay() + "/" +fecha.getMonth() +'/' +fecha.getFullYear();
+    return fecha.getDay() + "/" +(parseInt(fecha.getMonth()) +1)+'/' +fecha.getFullYear();
 }
 helpers.typeUserText=(user_id)=>{
     if (user_id === 2){

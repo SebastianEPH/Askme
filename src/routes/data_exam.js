@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const util = require('../functions/util')
 const exam = require('../controller/controller_exam');
 
 // protege rutas
@@ -16,7 +16,46 @@ router.post('/start/:que_current/:que_true/:que_true_reply/:que_false_reply/:que
 router.get('/view/my', isLoggedIn,exam.get_view_my)
 router.get('/view/student', isLoggedIn,passIsTeacher, exam.get_view_students)
 router.get('/view/exam/id_:id/exam_:exam', isLoggedIn, exam.post_view_exam)
+router.get('/test', (req, res)=>{
 
+    const moment = require('moment')
+    let current_date= new Date('2021-01-17 00:34:46')
+    let only_date = current_date.getFullYear() + '-'+ (parseInt(current_date.getMonth()) +1 )+ '-'+current_date.getDate()
+    let only_time = current_date.toLocaleTimeString()
+
+    let fecha = new Date(only_date + " "+ only_time)
+
+    let  fecha_1 = moment(fecha)
+    console.log(fecha_1)
+
+    let suma = fecha_1.add('1:00:0', 'hours')
+    console.log(suma)
+
+    /*
+    // let fecha_2= moment('01:00:00')
+
+    //let suma = fecha_1.diff(fecha_2, 'hours')
+    let suma = fecha_1.add('2:45:1', 'hours')
+    /*
+    if(util.compare_date_init(fecha_inicio)){
+        res.send('se cumplio')
+    }else{
+        res.send('no se cumpl')
+    }
+    console.log(fecha_1.toString()+'\n')
+   // console.log(fecha_2.toString()+'\n')
+    console.log(suma.toString()+'\n')
+    */
+
+    res.send('fdsfsd')
+
+
+  //  res.send('false')
+
+
+
+
+})
 
 
 
