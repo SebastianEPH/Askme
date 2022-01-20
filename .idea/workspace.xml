@@ -22,7 +22,6 @@
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/auth/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signin.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/partials/navegation.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/partials/navegation.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,8 @@
       <workItem from="1612485961392" duration="21000" />
       <workItem from="1612486007999" duration="9000" />
       <workItem from="1642659792116" duration="999000" />
-      <workItem from="1642661250833" duration="2679000" />
+      <workItem from="1642661250833" duration="2721000" />
+      <workItem from="1642664419877" duration="117000" />
     </task>
     <servers />
   </component>
