@@ -72,6 +72,7 @@
                 <div class="card-body">
                     <h4 style="text-align: center">{{{que_que}}} </h4>
                     <br>
+
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="{{que_id}}" id="{{que_id}}" value="{{que_id}}" {{checkQuestionTrue 1 que_true}}>
                         <label class="form-check-label" for="exampleRadios1">
@@ -157,6 +158,7 @@
         {{/if}}
     </div>
 </div>
+
 <script>
     function deshabilitaRetroceso(){
         console.log('Borro el cachéé')
@@ -164,4 +166,5 @@
         window.location.hash="Again-No-back-button" //chrome
         window.onhashchange=function(){window.location.hash="no-back-button";}
     }
+
 </script>

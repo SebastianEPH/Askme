@@ -12,7 +12,7 @@ const app = express();   // is the app web
 require('./lib/passport')   // import passport
 
 // Settings
-app.set('port', process.env.PORT|| 5000 );
+app.set('port', process.env.PORT|| 5001 );
 app.set('views', path.join(__dirname,'views')); //Obtiene la direción del archivo a ejecutar
 app.engine('.hbs', exphbs({
     defaultLayout:'main',   // Archivo principal de las plantillas
