@@ -348,7 +348,7 @@ REPLACE INTO `user` (`user_id`, `user_fullname`, `user_nick`, `user_is_male`, `u
 	(9, 'Lucas Garcia Torvals', 'lucas', 1, '$2a$10$4p.EnXQwP7dU4N.Sdd7HUuvQ9lbOrZVax01/EH82y6MtZ6ez6KtFa', '20131212', 79612665, 'lucas_333_g@gmail.com', '2020-12-13 05:16:10', '+51 6565656565', 1, 7),
 	(11, 'Rosa Escalante Coronado', 'rosa', 0, '$2a$10$SRGxVhwuziAl./CVZLTAk.mIH/tV2ubcQXHWGOLaTky86LohDDj5i', '20160000', 81245789, 'rosa_t_w_r_99@3244.com', '2020-12-23 14:17:27', '+51 6949646464', 1, 7),
 	(21, 'Jhon Enrrique Fernandez Zeballos', '15005485', 1, '$2a$10$MzsLCcH8wXHhh6iNJSeUguu7.B5lBacExMbFi1c.IzOgwQZToG80K', '20150236', 87542039, 'jhon_54_f@gmail.com', '2020-12-25 03:08:26', '+51345435434', 1, 2),
-	(23, 'Sebastián Pacheco H', 'SebastianEPH', 1, '$2a$10$Gi/vsXefGEleF/haLcMnjebmhdST8m3.CqZUWZ65F4kchjisQOoT.', '201600489', 95542985, 'sebastianeph99@gmail.com', '2021-01-11 01:30:32', '+51966464424', 1, 2),
+	(23, 'Sebastián Pacheco H', 'SebastianEPH', 1, '$2a$10$Gi/vsXefGEleF/haLcMnjebmhdST8m3.CqZUWZ65F4kchjisQOoT.', '201600489', 95542985, 'sebastianeph99@gmail.com', '2021-01-11 01:30:32', '+519965454', 1, 2),
 	(24, 'Josue Chuqui Sulca', 'JosueChuqui', 1, '$2a$10$44/7alN3.d7aeNEhimElMuBER0kTzoHcjeIhg0W5tcQ2cV4XdwGKO', '20169999', 23356874, 'chuqui981026@gmail.com', '2021-01-14 04:44:29', '+51953361724', 1, 6),
 	(27, 'Pilar Ercilia Cama Vasquez', '20070894', 1, '$2a$10$IZQB0oxGszZmxajV0hsHverDPitZwJgXeyhxSydwIoqU8XtkOWhjm', '20070894', 44034108, 'pilarcv86@gmail.com', '2021-01-15 00:50:08', '+519105236121', 2, 1),
 	(28, 'Ruth Esther Condor Palomino', '20141067', 1, '$2a$10$IZQB0oxGszZmxajV0hsHverDPitZwJgXeyhxSydwIoqU8XtkOWhjm', '20141067', 75380645, 'esther_psn@hotmail.com', '2021-01-15 00:50:08', '+519105236122', 2, 1),
