@@ -1,7 +1,7 @@
 
 # Deploy
 
-`Web online => ` [aksme-node.herokuapp.com](https://askme-node.herokuapp.com/)
+`Web online => ` [askme-node.herokuapp.com](https://askme-node.herokuapp.com/)
 
 # Manual docente 
 <!-- Manual docente -->
