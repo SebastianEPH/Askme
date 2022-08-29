@@ -12,8 +12,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Sexo</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">User</th>
+                    <th scope="col">Nombres </th>
                     <th scope="col">Código</th>
                     <th scope="col">DNI</th>
                     <th scope="col">Email</th>
@@ -26,16 +25,15 @@
                 <tbody>
                 {{#each students}}
                     <tr class="table-primary text-dark text-center ">
-                        <td><img src="{{ifMenPicture user_is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{user_nick}}" width="50" height="50">
+                        <td><img src="{{ifMenPicture is_male '../img/profile/' 'gen-men.png' 'gen-girl.png' 'gen-other.png'}}" alt="photo profile {{username}}" width="50" height="50">
                         </td>
-                        <td>{{user_fullname}}</td>
-                        <td>{{user_nick}}</td>
-                        <td>{{user_code}}</td>
-                        <td>{{user_dni}}</td>
-                        <td>{{text_minus user_email}}</td>
-                        <td>{{user_phone}}</td>
-                        <td>{{date_string  user_created}}</td>
-                        <td>{{getFaculty user_faculty ../obj_faculty}}</td>
+                        <td>{{name}} {{lastname}}</td>
+                        <td>{{code}}</td>
+                        <td>{{dni}}</td>
+                        <td>{{text_minus email}}</td>
+                        <td>{{phone}}</td>
+                        <td>{{dateParseBeautifull  create_at}}</td>
+                        <td>{{faculty}}</td>
                     </tr>
                     {{/each}}
                 </tbody>

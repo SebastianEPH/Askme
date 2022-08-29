@@ -141,7 +141,7 @@ helpers.isMeExam =(id_user_exam, id_user)=>{
     console.log('user_id del foreach: '+ id_user)
     return id_user === id_user_exam
 }
-helpers.date_beautiful= (date)=>{
+helpers.date_beautiful= (date)=>{ // 21 hours ago
     if (date === "" || date === null){
         return ""
     }
@@ -149,7 +149,11 @@ helpers.date_beautiful= (date)=>{
 }
 helpers.date_string= (date)=>{
     const date_ = new Date(String(date))
-    return  date_.toDateString() //date_.getFullYear() + "/"+ date_.getMonth() + "/"+ date_.getDay()
+    return date && date_.toDateString() //date_.getFullYear() + "/"+ date_.getMonth() + "/"+ date_.getDay()
+}
+helpers.dateParseBeautifull= (date)=>{
+    const date_ = new Date(String(date))
+    return date && date_.toDateString() //date_.getFullYear() + "/"+ date_.getMonth() + "/"+ date_.getDay()
 }
 helpers.text_minus = (text)=>{
     text = String(text)

@@ -8,19 +8,15 @@ controller.get_about = (req, res)=>{
     res.render('others/about')
 }
 controller.view_student = async (req, res)=>{
-    const students = await pool.query('SELECT * FROM user WHERE type_id = 2 ')
-    const obj_faculty = await pool.query('SELECT * FROM user_faculty ')
+    const response = await pool.query('call sp_get_teacher_all()')
     res.render('list/students', {
-        students,
-        obj_faculty
+        students: response[0],
     });
 }
 controller.view_teacher = async (req, res)=>{
-    const teacher = await pool.query('SELECT * FROM user WHERE type_id = 1 ')
-    const exam = await pool.query('SELECT * FROM exam')
+    const response = await pool.query('call sp_get_teacher_all()')
     res.render('list/teacher', {
-        teacher,
-        exam
+        teacher:response[0],
     });
 }
 

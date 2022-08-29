@@ -2,8 +2,7 @@ const express = require('express')
 
 const router = express.Router();
 
-// protege rutas
-const {isLoggedIn, isNotLoggedIn, passIsTeacher, passIsStudent} = require('../lib/auth') // se usará en todas las listas qe se desea proteger
+const {isLoggedIn, isNotLoggedIn, passIsTeacher, passIsStudent} = require('../lib/auth')
 const main = require('../controller/controller_main')
 router.get('/', main.get_view_main);
 router.get('/about', main.get_about);

@@ -9,9 +9,9 @@ passport.use('local.signin', new Strategy({
     passwordField: 'password',
     passReqToCallback: true // Recibe el objeto requess dentro de esta función
 }, async (req, email, password, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE email = ? limit 1', [email]);
+    const rows = await pool.query('call sp_get_users_one_from_email(?)', [email]);
     if (rows) {
-        const user = rows[0];
+        const user = rows[0][0];
         console.table(user)
         const isValidPassword = await helpers.matchPassword(password, user.password)
         if (isValidPassword) return done(null, user, req.flash('success', 'Inicio de sesión exitoso'))
@@ -51,7 +51,7 @@ passport.serializeUser((user, done) => {
     done(null, user.id)
 })
 passport.deserializeUser(async (id, done) => {
-    const rows = await pool.query('SELECT * FROM users WHERE id = ? limit 1', [id]);
-    done(null, rows[0])
+    const rows = await pool.query('call sp_get_users_one_from_id(?)', [id]);
+    done(null, rows[0][0])
 })
 
