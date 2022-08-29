@@ -24,7 +24,7 @@ util.parse_date_for_db = (date)=>{
     let current_date = new Date(date)
     return current_date.getFullYear() + '-'+ (parseInt(current_date.getMonth()) +1 )+ '-'+current_date.getDate()+ ' '+current_date.toLocaleTimeString()
 }
-util.addTime=  (time)=>{   // Agrega más tiempo a una fecha establecida // retorna uan Date()
+util.addTime=  (time)=>{
 
     let current_date= new Date()
     let only_date = current_date.getFullYear() + '-'+ (parseInt(current_date.getMonth()) +1 )+ '-'+current_date.getDate()
@@ -48,7 +48,6 @@ util.calcule_note = (values, total ) =>{
     const note = ( values* 20)/total
     return note.toFixed(2)
 }
-
 util.compare_date_init = (date_init) =>{
     if (date_init === null){return true}   // vertificado
     return util.get_current_date_db() > util.parse_date_for_db(date_init)
@@ -59,6 +58,15 @@ util.compare_date_finish = (date_finish) =>{
 }// Devuelve true, solo si el tiempo finalizó // si es null False
 util.date_beautiful= (date)=>{
     return  format(new Date(date)); // January 12th 2021, 8:18:05 pm
+}
+util.generateRandomStringLowercase = (num, prefix='', sufix='') => {
+    const characters ='abcdefghijklmnopqrstuvwxyz0123456789';
+    let result1= '';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < num; i++ ) {
+        result1 += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return prefix + result1 +sufix;
 }
 
 

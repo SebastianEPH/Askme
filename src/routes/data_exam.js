@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const util = require('../functions/util')
+const util = require('../helpers/util')
 const exam = require('../controller/controller_exam');
 
 // protege rutas

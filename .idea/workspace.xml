@@ -20,8 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb81512f-9162-4171-aad5-b9b3bc4d780e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/# DataBase/db_only.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/# DataBase/db_with_data.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_exam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_graphics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_graphics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller_question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller_question.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/keys.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/keys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/handlebars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/security/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/authentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes_auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/data_exam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/data_exam.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/auth/signin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signin.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/auth/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/auth/signup.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,25 +68,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views\graphics" />
-      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views\data_question" />
+      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\SoftwareProjects\NodeJs - Express\Askme\src\helpers\security" />
+      <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views\graphics" />
       <recent name="D:\SoftwareProjects\NoteJs\Askme_SystemsTheory\src\views" />
     </key>
   </component>
@@ -157,6 +172,7 @@
       <workItem from="1642659792116" duration="999000" />
       <workItem from="1642661250833" duration="2721000" />
       <workItem from="1642664419877" duration="117000" />
+      <workItem from="1661662304785" duration="18372000" />
     </task>
     <servers />
   </component>

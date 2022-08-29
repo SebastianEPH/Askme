@@ -1,66 +1,57 @@
 const passport = require('passport')
 const Strategy = require('passport-local').Strategy;
 const pool = require('../database') // async
-const helpers = require('../lib/helpers');
+const helpers = require('../helpers/security/helpers');
+const util = require('../helpers/util')
 
 passport.use('local.signin', new Strategy({
-    usernameField: 'user_nick',
-    passwordField: 'user_pass',
+    usernameField: 'email',
+    passwordField: 'password',
     passReqToCallback: true // Recibe el objeto requess dentro de esta función
-}, async (req, user_nick, user_pass, done)=>{
-    console.log(req.body)
-    console.log(user_nick)
-    //console.log(user_pass)
-    const rows = await pool.query('SELECT * FROM user WHERE user_nick = ?', [user_nick]);
-    if(rows.length > 0){
+}, async (req, email, password, done) => {
+    const rows = await pool.query('SELECT * FROM users WHERE email = ? limit 1', [email]);
+    if (rows) {
         const user = rows[0];
-        console.log(user)
-        const validPassword = await helpers.matchPassword(user_pass, user.user_password)
-        if(validPassword){
-            done(null, user, req.flash('success', 'Inicio de sesión exitoso'))// + user.user_fullname))
-        }else{
-            done(null, false, req.flash('warning','La contraseña es incorrecta.'))
-        }
-    }else{
-        return done(null, false, req.flash('warning','El usuario '+ user_nick + ' no existe' ))//'the username does not exists'))
+        console.table(user)
+        const isValidPassword = await helpers.matchPassword(password, user.password)
+        if (isValidPassword) return done(null, user, req.flash('success', 'Inicio de sesión exitoso'))
+        return done(null, false, req.flash('warning', 'La contraseña es incorrecta.'))
     }
+    return done(null, false, req.flash('warning', 'El correo  ' + email + ' no existe'))
 }));
 
 passport.use('local.signup', new Strategy({
-    usernameField: 'user_nick',
-    passwordField: 'user_pass',
-    passReqToCallback: true // Recibe el objeto requess dentro de esta función
-},async (req, user_nick, user_pass, done )=>{ // Callback
-    const {fullname, user_faculty, type_id,user_code, user_dni, genero, user_email,  user_phone_prefijo, user_phone } = req.body;
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+}, async (req, email, password, done) => {
+    const {name, lastname, faculties_id, permissions_id, code, dni, is_male} = req.body;
 
-    const newUser = {
-        user_nick,
-        user_fullname: fullname,
-        user_email,
-        user_code,
-        user_dni,
-        user_faculty,
-        user_password: user_pass,
-        user_phone: user_phone_prefijo + user_phone,
-        type_id,
-        user_is_male:genero
+    const ids = await pool.query('call sp_get_ids_faculty_and_permission_from_code(?, ?)', [faculties_id, permissions_id]);
+
+    const user = {
+        name,
+        username: util.generateRandomStringLowercase(10, faculties_id+'_', permissions_id),
+        email,
+        password: await helpers.encryptPassword(password),
+        lastname,
+        faculties_id: ids[0][0].faculties_id ,
+        permissions_id: ids[0][0].permissions_id,
+        code,
+        dni,
+        is_male: is_male?is_male:1
     }
-    newUser.user_password = await helpers.encryptPassword(user_pass)
-    console.log(newUser)
-    const result = await pool.query('INSERT INTO user SET ?', [newUser]);
-    console.log(result)
-    newUser.user_id = result.insertId
-    return done(null, newUser)
+    const result = await pool.query('INSERT INTO users SET ?', [user]);
+    user.id = result.insertId
+    console.table(user)
+    return done(null, user)
 }));
 
-// Guarda en sesiones
-passport.serializeUser((user, done)=>{
-    done(null, user.user_id)    // Guarda id del usuario
+passport.serializeUser((user, done) => {
+    done(null, user.id)
 })
-passport.deserializeUser(async(id, done)=>{
-    const rows = await pool.query('SELECT * FROM user WHERE user_id = ? ', [id]);  // Vuelve a optener los datos
+passport.deserializeUser(async (id, done) => {
+    const rows = await pool.query('SELECT * FROM users WHERE id = ? limit 1', [id]);
     done(null, rows[0])
 })
-// referente a login e inicio de sesión
-
 

@@ -1,6 +1,6 @@
 const pool = require('../database') // database import
 const controller = {};
-const util = require('../functions/util')
+const util = require('../helpers/util')
 
 controller.get_add = (req, res)=>{
     res.render('data_question/add')

@@ -1,6 +1,6 @@
 const pool = require('../database') // database import
 const controller = {}
-const util = require('../functions/util')
+const util = require('../helpers/util')
 
 controller.get_all = async (req, res)=>{
     const user_exam = await pool.query('SELECT * FROM exam_user', )

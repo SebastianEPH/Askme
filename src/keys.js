@@ -1,9 +1,11 @@
+const env = require("dotenv")
+env.config()
 module.exports ={
     database: {
-        host: 'b6hziqljw9smv3obfjhs-mysql.services.clever-cloud.com',
-        user: 'ulyugioq1g443gfp',
-        password: '5duWivMKnEn48Nr9axMq',
-        port: '3306',
-        database: 'b6hziqljw9smv3obfjhs'
+        host: process.env.DB_MYSQL_HOST,
+        user: process.env.DB_MYSQL_USERNAME,
+        password: process.env.DB_MYSQL_PASSWORD,
+        port: process.env.DB_MYSQL_PORT,
+        database: process.env.DB_MYSQL_DATABASE
     }
 }

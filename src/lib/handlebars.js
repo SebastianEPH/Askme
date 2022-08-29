@@ -283,4 +283,9 @@ helpers.getReplyUser = (list_reply, index, que_1, que_2 ,que_3, que_4)=>{
     }
 
 }
+
+helpers.isAdmin = (code)=>{
+    return code==="ADMIN"
+}
+
 module.exports = helpers;

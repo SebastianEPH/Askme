@@ -1,23 +1,22 @@
 {
-  "name": "nodejs_administratorinformation",
-  "version": "1.0.0",
-  "description": "Administrador de Información personal",
+  "name": "askme",
+  "version": "2.0.0",
+  "description": "ksme es una plataforma WEB, que tiene como finalidad unir a estudiantes y docentes, el docente podrá crear preguntas y exámenes con tiempo y a una fecha y hora específica para habilitarse, y los estudiantes podrán tomarlos y ver los resultados al instante. El docente puede ver las notas y administrar los exámenes",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon npm src/main.js ",
+    "start:dev": "nodemon npm src/main.js ",
     "start": "node src/main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SebastianEPH/NodeJS_AdministratorInformation.git"
+    "url": "git+https://github.com/SebastianEPH/Askme.git"
   },
   "author": "SebastiánEPH",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SebastianEPH/NodeJS_AdministratorInformation/issues"
+    "url": "https://github.com/SebastianEPH/Askme/issues"
   },
-  "homepage": "https://github.com/SebastianEPH/NodeJS_AdministratorInformation#readme",
+  "homepage": "https://github.com/SebastianEPH/Askme#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootswatch": "^4.5.3",

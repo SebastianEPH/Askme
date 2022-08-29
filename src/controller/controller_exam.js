@@ -1,6 +1,6 @@
 const pool = require('../database') // database import
 const controller = {}
-const util = require('../functions/util')
+const util = require('../helpers/util')
 
 controller.get_delete= async (req, res)=>{
     const {id} = req.params;
